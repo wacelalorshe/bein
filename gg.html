@@ -1,6 +1,4 @@
-عذرًا على الإرباك. دعنا نستخدم SweetAlert بطريقة تتيح لنا إضافة زر لتحميل التطبيق بشكل واضح. سأقوم بتعديل الكود ليتضمن زرًا لتحميل التطبيق بشكل صحيح:
-
-### الكود المعدل مع زر تحميل التطبيق:
+يمكنك إضافة رابط القناة الذي قدمته إلى قائمة القنوات في الكود السابق. إليك الكود بعد إضافة القناة الجديدة:
 
 ```html
 <!DOCTYPE html>
@@ -8,58 +6,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قنوات التلفزيون</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script>
-        function checkAppInstallation(channelLink) {
-            // هنا يمكنك إضافة منطق لفحص إذا كان التطبيق مثبتًا
-            var appInstalled = false; // استبدل هذه القيمة بالتحقق الفعلي
-
-            if (!appInstalled) {
-                // عرض النافذة المنبثقة باستخدام SweetAlert
-                swal({
-                    title: "تنبيه!",
-                    text: "لا يمكن تشغيل القناة إلا بعد تحميل تطبيق مشغل الفيديو.",
-                    icon: "warning",
-                    buttons: {
-                        cancel: "إلغاء",
-                        download: {
-                            text: "تحميل التطبيق",
-                            value: "download",
-                        },
-                    },
-                }).then((value) => {
-                    switch (value) {
-                        case "download":
-                            window.location.href = " https://play.google.com/store/apps/details?id=com.xpola.player"; // استبدل برابط تحميل التطبيق
-                            break;
-                        default:
-                            // إذا تم اختيار إلغاء
-                            break;
-                    }
-                });
-            } else {
-                // إذا كان التطبيق مثبتًا، يمكنك تشغيل القناة
-                playChannel(channelLink);
-            }
+    <title>قائمة قنوات التلفزيون</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
         }
-
-        function playChannel(channelLink) {
-            // هنا يمكنك فتح رابط القناة في التطبيق
-            console.log("تشغيل القناة: " + channelLink);
-            // استبدل هذا الرابط برابط التطبيق الذي يقوم بتشغيل القناة
-            window.open(channelLink, "_blank"); // يمكنك تعديل هذه الطريقة حسب كيفية فتح القناة في التطبيق
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-    </script>
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="checkAppInstallation('xmtv://WwoiaHR0cDovLzE4NS4yMzYuMjI5LjUwOjgwMDMvcGxheS9hMDIwfGNhc3Q9ZmFsc2V8bmFtZT0uLndhY2VsIHR2Li4iCgpdCgo=  ')">فتح قناة</button>
+    <h1>قائمة قنوات التلفزيون</h1>
+    <ul>
+        <li><a href="intent://playChannel1#Intent;scheme=myapp;package=com.xpola.player;end">قناة 1</a></li>
+        <li><a href="intent://playChannel2#Intent;scheme=myapp;package=com.xpola.player;end">قناة 2</a></li>
+        <li><a href="intent://playChannel3#Intent;scheme=myapp;package=com.xpola.player;end">قناة 3</a></li>
+        <li><a href="intent://playChannel4#Intent;scheme=myapp;package=com.xpola.player;end">قناة 4</a></li>
+        <li><a href="xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMS9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg==">قناة خاصة</a></li>
+    </ul>
+    <p>إذا لم يكن لديك تطبيق مشغل القنوات، يمكنك تحميله من <a href="https://play.google.com/store/apps/details?id=com.xpola.player" target="_blank">هنا</a>.</p>
 </body>
 </html>
 ```
 
-### ملاحظات:
-- تأكد من استبدال `"رابط التحميل"` برابط تحميل التطبيق الفعلي.
-- تأكد من استبدال `'رابط القناة هنا'` برابط القناة الفعلي التي تريد تشغيلها.
-- الزر "تحميل التطبيق" يجب أن يظهر الآن بشكل صحيح في النافذة المنبثقة، وعند الضغط عليه، سيتم توجيه المستخدم إلى رابط تحميل التطبيق.
+### ما تم إضافته:
+- تم إضافة عنصر قائمة جديد يحتوي على رابط القناة الخاصة الذي قدمته. 
+- يمكنك تعديل اسم القناة حسب رغبتك.
