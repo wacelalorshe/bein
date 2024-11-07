@@ -1,166 +1,48 @@
+لتحقيق هذا الهدف، يمكنك استخدام HTML مع JavaScript. الفكرة هي محاولة فتح التطبيق المحدد، وإذا لم يكن مثبتًا، ستظهر نافذة منبثقة توضح للمستخدم أنه يجب عليه تثبيت التطبيق.
 
+إليك مثال على كيفية القيام بذلك:
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-<title>موقعنا الرسمي</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-body {
-    background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin-top: 50px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فتح رابط في تطبيق</title>
+    <script>
+        function openApp() {
+            // استبدل 'yourapp://link' بالرابط الخاص بتطبيقك
+            var appUrl = 'xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K';
+            var appStoreUrl = 'https://link-to-download-app.com'; // رابط تحميل التطبيق
 
-h1 {
-    color: #0056b3;
-    font-size: 60px;
-    border-bottom: 3px groove  #fff; 
-    border-top: 3px   groove  #fff; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-box-shadow: 0 0px 10px  rgba(0, 0, 0, 10);
+            // محاولة فتح التطبيق
+            var isAppOpened = false;
 
-}
+            // فتح التطبيق
+            window.location.href = appUrl;
 
-p {
-    color: #0056b3;
-    font-size: 60px;
-    margin-bottom: 30px;
-    border-bottom: 3px groove  #fff; 
-    border-top: 3px   groove  #fff; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-}
-
-
-
-.button {
-    display: inline-block;
-    padding: 10px 50px;
-    margin: 10px;
-    background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-    
-    color: #0004FF;
-    font-weight: bold;
-    border-bottom: 13px groove  #0026FF; 
-    border-top: 13px   groove  #FF0040; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-box-shadow: 0 5px 20px  rgba(250, 0, 0, 10);
-
-    text-decoration: none;
-    font-size: 80px;
-    border-radius: 5px;
-    transition: background-color 10.3s;
-}
-
-.button2 {
-    display: inline-block;
-    padding: 10px 50px;
-    margin: 10px;
-  background-image: linear-gradient(to right, #9C9689, #DED8CC, #F3EDEA, #FDFDFC, #fff, #fff, #fff,#fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff,#fff, #fff, #fff, #fff, #fff, #FDFDFC, #F3EDEA, #DED8CC, #9C9689);box-shadow: 0 5px 10px  rgba(235, 177, 6, 50);
-    color: #FF1300;
-    font-weight: bold;
-    border-top: 15px groove  #F2B91A;
-border-left:0px ridge  #6D42B8;
-border-right:0px groove  #6D42B8;
-border-bottom: 15px groove  #F2B91A;
-border-radius: 30px 30px 30px 30px;
-
-    text-decoration: none;
-    font-size: 60px;
-    border-radius: 5px;
-    transition: background-color 10.3s;
-}
-
-.button:hover {
-    background-color: #c00c12;
-}
-
-.social-icons {
-    list-style: none;
-    padding: 0;
-}
-
-.social-icons li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.social-icons a {
-    display: block;
-    width: 50px;
-    height: 50px;
-    line-height: 0;
-    color: #fff;
-    font-size: 30px;
-   
-    
-    border-radius: 50%;
-   
-}
-
-.facebook {
-    background-color: #3b5998;
-}
-
-.twitter {
-    background-color: #1da1f2;
-}
-
-.instagram {
-    background: linear-gradient(to right, #405de6, #5851db, #833ab4, #c13584, #e1306c);
-}
-
-.youtube {
-    background-color: #ff0000;
-}
-
-</style>
+            // الانتظار قليلاً لمعرفة ما إذا تم فتح التطبيق
+            setTimeout(function() {
+                if (!isAppOpened) {
+                    // إذا لم يتم فتح التطبيق، عرض نافذة منبثقة
+                    alert("يجب أولاً تثبيت مشغل الفيديو. يمكنك تحميله من هنا: " + appStoreUrl);
+                }
+            }, 2000); // الانتظار لمدة 2 ثانية
+        }
+    </script>
 </head>
 <body>
-	
-	<img src="data:image/png;base64,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" style="      
-      display: flex;
-      flex-direction: column;
-color: #000;
-      top: 0px;
-     margin-left: 7%;
-      width: 80%;
-      height: 60%;
-      padding: 10px 20px;
-      margin-bottom: 100px;
-      background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-box-shadow: 0 5px 15px  rgba(0, 0, 0, 10);
-border-bottom: 3px groove   #000;
-  border-top: 3px groove rgba(0, 0, 0, 1);
-border-left: 0px ridge rgb(255 0 0 / 100%);
-border-right: 0px ridge   #000;
-border-radius: 25px 25px 25px 25px;
-"><div class="middle">
-
-<h1>مرحبًا بكم في موقعنا</h1>
-
-
-<div class="note">
-    <p>لمشاهدة باقة هذة القنوات  قم بتحميل التطبيق الخاص بنا من الرابط في الاسفل </p>
-</div>
-
-
-<a class="button2" href="https://www4.0zz0.com/2024/11/06/23/583629610.png">اضغط هنا لتحميل التطببق</a>
-<br><br>
-
-
-
-<ul class="social-icons">
-    <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-    <li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
-    <li><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
-    
-    
-</ul>
-
+    <h1>فتح رابط في تطبيق</h1>
+    <a href="xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMi9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg==" onclick="openApp(); return false;">افتح التطبيق</a>
 </body>
 </html>
+```
+
+### الشرح:
+1. **رابط التطبيق**: استبدل `yourapp://link` بالرابط الخاص بتطبيقك.
+2. **رابط التحميل**: استبدل `https://link-to-download-app.com` برابط تحميل التطبيق.
+3. **النافذة المنبثقة**: إذا لم يتم فتح التطبيق بعد 2 ثانية، تظهر نافذة منبثقة تخبر المستخدم بأنه يجب تثبيت التطبيق.
+
+### ملاحظات:
+- تأكد من أن التطبيق لديه رابط مخصص ليتم فتحه.
+- بعض المتصفحات قد تمنع التطبيقات من الفتح مباشرة، لذا يجب اختبار الكود على الأجهزة المستهدفة.
