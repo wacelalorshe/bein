@@ -1,4 +1,6 @@
+لتجنب تداخل العناصر ولتسهيل التعرف على الأزرار، يمكننا تغيير أسماء الأزرار من `<button>` إلى `<input type="button">`، أو استخدام أسماء مختلفة. سأقوم بتغيير أسماء الأزرار إلى أسماء أكثر وضوحًا وسأضمن أن كل العناصر المرتبطة بها تتغير أيضًا. إليك الكود المعدل:
 
+```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -81,17 +83,17 @@
         }
 
         /* أنماط الأزرار داخل مربع الحوار */
-        #confirmButton2, #cancelButton {
+        .modal-button {
             margin-top: 10px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #4CAF50; /* لون الزر */
+            background-color: #4CAF50; /* لون زر التأكيد */
             color: white;
         }
 
-        #cancelButton {
+        .cancel-button {
             background-color: #f44336; /* لون زر الإلغاء */
         }
 
@@ -113,12 +115,12 @@
                     // إظهار مربع الحوار المخصص
                     document.getElementById('myModal').style.display = "block";
 
-                    document.getElementById('confirmButton2').onclick = function() {
+                    document.getElementById('confirmInstallButton').onclick = function() {
                         window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
                         closeModal();
                     }
 
-                    document.getElementById('cancelButton').onclick = function() {
+                    document.getElementById('cancelInstallButton').onclick = function() {
                         closeModal();
                     }
 
@@ -168,10 +170,18 @@
         <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
         <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
         <br><br>
-        <button id="confirmButton2">نعم</button>
-        <button id="cancelButton2">لا</button>
+        <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
+        <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
     </div>
 </div>
 
 </body>
 </html>
+```
+
+### التغييرات:
+1. **تغيير أسماء الأزرار:** تم تغيير أسماء الأزرار إلى `<input type="button" id="confirmInstallButton" />` و`<input type="button" id="cancelInstallButton" />` لتفادي التداخل مع العناصر الأخرى.
+2. **تعديل الأسماء المرتبطة:** تم تعديل كل العناصر المرتبطة بالأزرار لتكون متوافقة مع الأسماء الجديدة.
+3. **تحسين الأنماط:** تم استخدام `modal-button` و`cancel-button` لتنسيق الأزرار بشكل مختلف، مما يتيح تمييزها عن الأزرار الأخرى.
+
+بهذا الشكل، يجب أن يعمل الكود بشكل صحيح دون أي تداخل بين العناصر. إذا كان لديك أي استفسارات أخرى، فلا تتردد في طرحها!
