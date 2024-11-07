@@ -1,8 +1,4 @@
-أعتذر عن الإرباك. دعنا نتأكد من أن كل شيء يعمل بشكل صحيح. سأقوم بتبسيط الكود والتأكد من أن النافذة تظهر عند الحاجة.
-
-### الكود المعدل:
-
-إليك كود HTML محدث يتضمن نافذة منبثقة عند محاولة فتح التطبيق، ويتحقق من تثبيته بشكل صحيح:
+بالطبع! إليك الكود الكامل مع الإضافة التي تسمح بعدم ظهور رسالة تثبيت التطبيق مرة أخرى بعد الضغط على "إلغاء":
 
 ```html
 <!DOCTYPE html>
@@ -12,40 +8,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فتح رابط في تطبيق</title>
 
+    <!----------  اكواد استايل القنوات  ------------>
     <style type="text/css">
+        .grid-container {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5px 5px;
+            padding: 0px;
+        }
         .grid1-container {
             display: grid;
             justify-content: center;
             grid-template-columns: repeat(1, 1fr);
             grid-gap: 10px;
             color: green;
-            padding: 20px;
+            padding: 0px;
         }
 
         button {
-            background-image: linear-gradient(to right, #151825, #3A4266);
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
             padding: 15px;
             margin: 20px 10px;
-            height: 100px;
-            width: 200px;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
+            height: 400px;
+            width: 265px;
+            border-bottom: 15px groove #fff;
+            border-top: 10px groove #fff;
+            border-radius: 55px;
         }
 
-        /* ستايل النافذة المنبثقة */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            display: none; /* مخفية بشكل افتراضي */
+        button:active {
+            border-left: 0px solid rgb(255 213 105 / 80%);
+            border-top: 15px double rgb(255 0 2 / 50%);
+            border-bottom: 10px groove rgb(255 219 97 / 100%);
         }
     </style>
 
@@ -56,27 +51,20 @@
 
             // الانتظار قليلاً لمعرفة ما إذا تم فتح التطبيق
             setTimeout(function() {
-                // تحقق من حالة عدم العرض مرة أخرى
-                if (localStorage.getItem('doNotShowAgain') !== 'true') {
-                    // إظهار النافذة المنبثقة
-                    document.getElementById('popup').style.display = 'block';
-                    document.getElementById('downloadLink').href = downloadUrl; // تعيين رابط التحميل
+                // التحقق مما إذا كان المستخدم قد اختار إلغاء الرسالة سابقًا
+                if (localStorage.getItem('appInstallPrompt') !== 'cancelled') {
+                    const confirmation = confirm("يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟");
+                    if (confirmation) {
+                        window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
+                    } else {
+                        // تخزين حالة إلغاء الرسالة
+                        localStorage.setItem('appInstallPrompt', 'cancelled');
+                    }
+                } else {
+                    // إذا تم إلغاء الرسالة سابقًا، لا تفعل شيئًا
+                    console.log("تم إلغاء الرسالة مسبقًا، لن تظهر مرة أخرى.");
                 }
             }, 3000); // الانتظار لمدة 3 ثوان
-        }
-
-        function confirmAction() {
-            // فتح رابط التحميل
-            window.open(document.getElementById('downloadLink').href, '_blank');
-            // إغلاق النافذة المنبثقة
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        function cancelAction() {
-            // إذا ضغط المستخدم على "إلغاء"، يتم تخزين ذلك
-            localStorage.setItem('doNotShowAgain', 'true');
-            // إغلاق النافذة المنبثقة
-            document.getElementById('popup').style.display = 'none';
         }
     </script>
 </head>
@@ -86,39 +74,22 @@
     <div class="grid1-container">
         <div align="center">
             <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+                <img src="data:image/png;base64,..." alt="Icon 1" />
                 <h2>الكـاس 1</h2>
             </button>
 
             <button onclick="openApp('yourapp://link2', 'https://link-to-download-app.com')">
+                <img src="data:image/png;base64,..." alt="Icon 2" />
                 <h2>الكـاس 2</h2>
             </button>
         </div>
     </div>
 </header>
 
-<!-- النافذة المنبثقة -->
-<div id="popup" class="popup">
-    <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
-    <br>
-    <button onclick="confirmAction()">موافق</button>
-    <button onclick="cancelAction()">إلغاء</button>
-</div>
-
 </body>
 </html>
 ```
 
-### الشرح:
-1. **نافذة منبثقة**: تم إضافة نافذة منبثقة تحتوي على خيارات "موافق" و"إلغاء".
-2. **دالة `confirmAction`**: هذه الدالة تفتح رابط التحميل عندما يضغط المستخدم على "موافق".
-3. **دالة `cancelAction`**: هذه الدالة تخزن القيمة `true` في `localStorage` عندما يضغط المستخدم على "إلغاء"، مما يعني أنه لن يتم عرض الرسالة مرة أخرى.
-4. **تعيين رابط التحميل**: رابط التحميل يتم تعيينه ديناميكيًا في النافذة المنبثقة بناءً على الزر الذي تم الضغط عليه.
-
 ### ملاحظات:
-- تأكد من استبدال `'yourapp://link2'` و`'https://link-to-download-app.com'` بالقيم الصحيحة الخاصة بتطبيقك.
-- اختبر الكود على متصفح يدعم فتح التطبيقات، ويفضل أن يكون على جهاز محمول.
-- تأكد من عدم وجود أي أخطاء في وحدة التحكم (Console) في المتصفح، حيث يمكن أن تشير إلى مشاكل أخرى في الكود.
-
-### نصائح للتجربة:
-- تأكد من استخدام متصفح يدعم فتح الروابط الخاصة بالتطبيقات (مثل Chrome على Android أو Safari على iOS).
-- يمكنك أيضًا محاولة استخدام رابط تطبيق مختلف إذا كان الرابط الأصلي لا يعمل.
+- تأكد من تحديث روابط التطبيقات والصور في الأزرار بما يتناسب مع احتياجاتك.
+- الكود الآن يتضمن وظيفة التعامل مع الرسالة بشكل مناسب، حيث يتم تخزين حالة الضغط على "إلغاء" باستخدام `localStorage`.
