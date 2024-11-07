@@ -49,8 +49,11 @@
 
             // الانتظار قليلاً لمعرفة ما إذا تم فتح التطبيق
             setTimeout(function() {
-                // عرض نافذة منبثقة
-                alert("يجب أولاً تثبيت التطبيق. يمكنك تحميله من هنا: " + downloadUrl);
+                // إنشاء نافذة منبثقة مع زر للذهاب إلى رابط التحميل
+                const confirmation = confirm("يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟");
+                if (confirmation) {
+                    window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
+                }
             }, 2000); // الانتظار لمدة 2 ثانية
         }
     </script>
@@ -60,12 +63,12 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczJoZWYvbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K')">
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <img src="data:image/png;base64,..." alt="Icon 1" />
                 <h2>الكـاس 1</h2>
             </button>
 
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczJoZWYvbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMi9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg==', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <img src="data:image/png;base64,..." alt="Icon 2" />
                 <h2>الكـاس 2</h2>
             </button>
