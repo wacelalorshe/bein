@@ -1,4 +1,8 @@
+لإضافة مربع اختيار حقيقي ضمن رسالة التأكيد، يجب عليك استخدام واجهة مستخدم مخصصة بدلاً من استخدام `confirm`، حيث أن `confirm` لا يدعم إضافة عناصر مثل المربعات الاختيارية. 
 
+إليك كيفية إنشاء مربع حوار مخصص باستخدام HTML وCSS وJavaScript:
+
+```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -40,6 +44,44 @@
             border-top: 15px double rgb(255 0 2 / 50%);
             border-bottom: 10px groove rgb(255 219 97 / 100%);
         }
+
+        /* أنماط مربع الحوار */
+        .modal {
+            display: none; /* مخفي بشكل افتراضي */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: right; /* محاذاة النص إلى اليمين */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 
     <script>
@@ -51,28 +93,36 @@
             setTimeout(function() {
                 // التحقق مما إذا كان المستخدم قد اختار إلغاء الرسالة سابقًا
                 if (localStorage.getItem('appInstallPrompt') !== 'disabled') {
-                    // إنشاء مربع حوار مخصص
-                    const userResponse = confirmWithCheckbox("يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟");
-                    if (userResponse.confirmed) {
+                    // إظهار مربع الحوار المخصص
+                    document.getElementById('myModal').style.display = "block";
+
+                    document.getElementById('confirmButton').onclick = function() {
                         window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
+                        closeModal();
                     }
-                    // إذا تم تحديد المربع، تخزين الحالة
-                    if (userResponse.dontShowAgain) {
+
+                    document.getElementById('cancelButton').onclick = function() {
+                        closeModal();
+                    }
+
+                    document.getElementById('dontShowAgain').onclick = function() {
                         localStorage.setItem('appInstallPrompt', 'disabled');
                     }
                 } else {
-                    // إذا تم إلغاء الرسالة سابقًا، لا تفعل شيئًا
                     console.log("تم إلغاء الرسالة مسبقًا، لن تظهر مرة أخرى.");
                 }
             }, 3000); // الانتظار لمدة 3 ثوان
         }
 
-        function confirmWithCheckbox(message) {
-            const dontShowAgain = confirm(message + "\n\n" + "إذا كنت لا تريد رؤية هذه الرسالة مرة أخرى، يرجى تحديد المربع.");
-            return {
-                confirmed: dontShowAgain,
-                dontShowAgain: dontShowAgain // في هذا المثال، لا يمكن استخدام مربع اختيار حقيقي هنا، لذا نعتبر أن المستخدم اختار عدم الظهور مرة أخرى.
-            };
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        // إغلاق مربع الحوار عند النقر خارج المحتوى
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
         }
     </script>
 </head>
@@ -94,5 +144,25 @@
     </div>
 </header>
 
+<!-- مربع الحوار المخصص -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
+        <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
+        <br><br>
+        <button id="confirmButton">نعم</button>
+        <button id="cancelButton">لا</button>
+    </div>
+</div>
+
 </body>
 </html>
+```
+
+### الشرح:
+1. **مربع الحوار المخصص:** تم إنشاء مربع حوار (modal) باستخدام HTML وCSS. يتم إظهاره عند الحاجة، ويمكنه احتواء نص وزر ومربع اختيار.
+2. **إجراءات الأزرار:** عند الضغط على "نعم"، يتم فتح رابط التحميل. وعند الضغط على "لا"، يتم إغلاق مربع الحوار. إذا تم تحديد مربع "لا تظهر لي هذه الرسالة مرة أخرى"، يتم تخزين الحالة في `localStorage`.
+3. **إغلاق مربع الحوار:** يمكن للمستخدم إغلاق مربع الحوار بالنقر على زر الإغلاق أو النقر خارج مربع الحوار.
+
+بهذا الشكل، سيكون لديك واجهة مستخدم أكثر تفاعلية تسمح للمستخدم بالموافقة أو الرفض بشكل مريح.
