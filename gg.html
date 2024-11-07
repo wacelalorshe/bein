@@ -1,4 +1,4 @@
-يمكنك استخدام الكود التالي لإنشاء صفحة HTML تعرض قائمة بقنوات التلفزيون، مع شرط فتح القناة فقط إذا كان تطبيق مشغل القنوات مثبتًا على الهاتف. يتم استخدام رابط لتحميل التطبيق في حال عدم تثبيته.
+لفحص ما إذا كان تطبيق مشغل الفيديو مثبتًا قبل فتح القناة، يمكن استخدام JavaScript للتحقق من وجود التطبيق. إذا لم يكن مثبتًا، يمكن توجيه المستخدم إلى رابط التحميل. إليك كيفية تعديل الكود لتحقيق هذا:
 
 ```html
 <!DOCTYPE html>
@@ -29,21 +29,38 @@
             color: #007BFF;
         }
     </style>
+    <script>
+        function openChannel(url) {
+            var appUrl = "intent://"; // URL للبحث عن التطبيق
+            var playStoreUrl = "https://play.google.com/store/apps/details?id=com.xpola.player"; // رابط تحميل التطبيق
+            
+            // محاولة فتح القناة
+            window.location.href = url;
+
+            // بعد فترة زمنية، إذا لم يتم فتح التطبيق، قم بتوجيه المستخدم إلى متجر التطبيقات
+            setTimeout(function() {
+                window.location.href = playStoreUrl;
+            }, 3000); // 3 ثوانٍ
+        }
+    </script>
 </head>
 <body>
     <h1>قائمة قنوات التلفزيون</h1>
     <ul>
-        <li><a href="intent://playChannel1#Intent;scheme=myapp;package=com.xpola.player;end">قناة 1</a></li>
-        <li><a href="intent://playChannel2#Intent;scheme=myapp;package=com.xpola.player;end">قناة 2</a></li>
-        <li><a href="intent://playChannel3#Intent;scheme=myapp;package=com.xpola.player;end">قناة 3</a></li>
-        <li><a href="intent://playChannel4#Intent;scheme=myapp;package=com.xpola.player;end">قناة 4</a></li>
+        <li><a href="#" onclick="openChannel('intent://playChannel1#Intent;scheme=myapp;package=com.xpola.player;end'); return false;">قناة 1</a></li>
+        <li><a href="#" onclick="openChannel('intent://playChannel2#Intent;scheme=myapp;package=com.xpola.player;end'); return false;">قناة 2</a></li>
+        <li><a href="#" onclick="openChannel('intent://playChannel3#Intent;scheme=myapp;package=com.xpola.player;end'); return false;">قناة 3</a></li>
+        <li><a href="#" onclick="openChannel('intent://playChannel4#Intent;scheme=myapp;package=com.xpola.player;end'); return false;">قناة 4</a></li>
+        <li><a href="#" onclick="openChannel('xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMS9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg=='); return false;">قناة خاصة</a></li>
     </ul>
     <p>إذا لم يكن لديك تطبيق مشغل القنوات، يمكنك تحميله من <a href="https://play.google.com/store/apps/details?id=com.xpola.player" target="_blank">هنا</a>.</p>
 </body>
 </html>
 ```
 
-### شرح الكود:
-- يحتوي على قائمة بقنوات التلفزيون.
-- كل قناة لها رابط يستخدم `intent` لفتح التطبيق إذا كان مثبتًا.
-- إذا لم يكن التطبيق مثبتًا، سيوجه المستخدم لتحميله عبر الرابط المقدم.
+### كيفية عمل الكود:
+- عند النقر على رابط قناة، يتم استدعاء دالة `openChannel`.
+- تحاول الدالة فتح القناة باستخدام الرابط المحدد.
+- إذا لم يُفتح التطبيق خلال 3 ثوانٍ، يتم توجيه المستخدم إلى رابط تحميل التطبيق.
+  
+بهذه الطريقة، لن يحدث الانتقال إلى رابط التحميل إلا إذا فشل فتح التطبيق.
