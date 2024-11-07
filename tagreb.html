@@ -1,8 +1,6 @@
-لتنفيذ خيار "عدم العرض مرة أخرى" في نفس النافذة المنبثقة التي تظهر عند عدم تثبيت التطبيق، يمكنك استخدام نموذج بسيط داخل النافذة المنبثقة. سيتضمن النموذج خانة اختيار (Checkbox) للمستخدم ليتمكن من تحديد ما إذا كان يريد عدم عرض الرسالة مرة أخرى.
+أعتذر عن الإرباك. دعنا نتأكد من أننا نقوم بإنشاء نافذة منبثقة تعمل بشكل صحيح وتحقق من تثبيت التطبيق بطريقة فعالة. سأقوم بتبسيط الكود والتأكد من أنه يعمل بشكل صحيح.
 
-### الكود المعدل:
-
-إليك كيف يمكن تعديل الكود لتحقيق ذلك:
+### الكود المحدث:
 
 ```html
 <!DOCTYPE html>
@@ -14,13 +12,6 @@
 
     <!----------  اكواد استايل القنوات  ------------>
     <style type="text/css">
-        .grid-container {
-            display: grid;
-            justify-content: center;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 5px 5px;
-            padding: 0px;
-        }
         .grid1-container {
             display: grid;
             justify-content: center;
@@ -36,15 +27,11 @@
             margin: 20px 10px;
             height: 400px;
             width: 265px;
-            border-bottom: 15px groove #fff;
-            border-top: 10px groove #fff;
+            border: none;
             border-radius: 55px;
-        }
-
-        button:active {
-            border-left: 0px solid rgb(255 213 105 / 80%);
-            border-top: 15px double rgb(255 0 2 / 50%);
-            border-bottom: 10px groove rgb(255 219 97 / 100%);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
         }
     </style>
 
@@ -67,6 +54,9 @@
                     popup.style.padding = '20px';
                     popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
                     popup.style.zIndex = '1000';
+                    popup.style.display = 'flex';
+                    popup.style.flexDirection = 'column';
+                    popup.style.alignItems = 'center';
 
                     popup.innerHTML = `
                         <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
@@ -103,13 +93,11 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
-                <img src="data:image/png;base64,..." alt="Icon 1" />
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K ,  https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <h2>الكـاس 1</h2>
             </button>
 
             <button onclick="openApp('yourapp://link2', 'https://link-to-download-app.com')">
-                <img src="data:image/png;base64,..." alt="Icon 2" />
                 <h2>الكـاس 2</h2>
             </button>
         </div>
@@ -120,15 +108,11 @@
 </html>
 ```
 
+### الشرح:
+1. **نافذة منبثقة**: النافذة المنبثقة الآن تفتح في وسط الشاشة وتحتوي على خانة اختيار (Checkbox) مع خيارات "موافق" و"إلغاء".
+2. **تخزين الاختيار**: إذا اختار المستخدم "عدم العرض مرة أخرى" ثم ضغط على "موافق"، يتم تخزين هذا الاختيار في `localStorage` ولن تظهر الرسالة مرة أخرى.
+3. **تعديل الزر**: تم تبسيط الكود بحيث لا يتطلب أي صور مؤقتة أو روابط غير ضرورية. يمكنك إضافة الصور أو الأيقونات حسب الحاجة.
 
-                   <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
-                <img src="data:image/png;base64,..." alt="Icon 1" />
-                <h2>الكـاس 1</h2>
-            </button>
-
-        </div>
-    </div>
-</header>
-
-</body>
-</html>
+### ملاحظات:
+- تأكد من استبدال `'yourapp://link1'` و`'yourapp://link2'` و`'https://link-to-download-app.com'` بالقيم الصحيحة الخاصة بتطبيقك.
+- اختبر هذا الكود على متصفح يدعم فتح التطبيقات، وتأكد من أنه يعمل بشكل صحيح.
