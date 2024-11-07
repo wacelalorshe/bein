@@ -1,6 +1,3 @@
-يمكنك تحسين تصميم الكود الخاص بك لجعل الأزرار داخل مربع الحوار أكثر تنسيقًا وراحة. إليك نسخة معدلة من الكود:
-
-```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -8,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فتح رابط في تطبيق</title>
 
+    <!----------  اكواد استايل القنوات  ------------>
     <style type="text/css">
         .grid-container {
             display: grid;
@@ -26,46 +24,68 @@
         }
 
         button {
-            background-image: linear-gradient(to right, #151825, #3A4266);
-            padding: 15px;
-            margin: 20px 10px;
-            height: 400px;
-            width: 265px;
-            border: none; 
-            border-radius: 55px;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+  background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+ padding: 15px;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 
-        button:hover {
-            transform: scale(1.05);
+
+
+margin:20px 10px;
+height: 400px;
+width: 265px;
+ 
+ border-bottom: 15px groove   #fff;
+  border-top: 10px groove #fff;
+border-left: 0px ridge rgb(255 0 0 / 100%);
+border-right: 0px ridge #f1f8e9;
+border-radius: 55px 55px 55px 55px;
+bord-radius: 20px 80px 20px 50px;" 
+
+
+margin:20px 10px;
+height: 400px;
+width: 265px;
+ 
+ 
+
+
+} 
+
+
+        button:active {
+            border-left: 0px solid rgb(255 213 105 / 80%);
+            border-top: 15px double rgb(255 0 2 / 50%);
+            border-bottom: 10px groove rgb(255 219 97 / 100%);
         }
 
         /* أنماط مربع الحوار */
         .modal {
-            display: none;
+            display: none; /* مخفي بشكل افتراضي */
             position: fixed;
-            z-index: 1000;
+            z-index: 1000; /* تأكد من أنه فوق كل العناصر الأخرى */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding-top: 100px;
+            background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+            padding-top: 100px; /* المسافة العلوية */
         }
 
         .modal-content {
             background-color: #fefefe;
-            margin: auto;
+            margin: auto; /* مركز مربع الحوار */
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            text-align: right;
-            border-radius: 10px;
+            width: 80%; /* عرض مربع الحوار */
+            max-width: 500px; /* الحد الأقصى للعرض */
+            text-align: right; /* محاذاة النص إلى اليمين */
+            border-radius: 10px; /* زوايا مستديرة */
         }
 
         .close {
@@ -83,44 +103,40 @@
         }
 
         /* أنماط الأزرار داخل مربع الحوار */
-        .modal-button, .cancel-button {
+        .modal-button {
             margin-top: 10px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            color: white;
-        }
-
-        .modal-button {
             background-color: #4CAF50; /* لون زر التأكيد */
+            color: white;
         }
 
         .cancel-button {
             background-color: #f44336; /* لون زر الإلغاء */
         }
 
+        /* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
         input[type="checkbox"] {
             margin-top: 10px;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: space-between; /* توزيع الأزرار بالتساوي */
-            margin-top: 20px;
         }
     </style>
 
     <script>
         function openApp(appUrl, downloadUrl) {
+            // محاولة فتح التطبيق
             window.location.href = appUrl;
 
+            // الانتظار قليلاً لمعرفة ما إذا تم فتح التطبيق
             setTimeout(function() {
+                // التحقق مما إذا كان المستخدم قد اختار إلغاء الرسالة سابقًا
                 if (localStorage.getItem('appInstallPrompt') !== 'disabled') {
+                    // إظهار مربع الحوار المخصص
                     document.getElementById('myModal').style.display = "block";
 
                     document.getElementById('confirmInstallButton').onclick = function() {
-                        window.open(downloadUrl, '_blank');
+                        window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
                         closeModal();
                     }
 
@@ -134,19 +150,218 @@
                 } else {
                     console.log("تم إلغاء الرسالة مسبقًا، لن تظهر مرة أخرى.");
                 }
-            }, 3000);
+            }, 3000); // الانتظار لمدة 3 ثوان
         }
 
         function closeModal() {
             document.getElementById('myModal').style.display = "none";
         }
 
+        // إغلاق مربع الحوار عند النقر خارج المحتوى
         window.onclick = function(event) {
             if (event.target == document.getElementById('myModal')) {
                 closeModal();
             }
         }
     </script>
+    
+    </style>
+
+<!----------  اكواد استايل التطبيق شامل  ------------>
+<style type="text/css">
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap");
+body {
+
+
+/**  تغير  خلفيه التطبيق **/
+background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+   /**  تغير  خلفيه التطبيق **/
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+<!----------  اكواد استايل القائمة  ------------>
+
+
+
+<!--- اسم القسم --->
+<style>
+    
+
+
+.colorاحمر {
+  color: #FF0035;
+}
+
+
+.color2 {
+  color: #FF0035;
+}
+
+
+.color3 {
+  color: #1d7d99;
+}
+
+
+.color4 {
+  color: #9D856C;
+}
+
+.colorازرق {
+  color: #002DFF;
+}
+
+
+.colorبنفسجي {
+  color: #CD00FF;
+}
+
+    .colorخياري {
+  color: #2290B1;
+}
+
+
+
+.colorذهبي {
+  color: #FFBA00;
+}
+
+
+
+.colorاخضر {
+  color: #008215;
+}
+        
+
+
+.colorحقي {
+  color: #E6EAFF;
+}
+
+
+
+.colorفضي {
+  color: #593289،;
+}
+        
+
+
+.colorاسود {
+  color: #000;
+}
+
+
+.colorad {
+  color: #FFD000;
+}
+        
+
+
+.colorاسود {
+  color: #000;
+}
+
+.colorbein {
+  color: #593289;
+}
+
+
+.colorاخقوي {
+  color: #E1FF00;
+}
+
+
+.colorرمادي {
+  color: #8f8f8f;
+}
+
+.colorوردي {
+  color: #FF0088;
+}
+
+
+.colorsh2 {
+  color: #00CD9A;
+}
+
+.colorsh1 {
+  color: #00D358;
+}
+
+
+.colorsh3 {
+  color: #009AFF;
+}
+
+.colorشاهد2 {
+  color: #3EFFFF;
+}
+
+
+.colorkids{
+  color:#F8D800;
+}
+.colorحلو {
+  color:#c5cae9;
+}
+
+.colorحلوة {
+  color: #E1E6FF;
+}
+
+.colorاخبار {
+  color:#F86838;
+}
+
+.colorعربية {
+  color:#18F880;
+}
+
+
+.colorوياك {
+  color:#FF7F00;
+}
+
+
+.colorوياك2 {
+  color:#FFB872;
+}
+
+        .colorابيض {
+  color:#fff;
+}
+
+        
+
+</style>
+ 
+  	
+<!-- /بداية كود شريط اخباري-->
+		
+
+    
+   
+	
+        
+
+
+   
+
+    
+   
+   
+   
+    
+    
 </head>
 <body>
 
@@ -166,25 +381,17 @@
     </div>
 </header>
 
+<!-- مربع الحوار المخصص -->
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
         <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
-        <div class="button-container">
-            <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
-            <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
-        </div>
+        <br><br>
+        <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
+        <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
     </div>
 </div>
 
 </body>
 </html>
-```
-
-### التعديلات التي تم إجراؤها:
-1. **تنسيق الأزرار**: وضعت الأزرار داخل حاوية مرنة (`.button-container`) لتوزيع الأزرار بالتساوي.
-2. **تحسينات عامة في التصميم**: أضفت تأثيرات عند التحويم على الأزرار في قسم `button`.
-3. **أسلوب أكثر جاذبية**: تم تحسين الألوان والتباعد لجعل التصميم أكثر وضوحًا وأناقة.
-
-يمكنك تعديل الألوان أو الأنماط حسب تفضيلاتك!
