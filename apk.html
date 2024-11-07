@@ -1,48 +1,79 @@
-لتحقيق هذا الهدف، يمكنك استخدام HTML مع JavaScript. الفكرة هي محاولة فتح التطبيق المحدد، وإذا لم يكن مثبتًا، ستظهر نافذة منبثقة توضح للمستخدم أنه يجب عليه تثبيت التطبيق.
 
-إليك مثال على كيفية القيام بذلك:
-
-```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فتح رابط في تطبيق</title>
+
+    <!----------  اكواد استايل القنوات  ------------>
+    <style type="text/css">
+        .grid-container {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5px 5px;
+            padding: 0px;
+        }
+        .grid1-container {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 10px;
+            color: green;
+            padding: 0px;
+        }
+
+        button {
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+            padding: 15px;
+            margin: 20px 10px;
+            height: 400px;
+            width: 265px;
+            border-bottom: 15px groove #fff;
+            border-top: 10px groove #fff;
+            border-radius: 55px;
+        }
+
+        button:active {
+            border-left: 0px solid rgb(255 213 105 / 80%);
+            border-top: 15px double rgb(255 0 2 / 50%);
+            border-bottom: 10px groove rgb(255 219 97 / 100%);
+        }
+    </style>
+
     <script>
-        function openApp() {
-            // استبدل 'yourapp://link' بالرابط الخاص بتطبيقك
-            var appUrl = 'xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K';
-            var appStoreUrl = 'https://link-to-download-app.com'; // رابط تحميل التطبيق
-
+        function openApp(appUrl, downloadUrl) {
             // محاولة فتح التطبيق
-            var isAppOpened = false;
-
-            // فتح التطبيق
             window.location.href = appUrl;
 
             // الانتظار قليلاً لمعرفة ما إذا تم فتح التطبيق
             setTimeout(function() {
-                if (!isAppOpened) {
-                    // إذا لم يتم فتح التطبيق، عرض نافذة منبثقة
-                    alert("يجب أولاً تثبيت مشغل الفيديو. يمكنك تحميله من هنا: " + appStoreUrl);
-                }
+                // عرض نافذة منبثقة
+                alert("يجب أولاً تثبيت التطبيق. يمكنك تحميله من هنا: " + downloadUrl);
             }, 2000); // الانتظار لمدة 2 ثانية
         }
     </script>
 </head>
 <body>
-    <h1>فتح رابط في تطبيق</h1>
-    <a href="xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMi9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg==" onclick="openApp(); return false;">افتح التطبيق</a>
+
+<header>
+    <div class="grid1-container">
+        <div align="center">
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczJoZWYvbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K')">
+                <img src="data:image/png;base64,..." alt="Icon 1" />
+                <h2>الكـاس 1</h2>
+            </button>
+
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczJoZWYvbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+                <img src="data:image/png;base64,..." alt="Icon 2" />
+                <h2>الكـاس 2</h2>
+            </button>
+        </div>
+    </div>
+</header>
+
 </body>
 </html>
 ```
 
-### الشرح:
-1. **رابط التطبيق**: استبدل `yourapp://link` بالرابط الخاص بتطبيقك.
-2. **رابط التحميل**: استبدل `https://link-to-download-app.com` برابط تحميل التطبيق.
-3. **النافذة المنبثقة**: إذا لم يتم فتح التطبيق بعد 2 ثانية، تظهر نافذة منبثقة تخبر المستخدم بأنه يجب تثبيت التطبيق.
-
-### ملاحظات:
-- تأكد من أن التطبيق لديه رابط مخصص ليتم فتحه.
-- بعض المتصفحات قد تمنع التطبيقات من الفتح مباشرة، لذا يجب اختبار الكود على الأجهزة المستهدفة.
