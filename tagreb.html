@@ -1,6 +1,4 @@
-لتجنب تداخل العناصر ولتسهيل التعرف على الأزرار، يمكننا تغيير أسماء الأزرار من `<button>` إلى `<input type="button">`، أو استخدام أسماء مختلفة. سأقوم بتغيير أسماء الأزرار إلى أسماء أكثر وضوحًا وسأضمن أن كل العناصر المرتبطة بها تتغير أيضًا. إليك الكود المعدل:
 
-```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -26,7 +24,7 @@
             padding: 0px;
         }
 
-        button {
+        resetbutton {
             background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
             padding: 15px;
             margin: 20px 10px;
@@ -37,7 +35,7 @@
             border-radius: 55px;
         }
 
-        button:active {
+        resetbutton:active {
             border-left: 0px solid rgb(255 213 105 / 80%);
             border-top: 15px double rgb(255 0 2 / 50%);
             border-bottom: 10px groove rgb(255 219 97 / 100%);
@@ -83,17 +81,17 @@
         }
 
         /* أنماط الأزرار داخل مربع الحوار */
-        .modal-button {
+        #confirmButton, #cancelButton {
             margin-top: 10px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #4CAF50; /* لون زر التأكيد */
+            background-color: #4CAF50; /* لون الزر */
             color: white;
         }
 
-        .cancel-button {
+        #cancelButton {
             background-color: #f44336; /* لون زر الإلغاء */
         }
 
@@ -115,12 +113,12 @@
                     // إظهار مربع الحوار المخصص
                     document.getElementById('myModal').style.display = "block";
 
-                    document.getElementById('confirmInstallButton').onclick = function() {
+                    document.getElementById('confirmButton').onclick = function() {
                         window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
                         closeModal();
                     }
 
-                    document.getElementById('cancelInstallButton').onclick = function() {
+                    document.getElementById('cancelButton').onclick = function() {
                         closeModal();
                     }
 
@@ -150,15 +148,15 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+            <resetbutton onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <img src="data:image/png;base64,..." alt="Icon 1" />
                 <h2>الكـاس 1</h2>
-            </button>
+            </resetbutton>
 
-            <button onclick="openApp('yourapp://link2', 'https://link-to-download-app.com')">
+            <resetbutton onclick="openApp('yourapp://link2', 'https://link-to-download-app.com')">
                 <img src="data:image/png;base64,..." alt="Icon 2" />
                 <h2>الكـاس 2</h2>
-            </button>
+            </resetbutton>
         </div>
     </div>
 </header>
@@ -170,18 +168,10 @@
         <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
         <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
         <br><br>
-        <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
-        <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
+        <button id="confirmButton">نعم</button>
+        <button id="cancelButton">لا</button>
     </div>
 </div>
 
 </body>
 </html>
-```
-
-### التغييرات:
-1. **تغيير أسماء الأزرار:** تم تغيير أسماء الأزرار إلى `<input type="button" id="confirmInstallButton" />` و`<input type="button" id="cancelInstallButton" />` لتفادي التداخل مع العناصر الأخرى.
-2. **تعديل الأسماء المرتبطة:** تم تعديل كل العناصر المرتبطة بالأزرار لتكون متوافقة مع الأسماء الجديدة.
-3. **تحسين الأنماط:** تم استخدام `modal-button` و`cancel-button` لتنسيق الأزرار بشكل مختلف، مما يتيح تمييزها عن الأزرار الأخرى.
-
-بهذا الشكل، يجب أن يعمل الكود بشكل صحيح دون أي تداخل بين العناصر. إذا كان لديك أي استفسارات أخرى، فلا تتردد في طرحها!
