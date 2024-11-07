@@ -1,8 +1,6 @@
-إذا كانت النافذة لا تظهر أو لا يتم فتح التطبيق، فقد تكون هناك عدة أسباب محتملة. دعنا نتأكد من أن كل شيء يعمل بشكل صحيح من خلال تبسيط الكود وإضافة بعض التحسينات.
+بالطبع، يمكننا تعديل الكود ليظهر رسالة التثبيت فقط في حال عدم تحديد خيار "عدم العرض مرة أخرى" أو عند الضغط على "موافق". إذا ضغط المستخدم على "إلغاء"، سيتم تخزين هذا الاختيار في `localStorage` بحيث لا تظهر الرسالة مرة أخرى.
 
-### الكود المحدث:
-
-إليك كود HTML محدث يتضمن نافذة منبثقة عند محاولة فتح التطبيق، ويتحقق من تثبيته بشكل صحيح:
+### الكود المعدل:
 
 ```html
 <!DOCTYPE html>
@@ -77,6 +75,13 @@
                 localStorage.setItem('doNotShowAgain', 'true');
             }
         }
+
+        function cancelAction() {
+            // إذا ضغط المستخدم على "إلغاء"، يتم تخزين ذلك
+            localStorage.setItem('doNotShowAgain', 'true');
+            // إغلاق النافذة المنبثقة
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 </head>
 <body>
@@ -84,7 +89,7 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K')">
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K ,  https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <h2>الكـاس 1</h2>
             </button>
 
@@ -102,20 +107,18 @@
         <input type="checkbox" id="doNotShowAgainCheckbox" onclick="handleCheckbox()"> عدم العرض مرة أخرى
     </label>
     <br><br>
-    <button onclick="confirmAction('https://play.google.com/store/apps/details?id=com.xpola.player')">موافق</button>
-    <button onclick="document.getElementById('popup').style.display='none'">إلغاء</button>
+    <button onclick="confirmAction('https://link-to-download-app.com')">موافق</button>
+    <button onclick="cancelAction()">إلغاء</button>
 </div>
 
 </body>
 </html>
 ```
 
-### الشرح للتعديلات:
-1. **نافذة منبثقة**: النافذة المنبثقة (`<div id="popup">`) تم إعدادها لتكون مخفية بشكل افتراضي. عند استدعاء `openApp`، يتم عرضها إذا لم يكن الخيار "عدم العرض مرة أخرى" محددًا.
-2. **أزرار التحكم**: تمت إضافة أزرار "موافق" و"إلغاء" داخل النافذة المنبثقة، بحيث يمكنك فتح رابط التحميل أو إغلاق النافذة.
-3. **تحقق من خانة الاختيار**: عند تحديد خانة الاختيار "عدم العرض مرة أخرى"، يتم تخزين القيمة في `localStorage`.
+### التغييرات الأساسية:
+1. **إضافة دالة `cancelAction`**: هذه الدالة تقوم بتخزين القيمة `'true'` في `localStorage` عندما يضغط المستخدم على "إلغاء"، مما يعني أنه لن يتم عرض الرسالة مرة أخرى.
+2. **التحقق من خانة الاختيار**: إذا اختار المستخدم "عدم العرض مرة أخرى" ثم ضغط على "موافق"، يتم أيضًا تخزين هذا الاختيار في `localStorage`.
 
 ### ملاحظات:
 - تأكد من استبدال `'yourapp://link1'` و`'yourapp://link2'` و`'https://link-to-download-app.com'` بالقيم الصحيحة الخاصة بتطبيقك.
-- من المهم أن يتم اختبار الكود على متصفح يدعم فتح التطبيقات، ويفضل أن يكون على جهاز محمول.
-- تأكد أيضًا من عدم وجود أي أخطاء في وحدة التحكم (Console) في المتصفح، حيث يمكن أن تشير إلى مشاكل أخرى في الكود.
+- تأكد من اختبار الكود على متصفح يدعم فتح التطبيقات، ويفضل أن يكون على جهاز محمول.
