@@ -51,18 +51,44 @@
             setTimeout(function() {
                 // تحقق من حالة عدم العرض مرة أخرى
                 if (localStorage.getItem('doNotShowAgain') !== 'true') {
-                    const confirmation = confirm("لمشاهدة القنوات يجب عليك  أولاً  تثبيت تطبيق المشغل . اضغط حسنا للذهاب إلى رابط التحميل");
-                    if (confirmation) {
+                    // إنشاء نافذة مخصصة
+                    const popup = document.createElement('div');
+                    popup.style.position = 'fixed';
+                    popup.style.top = '50%';
+                    popup.style.left = '50%';
+                    popup.style.transform = 'translate(-50%, -50%)';
+                    popup.style.backgroundColor = 'white';
+                    popup.style.padding = '20px';
+                    popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+                    popup.style.zIndex = '1000';
+
+                    popup.innerHTML = `
+                        <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
+                        <label>
+                            <input type="checkbox" id="doNotShowAgainCheckbox"> عدم العرض مرة أخرى
+                        </label>
+                        <br><br>
+                        <button id="confirmButton">موافق</button>
+                        <button id="cancelButton">إلغاء</button>
+                    `;
+
+                    document.body.appendChild(popup);
+
+                    // إضافة أحداث للزر "موافق"
+                    document.getElementById('confirmButton').onclick = function () {
+                        if (document.getElementById('doNotShowAgainCheckbox').checked) {
+                            localStorage.setItem('doNotShowAgain', 'true');
+                        }
                         window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
-                    }
-                    
-                    // إضافة خيار عدم العرض مرة أخرى
-                    const doNotShowAgain = confirm("لا تعرض هذه الرسالة مرة أخرى؟");
-                    if (doNotShowAgain) {
-                        localStorage.setItem('doNotShowAgain', 'true');
-                    }
+                        document.body.removeChild(popup); // إغلاق النافذة
+                    };
+
+                    // إضافة أحداث للزر "إلغاء"
+                    document.getElementById('cancelButton').onclick = function () {
+                        document.body.removeChild(popup); // إغلاق النافذة
+                    };
                 }
-            }, 1000); // الانتظار لمدة 3 ثوان
+            }, 3000); // الانتظار لمدة 3 ثوان
         }
     </script>
 </head>
@@ -71,10 +97,31 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-                   <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+        	
+        <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <img src="data:image/png;base64,..." alt="Icon 1" />
                 <h2>الكـاس 1</h2>
             </button>
+        
+            <button onclick="openApp('yourapp://link1', 'https://link-to-download-app.com')">
+                <img src="data:image/png;base64,..." alt="Icon 1" />
+                <h2>الكـاس 1</h2>
+            </button>
+
+            <button onclick="openApp('yourapp://link2', 'https://link-to-download-app.com')">
+                <img src="data:image/png;base64,..." alt="Icon 2" />
+                <h2>الكـاس 2</h2>
+            </button>
+        </div>
+    </div>
+</header>
+
+</body>
+</html>
+```
+
+
+                   
 
         </div>
     </div>
