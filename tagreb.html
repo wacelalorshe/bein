@@ -1,6 +1,8 @@
-أعتذر عن الإرباك. دعنا نتأكد من أننا نقوم بإنشاء نافذة منبثقة تعمل بشكل صحيح وتحقق من تثبيت التطبيق بطريقة فعالة. سأقوم بتبسيط الكود والتأكد من أنه يعمل بشكل صحيح.
+إذا كانت النافذة لا تظهر أو لا يتم فتح التطبيق، فقد تكون هناك عدة أسباب محتملة. دعنا نتأكد من أن كل شيء يعمل بشكل صحيح من خلال تبسيط الكود وإضافة بعض التحسينات.
 
 ### الكود المحدث:
+
+إليك كود HTML محدث يتضمن نافذة منبثقة عند محاولة فتح التطبيق، ويتحقق من تثبيته بشكل صحيح:
 
 ```html
 <!DOCTYPE html>
@@ -10,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فتح رابط في تطبيق</title>
 
-    <!----------  اكواد استايل القنوات  ------------>
     <style type="text/css">
         .grid1-container {
             display: grid;
@@ -18,20 +19,33 @@
             grid-template-columns: repeat(1, 1fr);
             grid-gap: 10px;
             color: green;
-            padding: 0px;
+            padding: 20px;
         }
 
         button {
-            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+            background-image: linear-gradient(to right, #151825, #3A4266);
             padding: 15px;
             margin: 20px 10px;
-            height: 400px;
-            width: 265px;
+            height: 100px;
+            width: 200px;
             border: none;
-            border-radius: 55px;
+            border-radius: 10px;
             color: white;
             font-size: 18px;
             cursor: pointer;
+        }
+
+        /* ستايل النافذة المنبثقة */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none; /* مخفية بشكل افتراضي */
         }
     </style>
 
@@ -44,47 +58,24 @@
             setTimeout(function() {
                 // تحقق من حالة عدم العرض مرة أخرى
                 if (localStorage.getItem('doNotShowAgain') !== 'true') {
-                    // إنشاء نافذة مخصصة
-                    const popup = document.createElement('div');
-                    popup.style.position = 'fixed';
-                    popup.style.top = '50%';
-                    popup.style.left = '50%';
-                    popup.style.transform = 'translate(-50%, -50%)';
-                    popup.style.backgroundColor = 'white';
-                    popup.style.padding = '20px';
-                    popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-                    popup.style.zIndex = '1000';
-                    popup.style.display = 'flex';
-                    popup.style.flexDirection = 'column';
-                    popup.style.alignItems = 'center';
-
-                    popup.innerHTML = `
-                        <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
-                        <label>
-                            <input type="checkbox" id="doNotShowAgainCheckbox"> عدم العرض مرة أخرى
-                        </label>
-                        <br><br>
-                        <button id="confirmButton">موافق</button>
-                        <button id="cancelButton">إلغاء</button>
-                    `;
-
-                    document.body.appendChild(popup);
-
-                    // إضافة أحداث للزر "موافق"
-                    document.getElementById('confirmButton').onclick = function () {
-                        if (document.getElementById('doNotShowAgainCheckbox').checked) {
-                            localStorage.setItem('doNotShowAgain', 'true');
-                        }
-                        window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
-                        document.body.removeChild(popup); // إغلاق النافذة
-                    };
-
-                    // إضافة أحداث للزر "إلغاء"
-                    document.getElementById('cancelButton').onclick = function () {
-                        document.body.removeChild(popup); // إغلاق النافذة
-                    };
+                    // إظهار النافذة المنبثقة
+                    document.getElementById('popup').style.display = 'block';
                 }
             }, 3000); // الانتظار لمدة 3 ثوان
+        }
+
+        function confirmAction(downloadUrl) {
+            // فتح رابط التحميل
+            window.open(downloadUrl, '_blank');
+            // إغلاق النافذة المنبثقة
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function handleCheckbox() {
+            const checkbox = document.getElementById('doNotShowAgainCheckbox');
+            if (checkbox.checked) {
+                localStorage.setItem('doNotShowAgain', 'true');
+            }
         }
     </script>
 </head>
@@ -93,7 +84,7 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K ,  https://play.google.com/store/apps/details?id=com.xpola.player')">
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K')">
                 <h2>الكـاس 1</h2>
             </button>
 
@@ -104,15 +95,27 @@
     </div>
 </header>
 
+<!-- النافذة المنبثقة -->
+<div id="popup" class="popup">
+    <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
+    <label>
+        <input type="checkbox" id="doNotShowAgainCheckbox" onclick="handleCheckbox()"> عدم العرض مرة أخرى
+    </label>
+    <br><br>
+    <button onclick="confirmAction('https://play.google.com/store/apps/details?id=com.xpola.player')">موافق</button>
+    <button onclick="document.getElementById('popup').style.display='none'">إلغاء</button>
+</div>
+
 </body>
 </html>
 ```
 
-### الشرح:
-1. **نافذة منبثقة**: النافذة المنبثقة الآن تفتح في وسط الشاشة وتحتوي على خانة اختيار (Checkbox) مع خيارات "موافق" و"إلغاء".
-2. **تخزين الاختيار**: إذا اختار المستخدم "عدم العرض مرة أخرى" ثم ضغط على "موافق"، يتم تخزين هذا الاختيار في `localStorage` ولن تظهر الرسالة مرة أخرى.
-3. **تعديل الزر**: تم تبسيط الكود بحيث لا يتطلب أي صور مؤقتة أو روابط غير ضرورية. يمكنك إضافة الصور أو الأيقونات حسب الحاجة.
+### الشرح للتعديلات:
+1. **نافذة منبثقة**: النافذة المنبثقة (`<div id="popup">`) تم إعدادها لتكون مخفية بشكل افتراضي. عند استدعاء `openApp`، يتم عرضها إذا لم يكن الخيار "عدم العرض مرة أخرى" محددًا.
+2. **أزرار التحكم**: تمت إضافة أزرار "موافق" و"إلغاء" داخل النافذة المنبثقة، بحيث يمكنك فتح رابط التحميل أو إغلاق النافذة.
+3. **تحقق من خانة الاختيار**: عند تحديد خانة الاختيار "عدم العرض مرة أخرى"، يتم تخزين القيمة في `localStorage`.
 
 ### ملاحظات:
 - تأكد من استبدال `'yourapp://link1'` و`'yourapp://link2'` و`'https://link-to-download-app.com'` بالقيم الصحيحة الخاصة بتطبيقك.
-- اختبر هذا الكود على متصفح يدعم فتح التطبيقات، وتأكد من أنه يعمل بشكل صحيح.
+- من المهم أن يتم اختبار الكود على متصفح يدعم فتح التطبيقات، ويفضل أن يكون على جهاز محمول.
+- تأكد أيضًا من عدم وجود أي أخطاء في وحدة التحكم (Console) في المتصفح، حيث يمكن أن تشير إلى مشاكل أخرى في الكود.
