@@ -81,7 +81,7 @@
         }
 
         /* أنماط الأزرار داخل مربع الحوار */
-        #confirmButton, #cancelButton {
+        #confirmButton2, #cancelButton {
             margin-top: 10px;
             padding: 10px 20px;
             border: none;
@@ -113,7 +113,7 @@
                     // إظهار مربع الحوار المخصص
                     document.getElementById('myModal').style.display = "block";
 
-                    document.getElementById('confirmButton').onclick = function() {
+                    document.getElementById('confirmButton2').onclick = function() {
                         window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
                         closeModal();
                     }
@@ -168,8 +168,8 @@
         <p>يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟</p>
         <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
         <br><br>
-        <button id="confirmButton">نعم</button>
-        <button id="cancelButton">لا</button>
+        <button id="confirmButton2">نعم</button>
+        <button id="cancelButton2">لا</button>
     </div>
 </div>
 
