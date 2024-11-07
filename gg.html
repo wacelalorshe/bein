@@ -1,4 +1,4 @@
-يمكنك إضافة رابط القناة الذي قدمته إلى قائمة القنوات في الكود السابق. إليك الكود بعد إضافة القناة الجديدة:
+يمكنك استخدام الكود التالي لإنشاء صفحة HTML تعرض قائمة بقنوات التلفزيون، مع شرط فتح القناة فقط إذا كان تطبيق مشغل القنوات مثبتًا على الهاتف. يتم استخدام رابط لتحميل التطبيق في حال عدم تثبيته.
 
 ```html
 <!DOCTYPE html>
@@ -37,13 +37,13 @@
         <li><a href="intent://playChannel2#Intent;scheme=myapp;package=com.xpola.player;end">قناة 2</a></li>
         <li><a href="intent://playChannel3#Intent;scheme=myapp;package=com.xpola.player;end">قناة 3</a></li>
         <li><a href="intent://playChannel4#Intent;scheme=myapp;package=com.xpola.player;end">قناة 4</a></li>
-        <li><a href="xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMS9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg==">قناة خاصة</a></li>
     </ul>
     <p>إذا لم يكن لديك تطبيق مشغل القنوات، يمكنك تحميله من <a href="https://play.google.com/store/apps/details?id=com.xpola.player" target="_blank">هنا</a>.</p>
 </body>
 </html>
 ```
 
-### ما تم إضافته:
-- تم إضافة عنصر قائمة جديد يحتوي على رابط القناة الخاصة الذي قدمته. 
-- يمكنك تعديل اسم القناة حسب رغبتك.
+### شرح الكود:
+- يحتوي على قائمة بقنوات التلفزيون.
+- كل قناة لها رابط يستخدم `intent` لفتح التطبيق إذا كان مثبتًا.
+- إذا لم يكن التطبيق مثبتًا، سيوجه المستخدم لتحميله عبر الرابط المقدم.
