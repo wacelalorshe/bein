@@ -1,4 +1,10 @@
+لتنفيذ خيار "عدم العرض مرة أخرى" في نفس النافذة المنبثقة التي تظهر عند عدم تثبيت التطبيق، يمكنك استخدام نموذج بسيط داخل النافذة المنبثقة. سيتضمن النموذج خانة اختيار (Checkbox) للمستخدم ليتمكن من تحديد ما إذا كان يريد عدم عرض الرسالة مرة أخرى.
 
+### الكود المعدل:
+
+إليك كيف يمكن تعديل الكود لتحقيق ذلك:
+
+```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -97,13 +103,7 @@
 <header>
     <div class="grid1-container">
         <div align="center">
-        	
-        <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
-                <img src="data:image/png;base64,..." alt="Icon 1" />
-                <h2>الكـاس 1</h2>
-            </button>
-        
-            <button onclick="openApp('yourapp://link1', 'https://link-to-download-app.com')">
+            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
                 <img src="data:image/png;base64,..." alt="Icon 1" />
                 <h2>الكـاس 1</h2>
             </button>
@@ -121,7 +121,10 @@
 ```
 
 
-                   
+                   <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+                <img src="data:image/png;base64,..." alt="Icon 1" />
+                <h2>الكـاس 1</h2>
+            </button>
 
         </div>
     </div>
