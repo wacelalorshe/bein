@@ -85,73 +85,79 @@ border-top: 15px double  rgb(255 0 2 / 50%);
 border-bottom: 10px groove rgb(255 219 97 / 100%);
 
     }
+
 /* أنماط مربع الحوار */
-        .modal {
-            display: none; /* مخفي بشكل افتراضي */
-            position: fixed;
-            z-index: 1000; /* تأكد من أنه فوق كل العناصر الأخرى */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
-            padding-top: 100px; /* المسافة العلوية */
-        }
+.modal {
+    display: none; /* مخفي بشكل افتراضي */
+    position: fixed;
+    z-index: 9999; /* تأكد من أنه فوق كل العناصر الأخرى */
+    align-items: center; /* توسيط العناصر عموديًا */
+    left: 0;
+    top: 400; /* تأكد من أن مربع الحوار يبدأ من أعلى الصفحة */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+}
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto; /* مركز مربع الحوار */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* عرض مربع الحوار */
-            max-width: 500px; /* الحد الأقصى للعرض */
-            text-align: right; /* محاذاة النص إلى اليمين */
-            border-radius: 10px; /* زوايا مستديرة */
-        }
+.modal-content {
+    background-image: linear-gradient(to right, #151825, #3A4266);
+    margin: auto; /* توسيط تلقائي */
+    padding: 10px; /* إضافة حشوة حول المحتوى */
+    border: 3px groove #fff;
+    width: 90%; /* عرض مربع الحوار */
+    max-width: 90%; /* الحد الأقصى للعرض */
+    color: #ddd;
+    font-size: 4.5vw; /* استخدام وحدة نسبية لحجم الخط */
+    text-align: center;
+    border-radius: 30px; /* زوايا مستديرة */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    font-family: Arial, sans-serif;
+    
+}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+/* أنماط الأزرار داخل مربع الحوار */
+.modal-button,
+.cancel-button {
+    margin: 20px 5%; /* إضافة حشوة حول الأزرار */
+    width: 60%; /* عرض الأزرار */
+    padding: 10px;
+    font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
 
-        /* أنماط الأزرار داخل مربع الحوار */
-        .modal-button {
-            margin-top: 20px;
-            margin-left: 20px;
-       
-            padding: 20px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #4CAF50; /* لون زر التأكيد */
-            color: white;
-        }
+.modal-button {
+    background-color: #4CAF50; /* لون زر التأكيد */
+    color: white;
+    border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+border-left: 2px ridge #fff;
+border-right: 2px groove #fff;
+}
 
-        .cancel-button {
-        	margin-top: 20px;
-            margin-right: 70px;
-       
-            padding: 20px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #f44336; /* لون زر الإلغاء */
-        }
+.cancel-button {
+    background-color: #f44336; /* لون زر الإلغاء */
+    color: white;
+    border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+border-left: 02px ridge #fff;
+border-right: 2px groove #fff;
+}
 
-        /* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
-        input[type="checkbox"] {
-            margin-top: 10px;
-        }
+/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
+input[type="checkbox"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    width: 5%; 
+    height: 5%;
+}
+
     </style>
 
     <script>
@@ -1215,13 +1221,15 @@ font-weight: bold;
 <!-- مربع الحوار المخصص -->
 <div id="myModal" class="modal">
     <div class="modal-content">
-    	<br><br><br>
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p>لمشاهدة القنوات يجب عليك  أولاً  تثبيت تطبيق المشغل . اضغط نعم للذهاب إلى  تحميل المشغل</p>
+        <p style="margin-left: 10%;max-width: 80%; margin-top: 5%;font-size: 38px; color: #fff;padding: 7px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+border-left: 2px ridge #fff;
+border-right: 2px groove #fff; border-radius: 39px 39px 39px 39px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
         <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
-        <br><br>
-        <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
-        <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
+       <br><br>
+        <input type="button" id="confirmInstallButton" class="modal-button" value="تحميل مشغل القنوات" />
+        <input type="button" id="cancelInstallButton" class="cancel-button" value="الغاء التحميل" />
     </div>
 </div>
 
