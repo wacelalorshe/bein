@@ -85,79 +85,73 @@ border-top: 15px double  rgb(255 0 2 / 50%);
 border-bottom: 10px groove rgb(255 219 97 / 100%);
 
     }
-
 /* أنماط مربع الحوار */
-.modal {
-    display: none; /* مخفي بشكل افتراضي */
-    position: fixed;
-    z-index: 9999; /* تأكد من أنه فوق كل العناصر الأخرى */
-    align-items: center; /* توسيط العناصر عموديًا */
-    left: 0;
-    top: 400; /* تأكد من أن مربع الحوار يبدأ من أعلى الصفحة */
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
-}
+        .modal {
+            display: none; /* مخفي بشكل افتراضي */
+            position: fixed;
+            z-index: 1000; /* تأكد من أنه فوق كل العناصر الأخرى */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+            padding-top: 100px; /* المسافة العلوية */
+        }
 
-.modal-content {
-    background-image: linear-gradient(to right, #151825, #3A4266);
-    margin: auto; /* توسيط تلقائي */
-    padding: 10px; /* إضافة حشوة حول المحتوى */
-    border: 3px groove #fff;
-    width: 90%; /* عرض مربع الحوار */
-    max-width: 90%; /* الحد الأقصى للعرض */
-    color: #ddd;
-    font-size: 4.5vw; /* استخدام وحدة نسبية لحجم الخط */
-    text-align: center;
-    border-radius: 30px; /* زوايا مستديرة */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    font-family: Arial, sans-serif;
-    
-}
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto; /* مركز مربع الحوار */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* عرض مربع الحوار */
+            max-width: 500px; /* الحد الأقصى للعرض */
+            text-align: right; /* محاذاة النص إلى اليمين */
+            border-radius: 10px; /* زوايا مستديرة */
+        }
 
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-/* أنماط الأزرار داخل مربع الحوار */
-.modal-button,
-.cancel-button {
-    margin: 20px 5%; /* إضافة حشوة حول الأزرار */
-    width: 60%; /* عرض الأزرار */
-    padding: 10px;
-    font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    
-}
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-.modal-button {
-    background-color: #4CAF50; /* لون زر التأكيد */
-    color: white;
-    border-bottom: 2px groove  #fff; 
-    border-top: 2px   groove  #fff; 
-border-left: 2px ridge #fff;
-border-right: 2px groove #fff;
-}
+        /* أنماط الأزرار داخل مربع الحوار */
+        .modal-button {
+            margin-top: 20px;
+            margin-left: 20px;
+       
+            padding: 20px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50; /* لون زر التأكيد */
+            color: white;
+        }
 
-.cancel-button {
-    background-color: #f44336; /* لون زر الإلغاء */
-    color: white;
-    border-bottom: 2px groove  #fff; 
-    border-top: 2px   groove  #fff; 
-border-left: 02px ridge #fff;
-border-right: 2px groove #fff;
-}
+        .cancel-button {
+        	margin-top: 20px;
+            margin-right: 70px;
+       
+            padding: 20px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f44336; /* لون زر الإلغاء */
+        }
 
-/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
-input[type="checkbox"] {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-    width: 5%; 
-    height: 5%;
-}
-
+        /* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
+        input[type="checkbox"] {
+            margin-top: 10px;
+        }
     </style>
 
     <script>
@@ -836,7 +830,11 @@ font-weight: bold;
 "><p><p><span class="colorsh3">mb<span class="colorsh3">c <span class="colorاسود"> 1</span><span class="colorاسود"></span></p></h2></h2>
 </button>
 
-<button onclick="window.open(' go:mbcact ')"> <img src=" data:image/jpeg;base64,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 " style="
+<button onclick="openApp(' xmtv://WwoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvYzliZjFlODdlYTY2NDc4YmIyMGJjNWM5M2M5ZDQxZWEvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF83Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0='   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+
+
+
+<img src=" data:image/jpeg;base64,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 " style="
 background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
 box-shadow: 0 5px 20px  rgba(235, 177, 6, 50);
    border-top: 10px ridge  #F2B91A;
@@ -875,7 +873,7 @@ font-weight: bold;
 </button>
   
 
-<button onclick="openApp( 'https://wacetvllive.blogspot.com/2023/08/1.html?m=1 '   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+<button onclick="openApp( 'https://wacetvllive.blogspot.com/2023/08/1.html?m=1 ' )">
 <img src="  data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCcZGBYWGDAiJBwnOTI8OzgyNzY/R1pMP0NVRDY3TmtPVV1gZWZlPUtvd25idlpjZWH/2wBDARESEhgVGC4ZGS5hQTdBYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWH/wAARCACMAI0DASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAAQDBQYCAQf/xAA6EAABAwIDBAcGBQMFAAAAAAABAAIDBBEFEiETMUFRBiIyYXGB0SNCkaGxwRQzUmLhcoLwJUNzksL/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAgMEAQX/xAAiEQACAgIBBAMBAAAAAAAAAAAAAQIRAzEhBBITQRQyUWH/2gAMAwEAAhEDEQA/APoCEIQAhCEAIXhIG8peWrZHxuUAwi4HFVrqyV56osO9ce2edXHy0QFpnbzQHtPFVogkd77/AIrvYP4yP+IQFhcHihVx28e6QHxFl2ysc02kbbvQD6FFHMyQaEFSID1CEIAQhCAEIQgPFxLK2NtyV5NK2NhJKqZ5nTO5IDqqr3OOVl1zSjbDXR3Ec0u8xwML5HBoCQkxKTNenGyA3OPa9FKMHLRGU1HZo9jHE3NI5rGje5xsAonYph0OjqlpP7QXfRZOWUyPL5ZHSO5uJJURmaFoXT/pS8/4bE47hw02x/6O9EDG8Od/vkf2O9FjNuO5G3b3KXx0R87NzFV0lTpDURvJ90O1+CHwX3LDh7XJ2kxKqpbbGYlo9x/Wb/HkoS6drROOZezUup8urCWkcRxXUNS5rgyUWPA8CkaLHIaq0crdjMdACeq7wP2TMrc2/VZ2muGXJp6LEEEXC6VbTVBY4MebjgVYA3FwuHTpCEIAXLnZRcr1K1khsGN7TtAgFaiQzPOvVBt5pWolZTxF79w3DiTyTzacAC50HBZ3EKgVNUSz8qO7WW48z/nIKcIdzohOXarIpZXTP2kp3dlvBoUD3tOlguJHclFqStySWjI3Z5LEXaxu15FdQYNitVrHSPDf1PIb9VqMBwpkcLKqdodI4XYD7o4HxV5dUy6hp0i2OFPlmHHRLEyO3TjxefRRSdGMWjF2xRyf0yD72W9JRdQ+TMn4YnzGpgqqN4bUwvivuLhofA8Vyycr6XUwRVULoZ2NfG4WLXDesBjuEnCq3Iwl0EgzRuPzB7x6K/FmU+Hspni7eUcslDxYq7wrE3Zm01S+4OjHk/IrMRkgp2N2ZuqnkxqSIwk4uzXzMc3eCE1Q1GYZXHUJHA641dIY5TeWKwJPvDgU1KwRkSsFsu+3ELzmmnTNqdqyxXqjifnYCFIuHTwmwSAO0qnOPuCwHinZDZhKRpz1C473OJ+32QEOLVBpsPle0gOIyt14nT+fJZlo9kPBW3SWUhlPENxcXHyH8qogeHAsJ1GoWvDGo2ZsruVERbcqalgbJURsebNc4AnkL6ldbPVdtYrG+CKRs2Pa4dUgjuN15NKIoXyHUNaSskImu7TQfEKaGNsd8rQ0HeG6XWbxf0v8gni0L6thnkcXyt1N91u4cE90SrJzM+je9zogzM0E3y2I0HdquxGHCxFwdE7geFmhD5pR7V/VA5N/n0U5SioUyEU+6y5uqHpfG1+GxEjVsot8Cry6zvSeoDzFStN8vXd9vuqsX3RZk+rMqGWKnZ1Wk8lJs1FUuEbAzi76L0LsxtD+EVP4bEYX3GV52bvA/wA2WucAQQVgmE5Lg6hbmGUTU8co3PaHfELH1EadmjA+KJKBxAMZN8psnVXQHLVkfqAKsFnLyOo/Kck4fyWp2cXickIj7Mac/qgKTpG729OOQcfoqNz3RyBzTqFedIx7SnP9X2VDNvW/BzAxZfuWVNMyobcaOG9vJNNas8xzo3hzCQRxCs6fEQQBMLfuClKD9BS/SxaFNEx0jw1gJJ4BR0o/FPDYSHee4K8p4WU8eVm87zzWecu0thFyOaWjbDZzyHSfIeCbuoy628qqrMWOsdIQecvD+3n4/VUJObLm1FDeI4kyjZlbZ8xHVby7z/nqs1Jmle57yXOcbkniV1JIxmZ8rwLm5LjqSq+pxRjRaBuY/qO4LXjxdpnnksmqJY6ePM868BxKqto6WQvdvPyUUsr5n5pHFxK6i3haYxopbsdi7C2lA/8A0yl/4mj5LFs7C19G/LhtM0jURN+iydR6LsG2NxXM7Hc7i3w9VYqqpCXTgctVarIajx4uwhVjTlc9vJytFX1LCyoBG52nnw/zvQFTj8WejZI0C8bxx4HT0WdlFwtvNRtqKaSKR3baRpw5LGPjcxzo5G2ewlrhyIWvp5cUZc0ebFCNV2wXK9c2xTOGRZ66K98rTmPlqtMnSspSt0aTC6ZtFSgEe1fq89/LyTm070ntDyKNoeRXmSbbtm9KlRPUsbUxbN0j2tJ1ykC/cVXvwWB971dXrye0f+UztDyK92h5FdjOUdHHFPZXHo1QONzNUk972+iRxfAqOioH1EMkxe0gAOcLanwV/tDyKrcfffC3j9zfqrseWbklZXPHFRboyQ3qeIaqJoumoWLezITxsLsrGi5cQ0ea1xAa0NG4CwVDgsBlrRIR1IRmv+7h6+S0D7HevPzyuVGrCqVk+HNJeXKzStFHkiBO86ppUF4Jeqi2kZ5pheHUIBKKQvZr2hoR3qk6QUJD/wAZELjdKB8nfb4K6qIzE/aMuQe0OYXmZr28HNI+KlGTi7RGUVJUYosBFwuSzuVviWGOpSZqdpdDvLBqWeoVWZWW6oJW2E1JGOUXHZ41o5KKpqmwtLWWc/6LiaWRwsOqO5KlhVqS9kbZATcknUneUKXIjIp8HLZHZehqlEd1KyJOELOI47lNRsJIa0EucbADivI2EuDGNLnk2AG8rQ4bhopRtZrGYjcNQzw9VRlyqKLIQcmMUFKKOlEe951eeZTkLDLKBwGpUYBcQGjUqzpYNkzXeVgbvlmxKuCZoyiwXSELh0EIQgOXNDhYpCeF0Li5gu06kKxXhAI1QFfEWuFyb9yRr8DpKsmSM7CU7y0dU+IVnNSXOaM5XJYukjNpGkd4XU2tHGk9mYqcEr6c6RCZvOI3+W9V0jDG7LIxzHcWuFiFumzcjdd7UOFiAR3q5Z5IqeFPR8/s3uR1VvTT0bzd1LAT3sC7jhpY9WU8TD+1oCn8h/hHwf0wkNPLMbQwyP5lrbgeasqXAqmWxnc2BnK+Z3y0WqnI0I8Eu54BtfXlxVcs8mSWFLYrBRU9E20Lese092ripmhzjYC5UzIJJiNMrfmnoadkQ0GqqbstSojpaYMGZ2rimkL1cOghCEAIQhACEIQHi5cxrhqF2hAKyUUbjcaHmFCaJzey824KwQgK5tNK298rvEH7FAppz74HgFYoQCIo3O7b3Ect30U0dLHHuaEwhAeAAbl6hCAEIQgBCEID/9k= 
 " style="
 background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
@@ -914,10 +912,13 @@ font-weight: bold;
 </button>
 
 
+<button onclick="openApp(' xmtv://WwoiaHR0cHM6Ly9zaGxzLW1hc3ItZW5jLmVkZ2VuZXh0Y2RuLm5ldC9vdXQvdjEvYzA4NjgxZjgxNzc1NDk2YWI0YWZhMmJhYzdhZTc2MzgvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF8xMC5tM3U4fGNhc3Q9ZmFsc2V8bmFtZT0uU0QuIiwKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF81Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF8yLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIsCiJodHRwczovL3NobHMtbWFzci1lbmMuZWRnZW5leHRjZG4ubmV0OjQ0My9vdXQvdjEvYzA4NjgxZjgxNzc1NDk2YWI0YWZhMmJhYzdhZTc2MzgvaW5kZXhfMS5tM3U4fGNhc3Q9ZmFsc2V8bmFtZT0uLkhELi4iCgpd'   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
 
 
 
-<button onclick="openApp( 'xmtv://WwoiaHR0cHM6Ly9zaGxzLW1hc3ItZW5jLmVkZ2VuZXh0Y2RuLm5ldC9vdXQvdjEvYzA4NjgxZjgxNzc1NDk2YWI0YWZhMmJhYzdhZTc2MzgvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF8xMC5tM3U4fGNhc3Q9ZmFsc2V8bmFtZT0uU0QuIiwKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF81Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoKImh0dHBzOi8vc2hscy1tYXNyLWVuYy5lZGdlbmV4dGNkbi5uZXQ6NDQzL291dC92MS9jMDg2ODFmODE3NzU0OTZhYjRhZmEyYmFjN2FlNzYzOC9pbmRleF8yLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIsCiJodHRwczovL3NobHMtbWFzci1lbmMuZWRnZW5leHRjZG4ubmV0OjQ0My9vdXQvdjEvYzA4NjgxZjgxNzc1NDk2YWI0YWZhMmJhYzdhZTc2MzgvaW5kZXhfMS5tM3U4fGNhc3Q9ZmFsc2V8bmFtZT0uLkhELi4iCgpd '   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+
+
+
 <img src=" data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCACNAI0DASIAAhEBAxEB/8QAGwABAQEAAwEBAAAAAAAAAAAAAAQDAQIFBgf/xAAwEAEAAQIDBQYFBQEAAAAAAAAAAQIDBBEzEhMxUXEFIUFTkaEUFSI0UjJCYWKB4f/EABcBAQEBAQAAAAAAAAAAAAAAAAADBAL/xAAhEQEAAgIBAwUAAAAAAAAAAAAAAQIDEVEEEyESFDEyQf/aAAwDAQACEQMRAD8A/QAAAABwA5AAAAAAAAAAAB5Hal3FUXJnD3ZjZjvpy4vK+bY3zp9Hr437mrpDy8ZhNvO7aj6/GnmtjtHxLPmpb7Vl0+bY3zp9D5tjfOn0RC/prwx9y3L18B2zcpu7OKq2qKv3cn0FNUVUxNMxMTwmHxD0+yu1Jw1UWr052pnjP7UsmP8AYXxZteLPpXLrTVFVMTTMTE+MOWdtcgA6XJmmiZjin31fP2b3tKrokBpvq+fsb6vn7MwGm+r5+xvq+fszAab6vn7N7NU1UZzxSKsPpggx33NXSE6jHfc1dITgjxmE3md21H1+NPN53q91TRbtzREzbpmei1cuo1LNk6eLTuPD5kzfUbq35dHobq35dHo670cOPazy8nsntScLVFm9MzZnhP4/8fS01RVTFVM5xPCYQbq35dHossREWoiIiI/hK9otO4hox0msamdtHIOFGd7Sq6JFd7Sq6JAAAAAFWH00qrD6YIMd9zV0hOqx9OV+J5wlA8FdvThJ4K7enAOwACuxpQkV2NKAaAAzvaVXRIrvaVXRIAAAAAqw+mlVYfTB1xVnfW+79Ud8PLmJicp7ph7aPF4Xb+uiPq8Y5g8/wV29OEk92cSqtTnbjIHcABrRemmmIyzZANviJ/GD4ifxhiA1rvTVTMZR3sgAAAAAVYfTSqsPpg1cOQE9/C0Xe/8ATVzSxYu2ZmJp2qZ8Y8HpOAQmU8l2UGUcgQ5TykynlK7KDKAQ5Tyk/wAldlHIyjkCH/BXe06uiQAAAABVh9NKqsacA1AAAAAAAAABne0quiRXe0quiQAAAAHMRtVRELaYyjKGVm1sxtVcWwAAAAAAAAAAM72lV0SLa6dqmY4Zsfhv7AwG/wAN/ZzGHiOMzIJ4iZnKIzUWrOzlVVxaU0U0R3Q7gAAAAAAAAAAAAAAAAAAAA//Z "  
 
 style="
@@ -958,9 +959,11 @@ font-weight: bold;
 "><p><p><span class="colorاسود">mb<span class="colorاسود">c <span class="colorاحمر"> 4</span><span class="colorاحمر">ort</span></p></h2></h2>
 </button>
 
+<button onclick="openApp(' xmtv://WwoiaHR0cHM6Ly9zaGxzLW1iYzUtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvMjcyMDU2NGI2YTQ2NDE2NThmZGZiNjg4NGIxNjBkYTIvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1tYmM1LXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS8yNzIwNTY0YjZhNDY0MTY1OGZkZmI2ODg0YjE2MGRhMi9pbmRleF85Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1tYmM1LXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS8yNzIwNTY0YjZhNDY0MTY1OGZkZmI2ODg0YjE2MGRhMi9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLW1iYzUtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxLzI3MjA1NjRiNmE0NjQxNjU4ZmRmYjY4ODRiMTYwZGEyL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLW1iYzUtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxLzI3MjA1NjRiNmE0NjQxNjU4ZmRmYjY4ODRiMTYwZGEyL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1tYmM1LXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS8yNzIwNTY0YjZhNDY0MTY1OGZkZmI2ODg0YjE2MGRhMi9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0='   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
 
 
-<button onclick="openApp( 'xmtv://WwoiaHR0cHM6Ly9zaGxzLW1iYzUtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvMjcyMDU2NGI2YTQ2NDE2NThmZGZiNjg4NGIxNjBkYTIvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1tYmM1LXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS8yNzIwNTY0YjZhNDY0MTY1OGZkZmI2ODg0YjE2MGRhMi9pbmRleF85Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1tYmM1LXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS8yNzIwNTY0YjZhNDY0MTY1OGZkZmI2ODg0YjE2MGRhMi9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLW1iYzUtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxLzI3MjA1NjRiNmE0NjQxNjU4ZmRmYjY4ODRiMTYwZGEyL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLW1iYzUtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxLzI3MjA1NjRiNmE0NjQxNjU4ZmRmYjY4ODRiMTYwZGEyL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1tYmM1LXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS8yNzIwNTY0YjZhNDY0MTY1OGZkZmI2ODg0YjE2MGRhMi9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0= ','https://play.google.com/store/apps/details?id=com.xpola.player')">
+
+
 <img src="   data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCkbGBYWGDIkJh4pOzQ+PTo0OThBSV5QQUVZRjg5Um9TWWFkaWppP09ze3Jmel5naWX/2wBDARESEhgVGDAbGzBlQzlDZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWX/wAARCACEAIQDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAEEAwUGAgf/xAA3EAACAgECAwQHBgYDAAAAAAAAAQIDBAUREiExE0FRcQYiMkNhgZEVIzNCcsEURFJUYqGCsfD/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAgMEBQEG/8QAKxEAAgEDAwMDAgcAAAAAAAAAAAECAwQREiExMkFREyJhBUMUI0JxgZHB/9oADAMBAAIRAxEAPwD6AAAAQSQADzKcY9ZJebNFreXbHLVVVkoxUeaT25mqlOU/anKXm9zTC3clnJgq3yhJxS4Otnm40PavrT8OJGCzV8OHvOL9K3OX+ROxaraPdmd383wje2a9Uvw6py8+RXnr1z9iqEfPmarYFioQXYpld1n3Llmq5s/e8P6UTgq/NzIRnZZKKe8vWe2xSOk0bE/h8Xjktp2c35dxGq4047Ilbqdap7nsjYroSQiTnnbAAAAAAAAABD6A82zUKpyfSKbB43hHKajZ2ufdLflxbIrhycpOT6t7lvS8dZGdCMlvCPrST7zq5UI/sfO4dSpt3ZUW76Lc9woun7NU35ROuhTXD2a4ryR72MzuvCOgvp/mRykdPzJdMefz5GSOkZ0vcpeckdRsCH4mRYrCn3bOfo0O/tIu5wUE92k92zoF0AKZ1JT5NNKjCksRJABAuAAAAAAAAAIKerWdnp1z8Vt9S4ar0gnw4cIr80/2ZOmszSKa8tNOTOfN76PU7VW3P8z2XyNEk5NJLm+SOqx50YeNXXO2EeGPPd95suG1HC7nLsorXqfYtklN6phL+Yh8gtUw37+K8zFol4Ot6sPJbJMNeRTb+HbGXkzLuRawTTT4JBBIPQAAAAAAAAAAACDQ+kNm9tVXgm2b5nL6xZ2mo2eEUol9uszMV9LFLHkpDq93zYI3OicUE7EEgBbxe6bT+Bbx9Sysf2bOKPhPmUySLipckozlDpZ0WDrFV+0Lkq7H9GbM4pm30rVZRnCjIe8W9oyfd5mSrQxvE6dveZemp/ZviSNwZDpEgAAAAAAAAgoWaRi22SsmpuUnu/WNgCUZOPDITpxn1LJRhpOFH3Cf6m2Zo4eNFerTBf8AEsAOUnywqcFwkYXi0PrVB/IwWaVhWdaEn/i2i6QFKS4YdOD5RoMzRJwTnjSc1/Q+pqWmm01s0+afcdqanWdPVtbvqilZHnJJe0jTSrvOJHPuLNJaoHPk9xBJtOWdHo2a8mhwse9lfJ/FeJsjldKudOoVPum+F/M6pHNrw0y2O5aVXUp78okAFJrAAAAAAAAAAAAAIABJDW62YABx+VDssu2C5KM2l5GI2mp4ORZn2TqplKMtnuvEqfZ2Z/bzOnCpHSss+fqUZqbSRXjLgnGS6xe52NU+0rjNfmSZy32dmf28zpMGM44dUbE1JR2aZnuWmk0bbBSi2miwSQSZDpgAAAAAAgMqZOfXiNdtCai+kkt0z1Jt4RGUlFZZbBWty4V46v4ZTra34oroiMfOqyapTpUpcL2cejPdLxk89SOcZLTK8s7GhPhndGEvCT2MePqNGRc6Y8UbF3SRqvSBp5Vce/g5/Vk4U8y0spq19MNcdzoE91uiShDUsSqqCdj2SS3UW19di5VbC6CnXNSi+9EHFoujOMuGewYsjIqxocd01BfEq1anC9vsabbIrq1EKLayhKpGLw3uXweKrY2x3SktuqkmmeyJNPIJAAAAAAAAINN6Ry+6pj8Wzcmh9IHxZFEPh+5bR60Zbt4pMuZX3WiNeFaRh9HY7Y9svGf7GbWXwaW4+Lijzoq4NMlJ97bJ/bfyyv76+EVNKXaavdPw3/7Met+vqkIf4xX+2ZtAjxZF9n/up71HFnZqMbqkp8HC5QT5lmUqv8FGlyt9vJtVVBUqpxjw7bbbcjTaZJ4urXYy37Nt7fDbobm26FNLssfDFLnuaXSYSydTuytvUTb+vT/RTT6ZN8GmtjXBR5/wwXueoat2UpPh43FfBI6OquNVahCKjFdEjm5t4GsOdkXspuXmmdLXZCyCnCSlF9GiVfhY4I2mHKWrqyegN0+j6Azm4kAAAAAAAAEM1mq4ld067JOSkuW6YBZS6ii4WabPVlay8BwulJ7S5Po+R502tVxljqUnW03s+4As/QzOuuL+DDjULCyJKmckm9mns0W9RxYWx7XeULILlKD2YAl1oQX5LNLVCWXkKu+6yUU++R0ePRXj1RrqjtFIAlcbJIhZbttmPMxKcqva2O7XRrqjUUYqrv4K7rYxb5pSAPKL9rJXSSmmjd41MKa+GCfi23u2ZQDO+TdDpRIAPCQAAB//2Q== "  
 
 style="
@@ -1044,7 +1047,9 @@ font-weight: bold;
 "><p><p><span class="colorوردي">mbc  <span class="colorاسود">drama<span class="colorاحمر"></span><span class="colorاحمر"></span></p></h2></h2>
 </button>
 
-<button onclick="openApp( 'xmtv://WwoaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvYzliZjFlODdlYTY2NDc4YmIyMGJjNWM5M2M5ZDQxZWEvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF83Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0= '   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+<button onclick="openApp(' xmtv://WwoaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvYzliZjFlODdlYTY2NDc4YmIyMGJjNWM5M2M5ZDQxZWEvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF83Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0='   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
+
+
 <img src="  data:image/jpeg;base64,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  " 
 
  style="
@@ -1086,10 +1091,10 @@ font-weight: bold;
 </button>
   
 
+<button onclick="openApp(' xmtv://WwoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvYzliZjFlODdlYTY2NDc4YmIyMGJjNWM5M2M5ZDQxZWEvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF83Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0='   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
 
 
 
-<button onclick="openApp( 'xmtv://WwoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldC9vdXQvdjEvYzliZjFlODdlYTY2NDc4YmIyMGJjNWM5M2M5ZDQxZWEvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li53YWNlbCB0di4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF84Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5MT1cuIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF83Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS5TRC4iLAoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzUubTN1OHxjYXN0PWZhbHNlfG5hbWU9LlNELiIsCgoiaHR0cHM6Ly9zaGxzLWlyYXEtcHJvZC1kdWIuc2hhaGlkLm5ldDo0NDMvb3V0L3YxL2M5YmYxZTg3ZWE2NjQ3OGJiMjBiYzVjOTNjOWQ0MWVhL2luZGV4XzIubTN1OHxjYXN0PWZhbHNlfG5hbWU9Li5IRC4uIiwKImh0dHBzOi8vc2hscy1pcmFxLXByb2QtZHViLnNoYWhpZC5uZXQ6NDQzL291dC92MS9jOWJmMWU4N2VhNjY0NzhiYjIwYmM1YzkzYzlkNDFlYS9pbmRleF8xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4uSEQuLiIKCl0= '   , 'https://play.google.com/store/apps/details?id=com.xpola.player')">
 <img src=" data:image/jpeg;base64,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  "  
 
 style="
@@ -1221,15 +1226,13 @@ font-weight: bold;
 <!-- مربع الحوار المخصص -->
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <p style="margin-left: 10%;max-width: 80%; margin-top: 5%;font-size: 38px; color: #fff;padding: 7px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
-border-bottom: 2px groove  #fff; 
-    border-top: 2px   groove  #fff; 
-border-left: 2px ridge #fff;
-border-right: 2px groove #fff; border-radius: 39px 39px 39px 39px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
+    	<br><br><br>
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>لمشاهدة القنوات يجب عليك  أولاً  تثبيت تطبيق المشغل . اضغط نعم للذهاب إلى  تحميل المشغل</p>
         <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
-       <br><br>
-        <input type="button" id="confirmInstallButton" class="modal-button" value="تحميل مشغل القنوات" />
-        <input type="button" id="cancelInstallButton" class="cancel-button" value="الغاء التحميل" />
+        <br><br>
+        <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
+        <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
     </div>
 </div>
 
