@@ -1,166 +1,180 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>موقعنا الرسمي</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-body {
-    background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin-top: 50px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open URL Video in xPola Player</title>
+    <meta name="description" content="Experience seamless video playback with Xpola Player. Our page allows you to effortlessly play video URLs, offering high-quality streaming with minimal buffering. Perfect for viewers seeking an optimized watching experience. Click to enjoy your favorite videos now.">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
+	<meta property="og:image" content="content://com.android.chrome.FileProvider/images/screenshot/17254948166664973826245442293285.png"/>
+	
 
-h1 {
-    color: #0056b3;
-    font-size: 40px;
-    border-bottom: 3px groove  #fff; 
-    border-top: 3px   groove  #fff; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-box-shadow: 0 0px 10px  rgba(0, 0, 0, 10);
+<style> 
+    body { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        height: 100vh; 
+        margin: 0; 
+        background-color: #fff;
+        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+   /**  تغير  خلفيه التطبيق **/
 
-}
+        background-size: cover;
+        background-repeat: no-repeat; 
+        background-position: center; 
+    } 
+    .play-button { 
+        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+   /**  تغير  خلفيه التطبيق **/
 
-p {
-    color: #0056b3;
-    font-size: 60px;
-    margin-bottom: 30px;
-    border-bottom: 3px groove  #fff; 
-    border-top: 3px   groove  #fff; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-}
+        color: #fff; 
+        border: 2px solid #dff; /* إضافة حدود */
+        padding: 10px; 
+        font-size: 20px; 
+        cursor: pointer; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        position: relative; 
+        transition: background-color 0.3s; /* تأثير عند التمرير */
+    } 
+    .play-button:hover { 
+        background-color: #fff; /* تغيير اللون عند التمرير */
+        color: #FF00D4; /* تغيير لون النص عند التمرير */
+    } 
+    .message-box { 
+        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+/* لون خلفية الرسالة */
+        border-bottom: 1px groove     #fff;);
+  border-top: 1px groove   #fff;);
+border-left: 1px ridge #fff;
+border-right: 1px ridge   #fff;
+border-radius: 25px 25px 25px 25px;; 
+        padding: 20px; 
+        text-align: center; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        width: 300px; 
+        z-index: 1000; 
+    } 
+    .message-box p { 
+        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+color: #fff; 
+        text-align: center;
+font-weight: bold;
 
+padding: 6px 12px; 
+border-bottom: 1px groove     #fff;);
+  border-top: 1px groove   #fff;);
+border-left: 1px ridge #fff;
+border-right: 1px ridge   #fff;
+border-radius: 25px 25px 25px 25px;; 
+    } 
+    .message-box .actions { 
+        margin-top: 2px; 
+    } 
+    .message-box button { 
+        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
 
-
-.button {
-    display: inline-block;
-    padding: 10px 50px;
-    margin: 10px;
-    background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-    
-    color: #0004FF;
-    font-weight: bold;
-    border-bottom: 13px groove  #0026FF; 
-    border-top: 13px   groove  #FF0040; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-box-shadow: 0 5px 20px  rgba(250, 0, 0, 10);
-
-    text-decoration: none;
-    font-size: 80px;
-    border-radius: 5px;
-    transition: background-color 10.3s;
-}
-
-.button2 {
-    display: inline-block;
-    padding: 10px 50px;
-    margin: 10px;
-  background-image: linear-gradient(to right, #9C9689, #DED8CC, #F3EDEA, #FDFDFC, #fff, #fff, #fff,#fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff,#fff, #fff, #fff, #fff, #fff, #FDFDFC, #F3EDEA, #DED8CC, #9C9689);box-shadow: 0 5px 10px  rgba(235, 177, 6, 50);
-    color: #FF1300;
-    font-weight: bold;
-    border-top: 15px groove  #F2B91A;
-border-left:0px ridge  #6D42B8;
-border-right:0px groove  #6D42B8;
-border-bottom: 15px groove  #F2B91A;
-border-radius: 30px 30px 30px 30px;
-
-    text-decoration: none;
-    font-size: 60px;
-    border-radius: 5px;
-    transition: background-color 10.3s;
-}
-
-.button:hover {
-    background-color: #c00c12;
-}
-
-.social-icons {
-    list-style: none;
-    padding: 0;
-}
-
-.social-icons li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.social-icons a {
-    display: block;
-    width: 50px;
-    height: 50px;
-    line-height: 0;
-    color: #fff;
-    font-size: 30px;
-   
-    
-    border-radius: 50%;
-   
-}
-
-.facebook {
-    background-color: #3b5998;
-}
-
-.twitter {
-    background-color: #1da1f2;
-}
-
-.instagram {
-    background: linear-gradient(to right, #405de6, #5851db, #833ab4, #c13584, #e1306c);
-}
-
-.youtube {
-    background-color: #ff0000;
-}
-
+        border-bottom: 1px groove     #fff;);
+  border-top: 1px groove   #fff;);
+border-left: 1px ridge #fff;
+border-right: 1px ridge   #fff;
+border-radius: 25px 25px 25px 25px;; 
+        color: #fff; 
+        font-size: 16px; 
+        margin: 10 10px; 
+        padding: 6px 12px; 
+        cursor: pointer; 
+        border-radius: 5px; /* زوايا مدورة */
+        transition: background-color 0.3s; /* تأثير عند التمرير */
+    } 
+    .message-box button:hover { 
+        background-color: #FF0059; /* تغيير اللون عند التمرير */
+        color: #7600FF; /* تغيير لون النص عند التمرير */
+        text-decoration: underline; 
+    } 
+    .message-box .checkbox-container { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        margin-top: 20px; 
+    } 
+    .message-box .checkbox-container input { 
+        margin-right: 10px; 
+    } 
+    label { 
+        color: #fff; 
+    } 
+    .message-box p { 
+        text-align: right; 
+    } 
+    .message-box { 
+        direction: rtl; 
+    }
 </style>
+
 </head>
 <body>
-	
-	<img src="data:image/png;base64,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" style="      
-      display: flex;
-      flex-direction: column;
-color: #000;
-      top: 0px;
-     margin-left: 7%;
-      width: 80%;
-      height: 60%;
-      padding: 10px 20px;
-      margin-bottom: 100px;
-      background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-box-shadow: 0 5px 15px  rgba(0, 0, 0, 10);
-border-bottom: 3px groove   #000;
-  border-top: 3px groove rgba(0, 0, 0, 1);
-border-left: 0px ridge rgb(255 0 0 / 100%);
-border-right: 0px ridge   #000;
-border-radius: 25px 25px 25px 25px;
-"><div class="middle">
 
-<h1>افضل موقع لمشاهدة القنوات العربية والاجنبية المشفرة مجانا</h1>
-
-
-<div class="note">
-    <p>يرجى تنزيل مشغل الفيديو لتشغيل القنوات بشكل صحيح.</p>
+<div class="message-box" id="message-box">
+    <p>لتشغيل هذا الفيديو، تحتاج إلى مشغل XPola. يرجى التأكيد إذا كنت قد قمت بتثبيته بالفعل أو تحميله من متجر Google Play.</p>
+    <div class="checkbox-container">
+        
+    <div class="actions">
+        
+        <button onclick="acceptAction()">تحميل من Google Play</button>
+        <br><br>
+        <button onclick="cancelAction()"> الدخول الي التطبيق  بعد تحميل المشغل </button>
+    </div>
+    
 </div>
+<br>
+<input type="checkbox" id="dont-show" name="dont-show">
+        <label for="dont-show">لا تظهر هذه الرسالة مرة أخرى</label>
+    </div>
+<button onClick="redirectToXPola()" class="play-button">
+<svg fill="#000000" height="80px" width="80px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve">
+    <g>
+        <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path>
+        <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path>
+    </g>
+</svg>
+</button>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (localStorage.getItem("dontShowMessage") === "true") {
+            document.getElementById("message-box").style.display = "none";
+        }
+    });
 
-<a class="button2" href="https://play.google.com/store/apps/details?id=com.xpola.player">اضغط هنا لتحميل مشغل القنوات</a>
-<br><br>
-<a class="button" href="https://wacelalorshe.github.io/bein/Home.html">   اضغط هنا للدخول للموقع</a>
-<br><br>
+    function cancelAction() {
+        handleDontShowCheckbox();
+        redirectToXPola();
+    }
 
-<ul class="social-icons">
-    <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-    <li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
-    <li><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
-    
-    
-</ul>
+    function acceptAction() {
+        handleDontShowCheckbox();
+        alert(" اضغط حسنا لتحميل المشغل      ");
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.xpola.player';
+    }
 
+    function handleDontShowCheckbox() {
+        const dontShow = document.getElementById("dont-show").checked;
+        if (dontShow) {
+            localStorage.setItem("dontShowMessage", "true");
+        }
+    }
+
+    function redirectToXPola() {
+        window.location.href = 'go:00';
+    }
+</script>
+ 
 </body>
 </html>
