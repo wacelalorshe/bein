@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,10 @@
     <title>Open URL Video in xPola Player</title>
     <meta name="description" content="Experience seamless video playback with Xpola Player. Our page allows you to effortlessly play video URLs, offering high-quality streaming with minimal buffering. Perfect for viewers seeking an optimized watching experience. Click to enjoy your favorite videos now.">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
-	<meta property="og:image" content="content://com.android.chrome.FileProvider/images/screenshot/17254948166664973826245442293285.png"/>
-	
-
-<style> 
-    body { 
+    <meta property="og:image" content="content://com.android.chrome.FileProvider/images/screenshot/17254948166664973826245442293285.png"/>
+    
+    <style> 
+        body { 
         display: flex; 
         align-items: center; 
         justify-content: center; 
@@ -24,14 +24,13 @@
         background-repeat: no-repeat; 
         background-position: center; 
     } 
-    .play-button { 
-        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
-   /**  تغير  خلفيه التطبيق **/
-
+         .play-button { 
+        background:  rgba(255, 255, 255, 0.2);
         color: #fff; 
         border: 2px solid #dff; /* إضافة حدود */
         padding: 10px; 
         font-size: 20px; 
+        font-weight: bold; font-family: Arial, sans-serif;
         cursor: pointer; 
         border-radius: 50%; 
         display: flex; 
@@ -44,9 +43,16 @@
         background-color: #fff; /* تغيير اللون عند التمرير */
         color: #FF00D4; /* تغيير لون النص عند التمرير */
     } 
-    .message-box { 
-        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+        .play-button:hover { 
+            background-color: #FFEE00; 
+            color: #FF000C; 
+        } 
+        .message-box { 
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
 /* لون خلفية الرسالة */
+box-shadow: 0 0px 40px 
+ rgba(255, 255, 255, 100);
+justify-content: center; 
         border-bottom: 1px groove     #fff;);
   border-top: 1px groove   #fff;);
 border-left: 1px ridge #fff;
@@ -60,90 +66,112 @@ border-radius: 25px 25px 25px 25px;;
         transform: translate(-50%, -50%); 
         width: 300px; 
         z-index: 1000; 
-    } 
-    .message-box p { 
-        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+        border-bottom: 1px groove  #fff; 
+    border-top: 1px   ridge  #fff; 
+border-left: 1px ridge #fff;
+border-right: 1px groove #fff; border-radius: 12px 12px 12px 12px;
+        
+        } 
+        .message-box p { 
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
 color: #fff; 
+
         text-align: center;
 font-weight: bold;
-
-padding: 6px 12px; 
-border-bottom: 1px groove     #fff;);
-  border-top: 1px groove   #fff;);
-border-left: 1px ridge #fff;
-border-right: 1px ridge   #fff;
-border-radius: 25px 25px 25px 25px;; 
-    } 
-    .message-box .actions { 
-        margin-top: 2px; 
-    } 
-    .message-box button { 
-        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
-
-        border-bottom: 1px groove     #fff;);
-  border-top: 1px groove   #fff;);
-border-left: 1px ridge #fff;
-border-right: 1px ridge   #fff;
-border-radius: 25px 25px 25px 25px;; 
-        color: #fff; 
-        font-size: 16px; 
-        margin: 10 10px; 
-        padding: 6px 12px; 
-        cursor: pointer; 
-        border-radius: 5px; /* زوايا مدورة */
-        transition: background-color 0.3s; /* تأثير عند التمرير */
-    } 
-    .message-box button:hover { 
-        background-color: #FF0059; /* تغيير اللون عند التمرير */
-        color: #7600FF; /* تغيير لون النص عند التمرير */
-        text-decoration: underline; 
-    } 
-    .message-box .checkbox-container { 
-        display: flex; 
-        align-items: center; 
+align-items: center; 
         justify-content: center; 
-        margin-top: 20px; 
-    } 
-    .message-box .checkbox-container input { 
-        margin-right: 10px; 
-    } 
-    label { 
-        color: #fff; 
-    } 
-    .message-box p { 
-        text-align: right; 
-    } 
-    .message-box { 
-        direction: rtl; 
-    }
-</style>
+padding: 8px 90px; 
+border-bottom: 1px groove     #FF0030;
+  border-top: 1px groove   #00FFD5;);
+border-left: 1px ridge #FFF600;
+border-right: 1px ridge   #9BFF00;
+border-radius: 6px 6px 6px 6px;;
+        } 
+        .message-box .actions { 
+            margin-top: 20px; 
+        } 
+        .message-box button { 
+            background:  rgba(0, 0, 0, 5.5);
+            border-bottom: 3px inset      #fff;
+  border-top: 3px outset     #fff;
+border-left: 0px groove #FFFFFF;
+border-right: 0px ridge   #FFFFFF; 
+font-weight: bold; 
+font-family: Arial, sans-serif;
+            border-radius: 5px; 
+            justify-content: center; 
+            align-items: center; 
+        justify-content: center; 
+        text-align: center;
+            color: #fff;
+             border-radius: 12px 12px 12px 12px;
+box-shadow: 0 0px 10px  rgba(255, 255, 255, 100);
+            font-size: 18px; 
+            margin: 5px; 
+            padding: 8px 12px; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        } 
+        .message-box button:hover { 
+            background-color: #fff; 
+            color: #000; 
+            text-decoration: underline; 
+            
+            border-bottom: 3px groove  #000; 
+    border-top: 3px   ridge  #000; 
+ border-radius: 12px 12px 12px 12px;
+
+        } 
+        .message-box .checkbox-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            margin-top: 20px; 
+        } 
+        .message-box .checkbox-container input { 
+            margin-right: 10px; 
+        } 
+        label { 
+            color: #fff; 
+        } 
+        .message-box p { 
+            text-align: right; 
+        } 
+        .message-box { 
+            direction: rtl; 
+        }
+    </style>
 
 </head>
 <body>
 
 <div class="message-box" id="message-box">
-    <p>لتشغيل قنوات هذا التطبيق ، تحتاج إلى مشغل القنوات الخاص بالتطبيق . يرجى التأكـد  مـن تثبيتة قبل الدخول الي التطبيق   أو قم بـتحميله من متجر Google Play</p>
+    <p style="margin-left: 0%;max-width: 100%; margin-top: 0%;font-size: 18px; color: #fff;padding: 17px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 5, 3, 0.65); /* خلفية مظلمة مع شفافية */
+border-bottom: 1px groove  #fff; 
+    border-top: 1px   ridge  #fff; 
+border-left: 9px double rgba(255, 255, 255, 0.6);
+border-right: 9px double  rgba(255, 255, 255, 0.6);
+; border-radius: 12px 12px 12px 12px; "> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
     <div class="checkbox-container">
-        
-    <div class="actions">
-        
-        <button onclick="acceptAction()">تحميل من Google Play</button>
-        <br><br>
-        <button onclick="cancelAction()"> الدخول الي التطبيق  بعد تحميل المشغل </button>
+        <div class="actions">
+            <button onclick="acceptAction()">تحميل من Google Play</button>
+            <br><br>
+            <button onclick="cancelAction()"> الدخول الي التطبيق  بعد تحميل المشغل </button>
+        </div>
     </div>
-    
+    <br>
+    <input type="checkbox" id="dont-show" name="dont-show">
+    <label for="dont-show">لا تظهر هذه الرسالة مرة أخرى</label>
 </div>
-<br>
-<input type="checkbox" id="dont-show" name="dont-show">
-        <label for="dont-show">لا تظهر هذه الرسالة مرة أخرى</label>
-    </div>
+
 <button onClick="redirectToXPola()" class="play-button">
-<svg fill="#000000" height="80px" width="80px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve">
-    <g>
-        <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path>
-        <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path>
-    </g>
-</svg>
+    <svg fill="#000000" height="80px" width="80px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve">
+        <g>
+            <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path>
+            <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path>
+        </g>
+    </svg>
 </button>
 
 <script>
@@ -155,12 +183,12 @@ border-radius: 25px 25px 25px 25px;;
 
     function cancelAction() {
         handleDontShowCheckbox();
-        redirectToXPola();
+        // تغيير الرابط هنا إلى رابط التطبيق
+        window.location.href = 'https://wacelalorshe.github.io/bein/Home.html'; // رابط التطبيق
     }
 
     function acceptAction() {
         handleDontShowCheckbox();
-        alert(" اضغط حسنا لتحميل المشغل      ");
         window.location.href = 'https://play.google.com/store/apps/details?id=com.xpola.player';
     }
 
