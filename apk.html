@@ -1,82 +1,147 @@
+يمكنك وضع الروابط في الأزرار عن طريق استخدام خاصية `onclick` في الأزرار. على الرغم من أنه لا يمكن استخدام JavaScript، يمكنك استخدام روابط مباشرة باستخدام عنصر `<a>`. إليك كيف يمكنك تعديل الأزرار لتضمين الروابط:
 
+```html
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فتح رابط في تطبيق</title>
+    <title>Open URL Video in xPola Player</title>
+    <meta name="description" content="Experience seamless video playback with Xpola Player. Our page allows you to effortlessly play video URLs, offering high-quality streaming with minimal buffering. Perfect for viewers seeking an optimized watching experience. Click to enjoy your favorite videos now.">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
 
-    <!----------  اكواد استايل القنوات  ------------>
-    <style type="text/css">
-        .grid-container {
-            display: grid;
-            justify-content: center;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 5px 5px;
-            padding: 0px;
-        }
-        .grid1-container {
-            display: grid;
-            justify-content: center;
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 10px;
-            color: green;
-            padding: 0px;
-        }
+    <style> 
+        body { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        height: 100vh; 
+        margin: 0; 
+        background-color: #fff;
+        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+   /**  تغير  خلفيه التطبيق **/
 
-        button {
-            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
-            padding: 15px;
-            margin: 20px 10px;
-            height: 400px;
-            width: 265px;
-            border-bottom: 15px groove #fff;
-            border-top: 10px groove #fff;
-            border-radius: 55px;
-        }
+        background-size: cover;
+        background-repeat: no-repeat; 
+        background-position: center; 
+    } 
+    .play-button { 
+        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+   /**  تغير  خلفيه التطبيق **/
 
-        button:active {
-            border-left: 0px solid rgb(255 213 105 / 80%);
-            border-top: 15px double rgb(255 0 2 / 50%);
-            border-bottom: 10px groove rgb(255 219 97 / 100%);
-        }
-    </style>
+        color: #fff; 
+        border: 2px solid #dff; /* إضافة حدود */
+        padding: 10px; 
+        font-size: 20px; 
+        cursor: pointer; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        position: relative; 
+        transition: background-color 0.3s; /* تأثير عند التمرير */
+    } 
+    .play-button:hover { 
+        background-color: #fff; /* تغيير اللون عند التمرير */
+        color: #FF00D4; /* تغيير لون النص عند التمرير */
+    } 
+    
+    .message-box  { 
+        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+/* لون خلفية الرسالة */
+        border-bottom: 1px groove     #fff;);
+  border-top: 1px groove   #fff;);
+border-left: 1px ridge #fff;
+border-right: 1px ridge   #fff;
+border-radius: 25px 25px 25px 25px;; 
+        padding: 20px; 
+        text-align: center; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        width: 300px; 
+        z-index: 1000; 
+    } 
+        .play-button { 
+            background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+   /**  تغير  خلفيه التطبيق **/
+
+        color: #fff; 
+        border-left: 0px ridge #000;
+border-right: 0px groove #fff;
+border-radius: 51px 50px 50px 51px;
+        padding: 10px; 
+        font-size: 20px; 
+        cursor: pointer; 
+        border-radius: 5%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        position: relative; 
+        transition: background-color 0.3s; /* تأثير عند التمرير */
+            text-decoration: none; /* إزالة خط تحت الرابط */
+        } 
+        .play-button:hover { 
+            background-color: #fff; 
+            color: #FF00D4; 
+        } 
+        
+        .message-box p { 
+        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+color: #fff; 
+        text-align: center;
+font-weight: bold;
+
+padding: 6px 12px; 
+border-bottom: 1px groove     #fff;);
+  border-top: 1px groove   #fff;);
+border-left: 1px ridge #fff;
+border-right: 1px ridge   #fff;
+border-radius: 25px 25px 25px 25px;; 
+    } 
+        } 
+        label { 
+            color: #fff; 
+        } 
+        </style>
 
     <script>
-        function openApp(appUrl, downloadUrl) {
-            // محاولة فتح التطبيق
-            window.location.href = appUrl;
+        document.addEventListener("DOMContentLoaded", function() {
+            // تحقق مما إذا تم تحديد خيار "لا تظهر هذه الرسالة مرة أخرى"
+            if (localStorage.getItem("dontShowMessage") === "true") {
+                document.getElementById("message-box").style.display = "none";
+            }
 
-            // الانتظار قليلاً لمعرفة ما إذا تم فتح التطبيق
-            setTimeout(function() {
-                // إنشاء نافذة منبثقة مع زر للذهاب إلى رابط التحميل
-                const confirmation = confirm("يجب أولاً تثبيت التطبيق. هل ترغب في الذهاب إلى رابط التحميل؟");
-                if (confirmation) {
-                    window.open(downloadUrl, '_blank'); // فتح رابط التحميل في نافذة جديدة
+            // إضافة حدث تغيير لصندوق الاختيار
+            document.getElementById("dont-show").addEventListener("change", function() {
+                if (this.checked) {
+                    const userChoice = confirm("هل ترغب في عدم إظهار هذه الرسالة مرة أخرى؟");
+                    if (userChoice) {
+                        localStorage.setItem("dontShowMessage", "true");
+                        document.getElementById("message-box").style.display = "none";
+                    } else {
+                        this.checked = false; // إعادة تعيين صندوق الاختيار
+                    }
                 }
-            }, 2000); // الانتظار لمدة 2 ثانية
-        }
+            });
+        });
     </script>
 </head>
 <body>
 
-<header>
-    <div class="grid1-container">
-        <div align="center">
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly9saXZlYWtnci5hbGthc3NkaWdpdGFsLm5ldC9obHMvbGl2ZS8yMDk3MDM3L0Fsa2FzczR4aXV5dGdmZmljY24vbWFzdGVyLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0K', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
-                <img src="data:image/png;base64,..." alt="Icon 1" />
-                <h2>الكـاس 1</h2>
-            </button>
 
-            <button onclick="openApp('xmtv://WwoiaHR0cHM6Ly90ci1saXZlLXJvdXRlLmFkbS50Y29uLmhsaXQuaHZkcy50di9Db250ZW50L0NoYW5uZWwvQWJ1RGhhYmlTcG9ydHNDaGFubmVsMi9EQVNIL21hc3Rlci5tcGR8Y2FzdD1mYWxzZXxuYW1lPS4ud2FjZWwgdHYuLiIKCl0KCg==', 'https://play.google.com/store/apps/details?id=com.xpola.player')">
-                <img src="data:image/png;base64,..." alt="Icon 2" />
-                <h2>الكـاس 2</h2>
-            </button>
-        </div>
+
+<div class="message-box" id="message-box">
+    <p>لتشغيل قنوات هذا التطبيق ، تحتاج إلى مشغل القنوات الخاص بالتطبيق . يرجى التأكـد  مـن تثبيتة قبل الدخول الي التطبيق   أو قم بـتحميله من متجر Google Play</p>
+        <a href="https://play.google.com/store/apps/details?id=com.xpola.player" class="play-button">تحميل من Google Play</a>
+        <br><br>
+        <a href="https://wacelalorshe.github.io/bein/Home.html" class="play-button">الدخول إلى التطبيق بعد تحميل المشغل</a>
     </div>
-</header>
+    <br>
+    <input type="checkbox" id="dont-show" name="dont-show">
+    <label for="dont-show">لا تظهر هذه الرسالة مرة أخرى</label>
+</div>
 
 </body>
 </html>
-```
-
