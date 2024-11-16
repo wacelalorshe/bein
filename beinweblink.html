@@ -23,12 +23,14 @@
 
     
   .tab-layout {
+  	position: fixed;
+  display: flex;
     background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
 background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخل الحد */: 2px solid #fff; border-radius: 0px 0px 0px 0px; box-shadow: 0 4px 80px rgba(255, 255, 255, 0.9); 
       
-    overflow: auto;
-    white-space: nowrap;
-    position: fixed;
+    
+    
+    
     top: 11.1%;
     left: 0;
     width: 100%;
@@ -36,12 +38,11 @@ height: 7%;
       border-bottom: 1px solid   #000;
     border-top: 4px ridge   #000;
     z-index: 0;
-    display: flex;
-    flex-direction: row;
+    
+    
     justify-content: center;
     align-items: center;
-    touch-action: pan-y;
-    -webkit-overflow-scrolling: touch;
+    
     text-align: center;
    box-shadow: 0 1px 20px  rgba(255, 255, 255 , 0.2);
 
@@ -49,7 +50,7 @@ height: 7%;
 
 
      .tab {
-      display: inline-block;
+      
       color: #000;
 width: 100%;
       
@@ -74,8 +75,8 @@ text-decoration: none;
       
 font-weight: bold;
     
+height: 32px;
 
-line-height: 19px;
 font-size: 90%;
       margin: 2%;
       cursor: pointer;
@@ -84,33 +85,18 @@ font-size: 90%;
       flex-grow: 1;
     }
 
-    .tab::after {
-      content: "";
-      display: flex;
-      width: 0%;
-      height: 4px;
-      background-image: linear-gradient(to right, #7600FF, #00FFC4, #0010FF, #FF0F00);
-    
-  margin-bottom: -17px;
-      opacity: 0;
 
-    }
 
-    .tab.active::after {
-      opacity: 1;
-    }
     
 
     .content {
-      margin-top: 100px;
+      margin-top: 95px;
       padding: 0px;
       
     }
     
 
-    .content > div {
-      scroll-snap-align: start;
-    }
+    
 
     
 
