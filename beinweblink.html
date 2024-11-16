@@ -160,6 +160,9 @@ border-bottom: 10px groove rgb(255 219 97 / 100%);
 
 
 header {
+	
+	position: fixed;
+	
 /**  تغير الون خلفيه اللوجو   **/
     color: #3545FF;
     font-size: 0.2rem;
@@ -169,25 +172,19 @@ header {
 /**  تغير الون خلفيه اللوجو   **/
 
  
-   font-size: 0.20rem;
+   
     
     
 
 /**  تغير الون خلفيه اللوجو   **/
 
  
-   padding: 4px;
-    margin-block-start: 0em;
-    margin-block-end: 10em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    border-bottom: 2px solid #000;
+   
     
-padding: 4px;
 
 margin-bottom: 0px;
-position: fixed;
-font-size: 10px;
+
+
 top:0;
 height:11%;
 width: 100%;
@@ -202,199 +199,14 @@ width: 100%;
 
     
 
-.telegram-button {
-position: absolute;
-      top: 35%;
-      right: -53px;
-      z-index: 999;
-      color: #fff;
-      width: 33%;
-      height: 33%;
-      border-radius: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
 
-    }
-
- .menu-button {
-      position: absolute;
-      top: 35%;
-      left: -53px;
-      z-index: 999;
-      color: #fff;
-      width: 33%;
-      height: 33%;
-      border-radius: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-
-    }
-
-    #sidebar {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-color: #000;
-      top: 320px;
-      left: -100%;
-      width: 60%;
-      height: 60%;
-      background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E8ECFF, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-box-shadow: 0 5px 15px  rgba(146, 86, 255, 10);
-border-bottom: 10px groove   #000;
-  border-top: 10px groove rgba(0, 0, 0, 100);
-border-left: 0px ridge rgb(255 0 0 / 100%);
-border-right: 3px ridge   #000;
-border-radius: 25px 25px 25px 25px;
-
-    }
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-font-size: 20px;
-    }
-    .hidden {
-    display: none;
-}
-
-
-.sidebar-item:not(:first-child) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-font-size: 20px;
-    margin-bottom: 50px; /* تباعد العناصر عن بعض */
-    height: 100px; /* قم بتعديل الارتفاع حسب الحجم المطلوب */
-}
-
-    #sidebar.active {
-      left: 0;
-    }
- .logo {
-            font-weight: bold;
-            margin-bottom: 10px;
-font-size: 20px;
-        }
-
-        .menu-icon {
-            cursor: pointer;
-        }
-
-        .menu-content {
-            display: none;
-        }
-
-.sidebar-item {
-    position: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 30px;
-    height: 50px; /* تباعد النص الي تحت  */
-    cursor: none;
-font-size: 20px;
-}
-.sidebar-item a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000; /* يمكنك تعديل لون النص حسب الحاجة */
-    cursor: none;
-font-size: 20px;
-}
-
-.sidebar-item a:hover {
-    color: #FF0F00; /* يمكنك تعديل لون النص عند التحويم عليه حسب الحاجة */
-}
-
-
-.section p {
     
-    font-weight: bold;
-font-size: 80px;
-    margin: 30px; /* قم بتعديل هوامش النص حسب الحاجة */
-    height: 50px;
-       padding-right: 20px; /* قم بتعديل الهامش الأيمن حسب حجم الصورة */
-}
-        
-     .logo-image {
-    padding: 10px;
-max-width: 100%;
-padding: 15px;
-margin-top: 39%;
-padding-left: 30px;
-padding-right:30px;
- border-bottom: 2px groove rgb(0 0 0 / 80%);
-    border-top: 2px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" height="19px" width="65%" vspace="15px; ">
-  </div>
-}
-.sidebar-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 35%;
-font-size: 20px;
-margin-top: 50%;
-}
-
-.section a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #000; /* يمكنك تعديل لون النص حسب الحاجة */
-font-size: 50px;
-margin-top: 30%;
-}
-
-.section a:hover {
-    color: #000; /* يمكنك تعديل لون النص عند التحويم عليه حسب الحاجة */
-}
-
-.section-image {
-    width: 100%; /* قم بتعديل العرض حسب الحجم المطلوب */
-    height: 100%; /* قم بتعديل الارتفاع حسب الحجم المطلوب */
-   margin-top: -30%;
-font-size: 100px;
- margin-right: 25px; /* قم بتعديل المسافة بين الصورة والنص حسب الحاجة */
-}
-
-    .menu-content .sidebar {
-      margin-top: 60%;
-      font-size: 66px;
-      color: #000;
-    }
-
 
 #page:hover {
 background: none;
 }
 #page {
-margin-top: 90px;
+margin-top: 5px;
 width: 100%;
 }
 
@@ -432,68 +244,9 @@ width: 100%;
 
 
 
-#page:hover {
-background: none;
-}
-#page {
-margin-top: 90px;
-width: 100%;
-}
-
-.popup 
-{
-display: none;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E1D7CD, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689);
-  padding: 10px;
-
-z-index: 9999;
-text-align: center;
-align-items: center; 
-border-bottom: 5px groove  #9C9689;
-   border-top: 5px ridge  #fff;
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-border-radius: 80px 80px 80px 80px;
-} 
 
 
-h5 {
 
-    color: #721ACF;
-font-weight: bold;
-    font-size: 2.0rem;
-    direction: rtl;
-margin:60px;
-margin-top: -0%;
-    margin-block-start: 0em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    
-    border-bottom: 5px ridge rgb(233 30 99 / 100%);
-
-    border-radius: 200px 200px 390px 390px;
-padding: 1px;
-}
-
-
-up {
-  position: fixed;
-  bottom: 40px;
-  right: 0px;
-  font-size: 0px;
-  background-color: #ff4d4d;
-  color: #6600FF;
-  padding: 10px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: none;
-  z-index: 999999;
-}
   	#livebbtvTable {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(110px, 0fr));
@@ -937,9 +690,9 @@ border-radius: 100px 100px 100px 100px;"
 
     .text-box {
       display: inline-block;
-letter-spacing: 3px; 
+letter-spacing: 0px; 
   
-      background-color: rgba(75, 40, 130, 0.5); /* خلفية مظلمة مع شفافية */padding: 5px;
+      background-color: rgba(75, 40, 130, 0.5); /* خلفية مظلمة مع شفافية */padding: 0px;
 border-radius: 100px 100px 100px 100px;" 
       padding: 0px;
 border-bottom: 1px outset #fff;
@@ -961,7 +714,7 @@ font-weight: bold;
             
         
 height: 29px;
-line-height: 18px;
+line-height: 27px;
 max-width: 60%;
 
 width: 100%;
@@ -1002,88 +755,19 @@ justify-content: center; /* توسيط العناصر أفقيًا */
   <!-- زر رمز التلغرام -->
  
 
-<a href="https://t.me/wacelalorshepro" class="telegram-button" id="telegramButton"><i class="fa fa-telegram"></i></a>
-  
 
-  </a>
-    <a href="javascript:void(0)" class="menu-button" id="menuButton"><i class="fa fa-bars"></i></a>
-  
-
-
-
-
-  </header>
+</header>
   
   
 <div id="sidebar">
     <div class="sidebar">
         <div class="sidebar-item">
             <div class="logo">
-                <img src="♥ " alt="لوغو" class="logo-image">
+                
             </div>
         </div>
         
-        <br>
-        	
-        <script type="text/javascript">
-	atOptions = {
-		'key' : 'a18630aba29ba11f3a69f333218f4471',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/a18630aba29ba11f3a69f333218f4471/invoke.js"></scr' + 'ipt>');
-</script>
-
-        
-    <div class="sidebar-item">
-    <div class="section">
-        <a href="https://t.me/wacelalorshepro">
-            <i class="fa fa-telegram section-image"></i>
-            <span class="colorتليجرام">𝗧𝗘𝗟𝗘<span class="colorتليجرام">𝗚𝗥𝗔𝗠<br>
-
-<span class="colorاحمر"></span></p>
-        
-</a>
-    </div>
-</div>
-    <div class="sidebar-item">
-    <div class="section">
-        <a href="https://wsend.co/967735981122">
-            <i class="fa fa-whatsapp section-image"></i>
-            <span class="colorواتساب">WHATS<span class="colorواتساب">APP<span class="colorاحمر"></span></p>
-       
- </a>
-    </div>
-</div><div class="sidebar-item">
-    <div class="section">
-        <a href="https://www.facebook.com/profile.php/?id=100006472802984&name=xhp_nt__fb__action__open_user&locale=ar_AR">
-            <i class="fa fa-facebook section-image"></i><span class="colorفيسبوك">𝗙𝗔𝗖𝗘<span class="colorفيسبوك">𝗕𝗢𝗢𝗞<span class="colorفيسبوك"></span></p>
-                    </a>
-            </div>
-        </div>
-<br>
-<div class="sidebar-item">
-    <div class="section">
-        <a href="https://youtube.com/@wacelalorshe?si=_FnGDbAkrYlHmnV_">
-            <i class="fa fa-youtube-play section-image"></i><span class="colorاحمر">YOU_T<span class="colorاحمر">UBE<span class="colorاحمر"></span></p>
-                    </a>
-            </div>
-        </div>
-     </a>
-
-        <div class="sidebar-item">
-    <div class="section">
-        <a href="https://wacellivepro.blogspot.com/2023/03/wacel-tv.html">
-            <i class="fa fa-globe section-image"></i><span class="colorذهبي">WACEL_TV<span class="colorاحمر">  <span class="colorاحمر"></span></p>
-                    </a>
-            </div>
-        </div>
-     
-
-
-     
+  
  </div>
 </div>
   <div class="tab-layout">
