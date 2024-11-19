@@ -319,7 +319,9 @@ border-radius: 0px 0px 0px 0px;
     z-index: 9999; /* تأكد من أنه فوق كل العناصر الأخرى */
     align-items: center; /* توسيط العناصر عموديًا */
     left: 0;
-    top: 200; /* تأكد من أن مربع الحوار يبدأ من أعلى الصفحة */
+    top: 500; /* تأكد من أن مربع الحوار يبدأ من أعلى الصفحة */
+    
+    margin: auto; /* توسيط تلقائي */
     width: 100%;
     height: 80%;
     overflow: auto;
@@ -382,6 +384,9 @@ input[type="checkbox"] {
     
     width: 5%; 
     height: 5%;
+    
+    margin-left: 37%;margin-top: 15%;font-size: 10px; color: #fff;padding: 2px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+
 }
 
     </style>
@@ -922,12 +927,12 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 <!-- مربع الحوار المخصص -->
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <p style="margin-left: 10%;max-width: 80%; margin-top: 5%;font-size: 17px; color: #fff;padding: 12px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+        <p style="margin-left: 10%;max-width: 90%; margin-top: 5%;font-size: 17px; color: #fff;padding: 12px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
 border-bottom: 2px groove  #fff; 
     border-top: 2px   groove  #fff; 
 border-left: 2px ridge #fff;
 border-right: 2px groove #fff; border-radius: 39px 39px 39px 39px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
-        <input type="checkbox" id="dontShowAgain" /> <p style="margin-left: 50%;max-width: 50%; margin-top: 5%;font-size: 10px; color: #fff;padding: 2px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+        <input type="checkbox" id="dontShowAgain" /> <p style="margin-left: 30%;max-width: 50%; margin-top: 15%;font-size: 10px; color: #fff;padding: 2px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
 border-bottom: 1px groove  #fff; 
     border-top: 1px   groove  #fff; 
 border-left: 1px ridge #fff;
