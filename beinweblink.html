@@ -34,9 +34,9 @@ background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخ�
     top: 11.1%;
     left: 0;
     width: 100%;
-height: 7%;
-      border-bottom: 1px solid   #000;
-    border-top: 4px ridge   #000;
+height: 8%;
+      border-bottom: 4px double   #666;
+    border-top: 0px ridge   #000;
     z-index: 0;
     
     
@@ -60,15 +60,16 @@ width: 100%;
     align-items: center; /* توسيط العناصر عموديًا */
     text-align: center; /* توسيط النص */
       transition: opacity 0.10s ease-in-out;
-      background: linear-gradient(to right, #3A4266, #92A5FF, #8192E1, #8192E1, #92A5FF, #3A4266);
-   
+      background-image: linear-gradient(to right, #222, #222, #222, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
+  
+      box-shadow: 0px 0px 7px #C9C9C9; 
 
    
-   
-border-bottom: 2px groove  #fff; 
-    border-top: 2px   ridge  #fff; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
+border-bottom: 4px ridge #C9C9C9;
+    border-top: 3px groove #C9C9C9;
+border-left: 0px inset #fff;
+border-right: 0px outset #fff;
+
 
 text-decoration: none;
       text-align: center;
@@ -140,7 +141,13 @@ header {
    
     
 
-margin-bottom: 0px;
+
+   
+    box-shadow: 0px 0px 30px #666; 
+
+
+
+border-bottom: 5px double   #000;
 
 
 top:0;
@@ -229,10 +236,13 @@ width: 100%;
 border-left: 0px groove #000;
 border-right: 0px ridge #CDCDCD;
 border-radius: 20px 20px 20px 20px;
-
+height: 30vh;
   display : block; 
   width: 100px; 
-  height: 167px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    font-weight: bold; 
+font-family: Arial, sans-serif; 
+    
   margin: 5px; 
   padding: 0px; 
   overflow: hidden; 
@@ -326,59 +336,85 @@ border-radius: 0px 0px 0px 0px;
             padding-top: 100px; /* المسافة العلوية */
         }
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto; /* مركز مربع الحوار */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* عرض مربع الحوار */
-            max-width: 500px; /* الحد الأقصى للعرض */
-            text-align: right; /* محاذاة النص إلى اليمين */
-            border-radius: 10px; /* زوايا مستديرة */
-        }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+.modal-content {
+    background-image: linear-gradient(to right, #151825, #3A4266);
+    margin: auto; /* توسيط تلقائي */
+    padding: 9px; /* إضافة حشوة حول المحتوى */
+    border: 3px groove #fff;
+    width: 80%; /* عرض مربع الحوار */
+    max-width: 90%; /* الحد الأقصى للعرض */
+    color: #ddd;
+    font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
+    text-align: center;
+    border-radius: 30px; /* زوايا مستديرة */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    font-weight: bold; 
+font-family: Arial, sans-serif; 
+    border-radius: 19px 19px 19px 19px;">
+}
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
-        /* أنماط الأزرار داخل مربع الحوار */
-        .modal-button {
-            margin-top: 20px;
-            margin-left: 20px;
-       
-            padding: 20px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #4CAF50; /* لون زر التأكيد */
-            color: white;
-        }
+.modal-button {
+    background-color: #80FF00; /* لون زر التأكيد */
+    color: #000;
+    height: 8vh;
+    margin: 10px 5%; /* إضافة حشوة حول الأزرار */
+    border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+border-left: 2px ridge #fff;
+border-right: 2px groove #fff;
 
-        .cancel-button {
-        	margin-top: 20px;
-            margin-right: 70px;
-       
-            padding: 20px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #f44336; /* لون زر الإلغاء */
-        }
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    font-weight: bold; 
+font-family: Arial, sans-serif; 
+    border-radius: 10px 10px 10px 10px;
+}
 
-        /* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
-        input[type="checkbox"] {
-            margin-top: 10px;
+.cancel-button {
+    background-color: #FF0005; 
+    color: #fff;
+    margin: 10px 5%; /* إضافة حشوة حول الأزرار */height: 8vh;
+    border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+border-left: 2px ridge #fff;
+border-right: 2px groove #fff;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    font-weight: bold; 
+font-family: Arial, sans-serif; 
+    border-radius: 10px 10px 10px 10px;
+}
+
+
+
+.container {
+    display: flex; /* استخدام Flexbox لجعل العناصر جنبًا إلى جنب */
+    justify-content: center; /* توسيط المحتوى أفقيًا */
+    align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+    height: 6vh; /* جعل ارتفاع الحاوية 100% من ارتفاع الشاشة */
+    padding: 5px; /* إضافة حشو حول العنصر */
+    background-image: linear-gradient(to right, #151825, #3A4266);
+    border-bottom: 1px groove #fff; 
+    border-top: 1px groove #fff; 
+    color: #ddd;
+    font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
+    text-align: center;
+    font-weight: bold; 
+    font-family: Arial, sans-serif; 
+    border-radius: 5px; /* يمكنك استخدام نفس القيمة لجميع الزوايا */
+}
+
+.text {
+    margin-right: 20px; /* تقليل المسافة بين النص ومربع الاختيار */
+}
+
+/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
+input[type="checkbox"] {
+    width: 20px; /* تعيين عرض مربع الاختيار */
+    height: 20px; /* تعيين ارتفاع مربع الاختيار */
+
         }
+        
     </style>
 
     <script>
@@ -424,7 +460,16 @@ border-radius: 0px 0px 0px 0px;
     </script>
 </head>
 <body>
-</style>
+
+
+
+
+
+
+
+
+
+
 
 <!----------  اكواد استايل القائمة  ------------>
 
@@ -635,6 +680,26 @@ width: 100%;
         .colorابيض {
   color:#fff;
 }
+.colorرمادي {
+  color:#626262;
+}
+
+.colorرمادي2 {
+  color:#F0F0F0;
+}
+
+.colorرمادي22 {
+  color:#00FFD1;
+}
+
+.colorرمادي222 {
+  color:#FFE900;
+}
+
+.colorرمادي2252 {
+  color:#C2FF00;
+}
+
 
         hr{
    border-color: #9C9689;
@@ -650,37 +715,43 @@ border-radius: 100px 100px 100px 100px;"
       display: inline-block;
 letter-spacing: 0px; 
   
-      background-color: rgba(75, 40, 130, 0.5); /* خلفية مظلمة مع شفافية */padding: 0px;
-border-radius: 100px 100px 100px 100px;" 
-      padding: 0px;
-border-bottom: 1px outset #fff;
-    border-top: 1px inset #fff;
-border-left: 10px double #CECECE;
-border-right: 10px double #CECECE;
+      box-shadow: 0px 60px 30px #fff; 
+      background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخل الحد */: 20px solid #fff; 
+
+box-shadow: 0 0px 30px  #F0F0F0; 
+      
+      
+border-radius: 10px 100px 10px 100px;" 
+      
+border-bottom: 2px outset #3A4266;
+    border-top: 2px outset #3A4266;
+border-left: 10px double #3A4266;
+border-right: 10px double #3A4266;
       text-decoration: none;
       text-align: center;
       justify-content: center; 
       font-family: Arial, sans-serif;
-      color: #3A00FF;
+      color: #fff;
 font-weight: bold;
     
-
-
+text-align: center; /* توسيط النص */
+      transition: opacity 0.10s ease-in-out;
+align-items: center; /* توسيط العناصر عموديًا */
       
       font-size: 16px;
             font-weight: bold;
             
         
 height: 29px;
-line-height: 27px;
-max-width: 60%;
+line-height: 25px;
+max-width: 50%;
 
 width: 100%;
       
 
 
-      margin-top: 19px;
-      margin-right: 22%;
+      margin-top: 17px;
+      margin-right: 25%;
       
       
             
@@ -702,12 +773,15 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 
 
 
+
+
+
 </style>
 </head>
 <body>
 <header>
   <div class="header-title">
-    <a href="go:wbs5" class="text-box"><span class="colorابيض">قنوات  <span class="colorابيض">       BEIN   <span class="colorابيض"> SPORT </span></a>
+    <a href="go:wbs5" class="text-box"><span class="colorرمادي2">قنوات  <span class="colorرمادي2">       BEIN   <span class="colorرمادي2"> SPORT </span></a>
 
 
   <!-- زر رمز التلغرام -->
@@ -729,9 +803,9 @@ justify-content: center; /* توسيط العناصر أفقيًا */
  </div>
 </div>
   <div class="tab-layout">
-    <div class="tab active" onclick="window.open( 'https://www.mediafire.com/file/02q6fqxarxfpf3w/xpola-player+(1).apk/file')"><span class="color111">المشغل   <span class="colorازرق">  مهكر<span class="colorاحمر"> </span></p></div>
-    <div class="tab" onclick="window.open( 'https://bit.ly/3AyLFWP')"><span class="colorحقي">مباريات  <span class="color111">اليوم<span class="colorشاهد2"></span></p></div>
-        <div class="tab" onclick="window.open( 'https://play.google.com/store/apps/details?id=com.xpola.player')"><span class="color111">تحميل <span class="colorاسود">  <span class="colorازرق">المشغل </span></p></div>
+    <div class="tab active" onclick="window.open( 'https://www.mediafire.com/file/02q6fqxarxfpf3w/xpola-player+(1).apk/file')"><span class="colorرمادي222">المشغل   <span class="colorرمادي2252">  مهكر<span class="colorرمادي2"> </span></p></div>
+    <div class="tab" onclick="window.open( 'https://bit.ly/3AyLFWP')"><span class="colorحقي">مباريات  <span class="colorرمادي22">اليوم<span class="colorشاهد2"></span></p></div>
+        <div class="tab" onclick="window.open( 'https://play.google.com/store/apps/details?id=com.xpola.player')"><span class="colorرمادي2252">تحميل <span class="colorاخبار">  <span class="colorاخبار">المشغل </span></p></div>
 
   </div>
               
@@ -788,7 +862,7 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 </div>
 
 
-
+<br>
 
 	<center>
 	<div class="fire_menu">
@@ -902,48 +976,39 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 <!-- مربع الحوار المخصص -->
 <div id="myModal" class="modal">
     <div class="modal-content">
-    	<br><br><br>
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p>لمشاهدة القنوات يجب عليك  أولاً  تثبيت تطبيق المشغل . اضغط نعم للذهاب إلى  تحميل المشغل</p>
-        <input type="checkbox" id="dontShowAgain" /> لا تظهر لي هذه الرسالة مرة أخرى
-        <br><br>
-        <input type="button" id="confirmInstallButton" class="modal-button" value="نعم" />
-        <input type="button" id="cancelInstallButton" class="cancel-button" value="لا" />
+        <p style="margin-left: 5%;max-width: 90%; margin-top: 5%;font-size: 16px; color: #fff;padding: 10px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+border-left: 2px ridge #fff;
+border-right: 2px groove #fff; border-radius: 19px 19px 19px 19px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
+
+<br>
+        <div class="container">
+    <span class="text">عدم الإظهار مرة أخرى</span>
+    <input type="checkbox" id="dontShowAgain">
+</div>
+<br>
+        <input type="button" id="confirmInstallButton" class="modal-button" value="تحميل مشغل القنوات" />
+        <input type="button" id="cancelInstallButton" class="cancel-button" value="الغاء التحميل" />
     </div>
 </div>
 
-
-   
-     <script src="https://code.jquery.com/jquery-3.6.1.js" ></script>
-<script type="module" src="js/script.js"></script>
-
-<script>
-$(document).ready(function(){
-  $("#look_tv_here").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $(".livebbtv-item").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-
-
-
-
-
-        $(document).ready(function(){
-            $("#look_tv_button").click(function(){
-               $("#drop").slideToggle("fast"); 
-            });
-        });
-
-</script>
-
-<script>
-	
-
-
-</script>
 </body>
 </html>
-    
+
+</div>
+
+<script>
+function openNav() {
+document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+</div>
+</div>
+</div>
+</header>
+</body>
