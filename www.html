@@ -25,66 +25,75 @@
   .tab-layout {
   	position: fixed;
   display: flex;
-    background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
-background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخل الحد */: 2px solid #fff; border-radius: 0px 0px 0px 0px; box-shadow: 0 4px 80px rgba(255, 255, 255, 0.9); 
+  background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
+  
+      
+
+      
+      
+
+      
+
       
     
     
+    border-bottom: 0px groove  #000; 
+    border-top: 4px   double  #666; 
     
-    top: 11.1%;
+    top: 14.4%;
     left: 0;
     width: 100%;
-height: 7%;
-      border-bottom: 1px solid   #000;
-    border-top: 4px ridge   #000;
-    z-index: 0;
+height: 34px;
+      
+    z-index: 9999;
     
     
     justify-content: center;
     align-items: center;
     
     text-align: center;
-   box-shadow: 0 1px 20px  rgba(255, 255, 255 , 0.2);
+   
 
   }
 
 
      .tab {
       
-      color: #000;
-width: 100%;
+      color: #fff;
+width: 0%;
       
       
       
       justify-content: center; /* توسيط العناصر أفقيًا */
     align-items: center; /* توسيط العناصر عموديًا */
-    text-align: center; /* توسيط النص */
+    
+      background-image: linear-gradient(to right, #222, #222, #222, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
+  
+      box-shadow: 0px 0px 7px #00E6FF; 
+
+   
+border-bottom: 4px ridge #C9C9C9;
+    border-top: 3px groove #C9C9C9;
+border-left: 0px inset #fff;
+border-right: 0px outset #fff;
+
+height: 20px;
+text-align: center; /* توسيط النص */
       transition: opacity 0.10s ease-in-out;
-      background: linear-gradient(to right, #3A4266, #92A5FF, #8192E1, #8192E1, #92A5FF, #3A4266);
-   
-
-   
-   
-border-bottom: 2px groove  #fff; 
-    border-top: 2px   ridge  #fff; 
-border-left: 0px ridge #000;
-border-right: 0px groove #fff;
-
-text-decoration: none;
+      text-decoration: none;
       text-align: center;
       justify-content: center; 
       font-family: Arial, sans-serif;
       
 font-weight: bold;
     
-height: 30px;
 
-font-size: 90%;
+font-size: 80%;
       margin: 2%;
-      cursor: pointer;
+      
       border-radius: 10px;
-      font-weight: bold;
-      flex-grow: 1;
+      
+      flex-grow: 51;
     }
 
 
@@ -138,13 +147,13 @@ header {
 
  
    
-    
-
-margin-bottom: 0px;
+    box-shadow: 0px 0px 30px #666; 
 
 
+
+border-bottom: 5px double   #666;
 top:0;
-height:11%;
+height:20.9%;
 width: 100%;
 
 }
@@ -232,8 +241,8 @@ border-radius: 20px 20px 20px 20px;
 
   display : block; 
   width: 100px; 
-  height: 167px; 
-  margin: 5px; 
+  height: 150px; 
+  margin-top: 20px; 
   padding: 0px; 
   overflow: hidden; 
   
@@ -241,17 +250,17 @@ border-radius: 20px 20px 20px 20px;
   justify-content: center; 
 } 
 .livebbtv-item > * { 
-     margin: 0px; 
+     margin-top: 30px; 
      padding: 0; 
 } 
 .livebbtv-item .livebbtv-thumb { 
-	
-    left: 100; 
+	top: 100;
+    left: 100;
     right: 0; 
 } 
 .livebbtv-item .livebbtv-thumb img { 
     width: 100%; 
-    height: 120px; 
+    height: 110px; 
     pointer-events: none; 
 }
 .livebbtv-name{
@@ -259,23 +268,26 @@ border-radius: 20px 20px 20px 20px;
 
 
 color: rgb(25 216 205  / 100%);
-background-image: linear-gradient(to right, #9C9689, #DED8CC, #F3EDEA, #FDFDFC, #fff, #fff, #fff,#fff, #fff, #fff, #fff, #fff, #fff, #fff, #fff,#fff, #fff, #fff, #fff, #fff, #FDFDFC, #F3EDEA, #DED8CC, #9C9689);
-  font-size: 14px;
 
-width: 100px; 
-  height: 100px; 
+  font-size: 15px;
+
+
+  
 	
-   bottom: 0px;
-border-bottom: 1px groove  #000; 
-    border-top: 1px groove  rgba(0, 100, 100, 10);;
-border-left: px ridge #000;
-border-right: 0px groove #fff;
-border-radius: 0px 0px 0px 0px;
+   
+
+    
+
+
+      
+      
+font-weight: bold;
+    
 
   color: #4F2C86;
-  margin: 0;
+  margin-top: 9;
   font-family: none;
-  padding: 5px; bottom: 0px; 
+  
 }
 
   a{
@@ -313,19 +325,19 @@ border-radius: 0px 0px 0px 0px;
 }
 
 /* أنماط مربع الحوار */
-.modal {
-    display: none; /* مخفي بشكل افتراضي */
-    position: fixed;
-    z-index: 9999; /* تأكد من أنه فوق كل العناصر الأخرى */
-    align-items: center; /* توسيط العناصر عموديًا */
-    left: 0;
-    margin-bottom: 0%;
-    
-    width: 100%;
-    height: 80%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
-}
+        .modal {
+            display: none; /* مخفي بشكل افتراضي */
+            position: fixed;
+            z-index: 1000; /* تأكد من أنه فوق كل العناصر الأخرى */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
+            padding-top: 100px; /* المسافة العلوية */
+        }
+
 
 .modal-content {
     background-image: linear-gradient(to right, #151825, #3A4266);
@@ -349,6 +361,9 @@ font-family: Arial, sans-serif;
 .modal-button,
 .cancel-button {
     margin: 10px 5%; /* إضافة حشوة حول الأزرار */
+justify-content: center; /* توسيط المحتوى أفقيًا */
+    align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+    height: 10vh; /* جعل ارتفاع الحاوية 100% من ارتفاع الشاشة */
     width: 90%; /* عرض الأزرار */
     padding: 3px;
     font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
@@ -360,8 +375,8 @@ font-family: Arial, sans-serif;
 }
 
 .modal-button {
-    background-color: #4CAF50; /* لون زر التأكيد */
-    color: #FFDC00;
+    background-color: #FF0D00; /* لون زر التأكيد */
+    color: #FFD700;
     
     
     border-bottom: 2px groove  #fff; 
@@ -369,7 +384,7 @@ font-family: Arial, sans-serif;
 border-left: 2px ridge #fff;
 border-right: 2px groove #fff;
 
-border-radius: 10px 10px 10px 10px;">
+border-radius: 19px 19px 19px 19px;">
 }
 
 .cancel-button {
@@ -382,20 +397,34 @@ border-right: 2px groove #fff;
 /* لون زر الإلغاء */border-radius: 10px 10px 10px 10px;">
 }
 
-/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
-input[type="checkbox"] {
-    margin-left: 40px;
-    margin-top: 15px;
- 
-    width: 15%; 
-    height: 15%;
-    
-    border-bottom: 1px groove  #fff; 
-    border-top: 1px   groove  #fff; 
-border-left: 1px ridge #fff;
-
+.container {
+    display: flex; /* استخدام Flexbox لجعل العناصر جنبًا إلى جنب */
+    justify-content: center; /* توسيط المحتوى أفقيًا */
+    align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+    height: 6vh; /* جعل ارتفاع الحاوية 100% من ارتفاع الشاشة */
+    padding: 5px; /* إضافة حشو حول العنصر */
+    background-image: linear-gradient(to right, #151825, #3A4266);
+    border-bottom: 1px groove #fff; 
+    border-top: 1px groove #fff; 
+    color: #ddd;
+    font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
+    text-align: center;
+    font-weight: bold; 
+    font-family: Arial, sans-serif; 
+    border-radius: 5px; /* يمكنك استخدام نفس القيمة لجميع الزوايا */
 }
 
+.text {
+    margin-right: 20px; /* تقليل المسافة بين النص ومربع الاختيار */
+}
+
+/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
+input[type="checkbox"] {
+    width: 20px; /* تعيين عرض مربع الاختيار */
+    height: 20px; /* تعيين ارتفاع مربع الاختيار */
+
+        }
+        
     </style>
 
     <script>
@@ -499,7 +528,7 @@ background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #15
 background: none;
 }
 #page {
-margin-top: 100px;
+margin-top: 190px;
 width: 100%;
 }
 
@@ -665,8 +694,17 @@ width: 100%;
 }
 
         .colorابيض {
-  color:#fff;
+  color:#333333;
 }
+
+.colorرمادي {
+  color:#626262;
+}
+
+.colorرمادي2 {
+  color:#F0F0F0;
+}
+
 
         hr{
    border-color: #9C9689;
@@ -682,37 +720,43 @@ border-radius: 100px 100px 100px 100px;"
       display: inline-block;
 letter-spacing: 0px; 
   
-      background-color: rgba(75, 40, 130, 0.5); /* خلفية مظلمة مع شفافية */padding: 0px;
-border-radius: 100px 100px 100px 100px;" 
-      padding: 0px;
-border-bottom: 1px outset #fff;
-    border-top: 1px inset #fff;
-border-left: 10px double #CECECE;
-border-right: 10px double #CECECE;
+      box-shadow: 0px 60px 30px #fff; 
+      background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخل الحد */: 20px solid #fff; 
+
+box-shadow: 0 0px 30px  #F0F0F0; 
+      
+      
+border-radius: 10px 100px 10px 100px;" 
+      
+border-bottom: 2px outset #3A4266;
+    border-top: 2px outset #3A4266;
+border-left: 10px double #3A4266;
+border-right: 10px double #3A4266;
       text-decoration: none;
       text-align: center;
       justify-content: center; 
       font-family: Arial, sans-serif;
-      color: #3A00FF;
+      color: #fff;
 font-weight: bold;
     
-
-
+text-align: center; /* توسيط النص */
+      transition: opacity 0.10s ease-in-out;
+align-items: center; /* توسيط العناصر عموديًا */
       
       font-size: 16px;
             font-weight: bold;
             
         
 height: 29px;
-line-height: 27px;
-max-width: 60%;
+line-height: 25px;
+max-width: 50%;
 
 width: 100%;
       
 
 
-      margin-top: 19px;
-      margin-right: 22%;
+      margin-top: 25px;
+      margin-right: 25%;
       
       
             
@@ -739,7 +783,7 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 <body>
 <header>
   <div class="header-title">
-    <a href="go:wbs5" class="text-box"><span class="colorابيض">قنوات  <span class="colorابيض">       BEIN   <span class="colorابيض"> SPORT </span></a>
+    <a href="go:wbs5" class="text-box"><span class="colorرمادي">قنوات  <span class="colorرمادي">       BEIN   <span class="colorرمادي"> SPORT </span></a>
 
 
   <!-- زر رمز التلغرام -->
@@ -761,9 +805,9 @@ justify-content: center; /* توسيط العناصر أفقيًا */
  </div>
 </div>
   <div class="tab-layout">
-    <div class="tab active" onclick="window.open( 'https://www.mediafire.com/file/02q6fqxarxfpf3w/xpola-player+(1).apk/file')"><span class="color111">المشغل   <span class="colorازرق">  مهكر<span class="colorاحمر"> </span></p></div>
-    <div class="tab" onclick="window.open( 'https://bit.ly/3AyLFWP')"><span class="colorحقي">مباريات  <span class="color111">اليوم<span class="colorشاهد2"></span></p></div>
-        <div class="tab" onclick="window.open( 'https://play.google.com/store/apps/details?id=com.xpola.player')"><span class="color111">تحميل <span class="colorاسود">  <span class="colorازرق">المشغل </span></p></div>
+    <div class="tab active" onclick="window.open( 'https://www.mediafire.com/file/02q6fqxarxfpf3w/xpola-player+(1).apk/file')"><span class="colorرمادي2">المشغل   <span class="colorرمادي2">  مهكر<span class="colorاحمر"> </span></p></div>
+    <div class="tab" onclick="window.open( 'https://bit.ly/3AyLFWP')"><span class="colorحقي">مباريات  <span class="colorرمادي2">اليوم<span class="colorشاهد2"></span></p></div>
+        <div class="tab" onclick="window.open( 'https://play.google.com/store/apps/details?id=com.xpola.player')"><span class="colorرمادي2">تحميل <span class="colorرمادي2">  <span class="colorرمادي2">المشغل </span></p></div>
 
   </div>
               
@@ -819,7 +863,7 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 </head>
 </div>
 
-
+<br>
 
 
 	<center>
@@ -939,13 +983,12 @@ border-bottom: 2px groove  #fff;
     border-top: 2px   groove  #fff; 
 border-left: 2px ridge #fff;
 border-right: 2px groove #fff; border-radius: 19px 19px 19px 19px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
-        <input type="checkbox" id="dontShowAgain" /> <p style="margin-left: 27%;max-width: 50%; font-size: 10px; color: #fff;padding: 1px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; 
-border-bottom: 1px groove  #fff; 
-    border-top: 1px   groove  #fff; 
-border-left: 1px ridge #fff;
-border-right: 1px groove #fff; border-radius: 5px 5px 5px 5px;"> 
-   لاتظهر هذة الرسالة مـرة اخرئ</p>
-       <br><br>
+
+<br>
+        <div class="container">
+    <span class="text">عدم الإظهار مرة أخرى</span>
+    <input type="checkbox" id="dontShowAgain">
+</div>
         <input type="button" id="confirmInstallButton" class="modal-button" value="تحميل مشغل القنوات" />
         <input type="button" id="cancelInstallButton" class="cancel-button" value="الغاء التحميل" />
     </div>
