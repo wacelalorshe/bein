@@ -383,37 +383,31 @@ border-right: 2px groove #fff;
 }
 
 .container {
-            display: flex; /* استخدام Flexbox لجعل العناصر جنبًا إلى جنب */
-            align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
-            padding: 5px; /* إضافة حشو حول العنصر */background-image: linear-gradient(to right, #151825, #3A4266);
-    
-    
-    border-bottom: 1px groove  #fff; 
-    border-top: 1px   groove  #fff; 
-
-    
+    display: flex; /* استخدام Flexbox لجعل العناصر جنبًا إلى جنب */
+    justify-content: center; /* توسيط المحتوى أفقيًا */
+    align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+    height: 100vh; /* جعل ارتفاع الحاوية 100% من ارتفاع الشاشة */
+    padding: 5px; /* إضافة حشو حول العنصر */
+    background-image: linear-gradient(to right, #151825, #3A4266);
+    border-bottom: 1px groove #fff; 
+    border-top: 1px groove #fff; 
     color: #ddd;
     font-size: 5vw; /* استخدام وحدة نسبية لحجم الخط */
     text-align: center;
-    
-    
     font-weight: bold; 
-font-family: Arial, sans-serif; 
-    border-radius: 5px 5px 5px 5px;
-        }
-        }
-        .text {
-            margin-right: 90px; /* تقليل المسافة بين النص ومربع الاختيار */
-            
-            
-            
-        }
-/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
+    font-family: Arial, sans-serif; 
+    border-radius: 5px; /* يمكنك استخدام نفس القيمة لجميع الزوايا */
+}
 
-    
+.text {
+    margin-right: 20px; /* تقليل المسافة بين النص ومربع الاختيار */
+}
+
+/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
 input[type="checkbox"] {
-            width: 9px; /* تعيين عرض مربع الاختيار */
-            height: 9px; /* تعيين ارتفاع مربع الاختيار */
+    width: 20px; /* تعيين عرض مربع الاختيار */
+    height: 20px; /* تعيين ارتفاع مربع الاختيار */
+
         }
         
     </style>
