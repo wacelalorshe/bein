@@ -384,8 +384,7 @@ border-right: 2px groove #fff;
 
 /* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
 input[type="checkbox"] {
-    margin-left: 40px;
-    margin-top: 15px;
+    
  
     width: 15%; 
     height: 15%;
@@ -402,7 +401,14 @@ border-left: 1px ridge #fff;
             align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
         }
         .text {
-            margin-right: 10px; /* إضافة مساحة بين النص ومربع الاختيار */
+            margin-right: 4px; /* إضافة مساحة بين النص ومربع الاختيار */
+            
+            max-width: 50%; font-size: 10px; color: #fff;padding: 1px; text-align: center; font-weight: bold; font-family: Arial, sans-serif; 
+border-bottom: 1px groove  #fff; 
+    border-top: 1px   groove  #fff; 
+border-left: 1px ridge #fff;
+border-right: 1px groove #fff; border-radius: 5px 5px 5px 5px;"> 
+
         }
 
 
@@ -950,16 +956,19 @@ border-bottom: 2px groove  #fff;
 border-left: 2px ridge #fff;
 border-right: 2px groove #fff; border-radius: 19px 19px 19px 19px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
 
-<div class="container">
-    <span class="text">عدم الإظهار مرة أخرى</span>
-    <input type="checkbox" id="dontShowAgain">
-</div>
 
         
         <input type="button" id="confirmInstallButton" class="modal-button" value="تحميل مشغل القنوات" />
         <input type="button" id="cancelInstallButton" class="cancel-button" value="الغاء التحميل" />
     </div>
 </div>
+
+
+<div class="container">
+    <span class="text">عدم الإظهار مرة أخرى</span>
+    <input type="checkbox" id="dontShowAgain">
+</div>
+
 
 </body>
 </html>
