@@ -317,17 +317,14 @@ border-radius: 0px 0px 0px 0px;
     display: none; /* مخفي بشكل افتراضي */
     position: fixed;
     z-index: 9999; /* تأكد من أنه فوق كل العناصر الأخرى */
-    top: 50%; /* تعيين الجزء العلوي إلى منتصف الشاشة */
-    left: 80%; /* تعيين الجانب الأيسر إلى منتصف الشاشة */
-    transform: translate(-50%, -50%); /* استخدام transform لتحريك العنصر إلى المنتصف */
+    align-items: center; /* توسيط العناصر عموديًا */
+    left: 0;
+    margin-bottom: 0%;
     
-    width: 80%; /* يمكنك تعديل عرض العنصر كما تريد */
-    height: 80%; /* يمكنك تعديل ارتفاع العنصر كما تريد */
+    width: 100%;
+    height: 80%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5); /* خلفية مظلمة مع شفافية */
-    display: flex; /* استخدام Flexbox لتوسيع المحتوى داخل العنصر */
-    align-items: center; /* توسيط العناصر عموديًا */
-    justify-content: center; /* توسيط العناصر أفقيًا */
 }
 
 .modal-content {
@@ -385,34 +382,17 @@ border-right: 2px groove #fff;
 /* لون زر الإلغاء */border-radius: 10px 10px 10px 10px;">
 }
 
-/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
-input[type="checkbox"] {
-    
- 
-    width: 15%; 
-    height: 15%;
-    
-    
-}
-
-
 .container {
             display: flex; /* استخدام Flexbox لجعل العناصر جنبًا إلى جنب */
             align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
         }
         .text {
-            margin-right: 4px; /* إضافة مساحة بين النص ومربع الاختيار */
-            
-            text-align: center; font-weight: bold; font-family: Arial, sans-serif; 
- border-radius: 5px 5px 5px 5px;
-            
-            
-            border-bottom: 1px groove  #fff; 
-    border-top: 1px   groove  #fff; 
-border-left: 1px ridge #fff;
-
-            
+            margin-right: 10px; /* إضافة مساحة بين النص ومربع الاختيار */
         }
+/* لضمان أن العناصر داخل مربع الحوار غير متداخلة */
+
+    
+
 
 
     </style>
@@ -958,20 +938,14 @@ border-bottom: 2px groove  #fff;
     border-top: 2px   groove  #fff; 
 border-left: 2px ridge #fff;
 border-right: 2px groove #fff; border-radius: 19px 19px 19px 19px;"> لمشاهدة القنوات يجب عليك أولاً  تثبيت تطبيق مشغل القنوات الخاص بالتطبيق</p>
-
-<div class="container">
+        <div class="container">
     <span class="text">عدم الإظهار مرة أخرى</span>
     <input type="checkbox" id="dontShowAgain">
 </div>
-        
         <input type="button" id="confirmInstallButton" class="modal-button" value="تحميل مشغل القنوات" />
         <input type="button" id="cancelInstallButton" class="cancel-button" value="الغاء التحميل" />
     </div>
 </div>
-
-
-
-
 
 </body>
 </html>
