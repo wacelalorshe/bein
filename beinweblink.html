@@ -22,75 +22,7 @@
 
 
     
-  .tab-layout {
-  	position: fixed;
-  display: flex;
-    background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
-background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخل الحد */: 2px solid #fff; border-radius: 0px 0px 0px 0px; box-shadow: 0 4px 80px rgba(255, 255, 255, 0.9); 
-      
-    
-    
-    
-    top: 11.1%;
-    left: 0;
-    width: 100%;
-height: 8%;
-      border-bottom: 4px double   #666;
-    border-top: 0px ridge   #000;
-    z-index: 0;
-    
-    
-    justify-content: center;
-    align-items: center;
-    
-    text-align: center;
-   box-shadow: 0 1px 20px  rgba(255, 255, 255 , 0.2);
-
-  }
-
-
-     .tab {
-      
-      color: #000;
-width: 100%;
-      
-      
-      
-      justify-content: center; /* توسيط العناصر أفقيًا */
-    align-items: center; /* توسيط العناصر عموديًا */
-    text-align: center; /* توسيط النص */
-      transition: opacity 0.10s ease-in-out;
-      background-image: linear-gradient(to right, #222, #222, #222, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
   
-      box-shadow: 0px 0px 7px #C9C9C9; 
-
-   
-border-bottom: 4px ridge #C9C9C9;
-    border-top: 3px groove #C9C9C9;
-border-left: 0px inset #fff;
-border-right: 0px outset #fff;
-
-
-text-decoration: none;
-      text-align: center;
-      justify-content: center; 
-      font-family: Arial, sans-serif;
-      
-font-weight: bold;
-    
-height: 30px;
-
-font-size: 90%;
-      margin: 2%;
-      cursor: pointer;
-      border-radius: 10px;
-      font-weight: bold;
-      flex-grow: 1;
-    }
-
-
-
-    
 
     .content {
       margin-top: 95px;
@@ -143,11 +75,11 @@ header {
 
 
    
-    box-shadow: 0px 0px 30px #666; 
+ 
 
 
 
-border-bottom: 5px double   #000;
+border-bottom: 0px double   #000;
 
 
 top:0;
@@ -208,15 +140,16 @@ width: 100%;
 
 #livebbtvTable {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(110px, 0fr));
-        grid-gap: 15px;
-        grid-right: 10px;
-        grid-left: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(99px, 0fr));
+        grid-row-gap: 20px;
+        grid-column-gap: 15px;
         justify-content: center; 
+        
+        
       }
       #livebbtvTable > div {
         font-size: 17px;
-        color: Black;
+        color: #FF5200;
         text-align: center;
       }
        .livebbtv-item { 
@@ -226,19 +159,20 @@ box-shadow: 0 0px 5px  rgba(255, 255, 255, 100);
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-   border-bottom: 10px ridge   #000;
-  border-top: 8px groove #000;
-border-left: 1px ridge #2F2562;
-border-right: 1px groove #2F2562;
+   border-bottom: 10px double  rgba(255, 255, 255, 0.7); 
+  border-top: 8px double rgba(255, 255, 255, 0.7); 
+border-left: 0px ridge #2F2562;
+border-right: 0px groove #2F2562;
 border-radius: 20px 20px 20px 20px;
-height: 28vh;
+height: 100%;
+
   display : block; 
-  width: 100px; 
+  width: 95%; 
   
     font-weight: bold; 
 font-family: Arial, sans-serif; 
     
-  margin: 0px; 
+  
   padding: 0px; 
   overflow: hidden; 
   
@@ -246,12 +180,12 @@ font-family: Arial, sans-serif;
   justify-content: center; 
 } 
 .livebbtv-item > * { 
-     margin: 10px; 
+     margin: 0px; 
      padding: 0; 
 } 
 .livebbtv-item .livebbtv-thumb { 
 	
-    left: 100; 
+    left: 0; 
     right: 0; 
 } 
 .livebbtv-item .livebbtv-thumb img { 
@@ -266,7 +200,7 @@ border-radius: 10px 20px 10px 20px;
 margin-top: 150%;
 margin-left: -0%;
 width: 80%; 
-    height: 80px; 
+    height: 90px; 
     pointer-events: none; 
     margin-top:15%;
     
@@ -293,15 +227,15 @@ color: #fff;
 border-radius: 40px 40px 40px 40px;
 
 margin-top:19%;
-margin-left:11%;
-  
-  width: 80%; 
+margin-left:15%;
+  margin-bottom:15%;
+  width: 70%; 
   
     font-weight: bold; 
 font-family: Arial, sans-serif; 
     
-  padding-left: 0%; 
-  padding-right: 0%; 
+  padding-left: 5%; 
+  padding-right: 5%; 
   
   
   box-shadow: 0 0px 5px  rgba(255, 255, 255, 100);
@@ -743,15 +677,15 @@ border-radius: 100px 100px 100px 100px;"
       display: inline-block;
 letter-spacing: 0px; 
   
-   
+      
       background-clip: padding-box; /* يجعل الخلفية تظهر فقط داخل الحد */: 20px solid #fff; 
 
-box-shadow: 0 0px 3px  #F0F0F0; 
+
       
       
 border-radius: 10px 100px 10px 100px;" 
       
-border-bottom: 0px outset #fff;
+border-bottom: 2px outset #3A4266;
     border-top: 2px outset #3A4266;
 border-left: 10px double #3A4266;
 border-right: 10px double #3A4266;
@@ -779,7 +713,7 @@ width: 100%;
 
 
       margin-top: 17px;
-      margin-right: 22%;
+      margin-right: 25%;
       
       
             
@@ -828,7 +762,22 @@ justify-content: center; /* توسيط العناصر أفقيًا */
         </div>
         
   
- 
+ </div>
+</div>
+  <div class="CnmuTick Tick4">
+<span>تنوية هام</span>
+<ul>
+<li><a href="go:COD" target="_blank">قم بتحديث مشغل الفيديو الخاص بالتطبيق</a></li>
+<li><a href="go:COD" target="_blank"></a>من متجر جوجول بلاي لضمان</li>
+<li><a href="go:COD" target="_blank">تشغيل القنوات وعدم التقطيع</a></li>
+<li><a href="go:COD" target="_blank">شكرا لكم متابعينا الكرام</a></li>
+
+</ul>
+</div>
+    
+              
+
+
   <div class="content">
      <div class="tabContent" id="tabContent1">
   <div>  
@@ -842,21 +791,14 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 	<!-- /نهاية كود الشريط الاخباري-->
 
 
-   <div class="CnmuTick Tick4">
-<span>تنوية هام</span>
-<ul>
-<li><a href="go:COD" target="_blank">قم بتحديث مشغل الفيديو الخاص بالتطبيق</a></li>
-<li><a href="go:COD" target="_blank"></a>من متجر جوجول بلاي لضمان</li>
-<li><a href="go:COD" target="_blank">تشغيل القنوات وعدم التقطيع</a></li>
-<li><a href="go:COD" target="_blank">شكرا لكم متابعينا الكرام</a></li>
-</ul>
-</div>
-    
+   
     
     
 
 
- 
+ <div>             
+
+
    
 
     
@@ -892,7 +834,7 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 </div>
 
 
-<br>
+
 
 	<center>
 	<div class="fire_menu">
@@ -908,7 +850,7 @@ justify-content: center; /* توسيط العناصر أفقيًا */
 
 .CnmuTick{display:block;overflow:hidden;box-sizing:border-box;height:38px;border-radius:4px;line-height:30px;color:#fff;border-width:4px;border-style:solid;}
 
-.CnmuTick span{float:right;padding:0 0px;background-image: linear-gradient(to right, #fff, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);width:80px;text-align:center;overflow:hidden;border-radius: 30px 0px 0px 2px;border-bottom: 0px groove #000;
+.CnmuTick span{float:right;padding:0 0px;background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);width:80px;text-align:center;overflow:hidden;border-radius: 30px 0px 0px 2px;border-bottom: 0px groove #000;
     border-top: 0px ridge #fff;
 border-left: 3px ridge #fff;
 border-right: 0px groove #151825;-sizing:border-box;font-size:16px;margin:0 0 0 -100px}
@@ -925,28 +867,57 @@ border-right: 0px groove #151825;-sizing:border-box;font-size:16px;margin:0 0 0 
 
 .CnmuTick ul li a{color:#fff;text-decoration:none}
 
-.CnmuTick ul li a:hover {color:#FFD400;}
+.CnmuTick ul li a:hover {color:#fff;}
 
 .Tick1{background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);border-color:#000;}
 
 .Tick2{background-color:#3c9f83;border-color:#000;}
 
-.Tick3{background-color: rgba(0, 0, 0, 1.5); /* خلفية مظلمة مع شفافية */border-color:#000;}
+.Tick3{background-color:#fff;border-color:#000;}
 
 .Tick4{position: fixed;
   background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);border-radius: 0px 0px 0px 0px;
-border-bottom: 5px double  #000;
-    border-top: 1px double #151825;
+
+padding-bottom: 5px;
+      
+  justify-content: center; /* توسيط العناصر أفقيًا */
+    align-items: center; /* توسيط العناصر عموديًا */
+    text-align: center; /* توسيط النص */
+    box-shadow: 0px 0px 7px #C9C9C9; 
+    
+      font-family: Arial, sans-serif;
+      
+font-weight: bold;
+    
+height: 30px;
+
+font-size: 90%;
+      margin: 0%;
+  
+      border-radius: 0px;
+      font-weight: bold;
+      
+border-bottom: 5px double  rgba(0, 0, 0, 0.3); 
+    border-top: 5px double rgba(0, 0, 0, 0.3); 
 border-left: 0px ridge #000;
 border-right: 0px groove #fff;
 width: 100%;
 height: 7.5%;
-padding-top: 2px;
-padding-bottom: 8px;
-margin-top: -53;
-margin-bottom: -50;
-box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5); 
+
+margin-top: 42;
+
+box-shadow: 0 10px 20px rgba(255, 255, 255, 0.0); 
 }
+
+
+    
+
+    .content {
+      margin-top: 110px;
+      padding: 0px;
+      
+    }
+    
 
 </style>
 
