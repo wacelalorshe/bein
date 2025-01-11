@@ -550,7 +550,7 @@ background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #15
       display: inline-block;
 letter-spacing: 3px; 
   
-      background-color: rgba(255, 255, 255, 9.5); /* خلفية مظلمة مع شفافية */padding: 5px;
+      background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);padding: 5px;
 border-radius: 100px 100px 100px 100px;" 
       padding: 0px;
 border-bottom: 1px outset #fff;
@@ -580,7 +580,7 @@ width: 100%;
 
 
       margin-top: 55px;
-      margin-right: 28%;
+      margin-right: 0%;
       
       
             
@@ -596,7 +596,7 @@ justify-content: center; /* توسيط العناصر أفقيًا */
       text-align: center;
 
     .text-box:hover {
-      background-color: rgb(0 0 255 / 100%);
+         box-shadow: 0 4px 20px rgba(255, 255, 255, 1.1);
     }
 
     
@@ -1693,6 +1693,80 @@ font-weight: bold;
  	
  
  <br>
+ 	
+ 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
+            color: #333;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        h5 {
+            font-size: 2em;
+            margin: 20px 0;
+            padding: 20px;
+            color: #fff; 
+            border: 2px solid #fff;
+            border-radius: 10px;
+            display: inline-block;
+            background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
+               box-shadow: 0 4px 20px rgba(255, 255, 255, 1.1);
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            color: #fff; 
+            padding: 20px;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>عدد الزوار في آخر ساعة</h1>
+        <h5 id="visitor-count">0</h5>
+        <h3>عدد زوار الساعة الماضية   <span id="yesterday-count">  0    </span></h3>
+    </div>
+
+    <script>
+        const now = new Date().getTime();
+        const expiryTime = 24 * 60 * 60 * 1000; // 24 ساعة بالمللي ثانية
+
+        // استرجاع عدد الزوار ووقت آخر زيارة
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+        let yesterdayCount = localStorage.getItem('yesterdayCount') || 0;
+        let lastVisitTime = localStorage.getItem('lastVisitTime') || 0;
+
+        // إذا مرت 24 ساعة على آخر زيارة، تحديث عدد زوار الأمس
+        if (now - lastVisitTime > expiryTime) {
+            yesterdayCount = visitorCount; // حفظ العدد الحالي كعدد زوار الأمس
+            visitorCount = 0; // إعادة تعيين العدد لليوم الجديد
+        }
+
+        // زيادة عدد الزوار وتحديث الوقت
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
+        localStorage.setItem('yesterdayCount', yesterdayCount);
+        localStorage.setItem('lastVisitTime', now);
+
+        // عرض عدد الزوار
+        document.getElementById('visitor-count').innerText = visitorCount;
+        document.getElementById('yesterday-count').innerText = yesterdayCount;
+    </script>
+</body>
+</html>
+ 
+ 
+ 
 <script type="text/javascript">
 	atOptions = {
 		'key' : 'a18630aba29ba11f3a69f333218f4471',
