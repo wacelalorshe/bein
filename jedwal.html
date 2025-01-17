@@ -1,5 +1,3 @@
- 
-
 <html dir="rtl" lang="ar">
  <head> 
  	
@@ -44,20 +42,29 @@
 
 
 .time {
- border-bottom: 2px double  #DFBF00;
-    border-top: 2px double  #39DBBF;
-border-left: 0px double #39DBBF;
-border-right: 0px double  #FFEC00;
-        padding: 5px;
-        border-radius: 10px 100px 0px 100px;
-        background-image: linear-gradient(to right, #fff, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #fff);
-        width:110%;
+ font-size: 15px; /* حجم الخط */
+            color: #fff; /* لون النص */
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+            
+margin: 0px 0;
+ border-bottom: 4px groove #000;
+    border-top: 4px ridge #000;
+border-left: 0px ridge #fff;
+border-right: 0px ridge #fff;
+font-weight: bold; text-align: center;color: #; 
+width:200%;
 
  height:43px;
+            border-radius: 5px; /* زوايا دائرية */
+            padding: 3px; /* مسافة داخلية */
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 1.1); /* ظل */
+            transition: all 0.3s; /* تأثير الانتقال */
+        }
 
-justify-content: center; /* توسيط العناصر أفقيًا */
-    align-items: center; /* توسيط العناصر عموديًا */
-    text-align: center; /* توسيط النص */
+        .professional-title:hover {
+            color: #0C00FF; /* لون النص عند التمرير */
+            background-color: #FFF100; /* لون الخلفية عند التمرير */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
 
 }
 svg.svg-inline--fa.fa-calendar-alt.fa-w-14 {
@@ -88,42 +95,47 @@ hr {
 
 
 h5 {
-	
-	background-image: linear-gradient(to right, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000);
+	background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+            border-radius: 5px 3px 30px 95px;
+
+	 box-shadow: 0px 5px 10px rgba(255, 255, 255, 1.1); /* ظل */
+ 
  font-size: 12px;
  color: #A5A5A5; 
  border-radius: 10px 10px 10px 10px;
 color: #fff; 
- border-bottom: 0px double  #A5A5A5;
+ border-bottom: 0px double  #000;
     border-top: 0px double  #fff;
 border-left: 4px double #A5A5A5;
 border-right: 4px double  #A5A5A5;
- padding-right: 9px;
+ padding-right: 19px;
  padding-left: 9px;
  
- padding-top: 1px;
- padding-bottom: 1px;
+ padding-top: 11px;
+ padding-bottom: 10px;
  padding: 5px;
- padding-right: 4px;
- padding-left: 4px;
+ padding-right: 14px;
+ padding-left: 14px;
  
 }
 
 h8 {
 	font-size: 15px;
  color: #A5A5A5; 
-	background-image: linear-gradient(to right, #373F628, #373F62);
+	background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+            border-radius: 5px 3px 30px 95px;
+
 	padding-right: 5px;
  padding-left: 15px;
  padding-top: 1px;
  padding-bottom: 3px;
  border-radius: 100px 10px 10px 10px;
 
- border-bottom: 2px double  #000;
-    border-top: 2px double  #A5A5A5;
+ border-bottom: 6px double  #000;
+    border-top: 6px double  #000;
 border-left: 0px double #39DBBF;
 border-right: 0px double  #FFEC00;
- 
+ box-shadow: 0px 5px 10px rgba(255, 255, 255, 1.1); /* ظل */
  
  
 }
@@ -141,7 +153,7 @@ border-left: 1px double #39DBBF;
 border-right: 1px double  #FFEC00;
  padding-right: 15px;
  padding-left: 15px;
- 
+ box-shadow: 0px 0px 30px rgba(255, 255, 255, 1.1); /* ظل */
  padding-top: 1px;
  padding-bottom: 1px;
  
@@ -176,31 +188,12 @@ border-right: 0px double  #fff;
 
 
 
-.image {
+.hr {
     	
-        border-bottom: 2px double  #DFBF00;
-    border-top: 2px double  #39DBBF;
-border-left: 0px double #39DBBF;
-border-right: 0px double  #FFEC00;
-        padding-right: 15px;
- padding-left: 15px;
- padding-bottom: 9px;
- padding-top: 9px;
- 
-        border-radius: 10px 100px 10px 100px;
-        background-image: linear-gradient(to right, #fff, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #fff);
-        width:39%;
-
- height:43px;
-
-margin-left: 3%;
-
-     
+        color: #00F2FF; 
         
     }
 </style>
-
-<img class="image" src="   data:image/jpg;base64,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" alt="Van Gogh, Self-portrait.">
 
 
 <div class='gadwlgadwl'>
@@ -216,15 +209,13 @@ margin-left: 3%;
 </div>
    </div> 
   </div> 
-   <hr>
+   <br>
   <section class="championships-section"> 
    <div class="container"> 
     <div class="row main-row">
     	
     </div>
    </div> 
-
-
 
 
 
@@ -264,15 +255,14 @@ margin-left: 3%;
 </svg>
 </a>
 </div>
-<input type="hidden" class="filtered-date-input">
-<div class="inline-datepicker" style="display: none;"></div><div class="xdsoft_datetimepicker xdsoft_noselect xdsoft_ xdsoft_inline"><div class="xdsoft_datepicker active"><div class="xdsoft_monthpicker"><button type="button" class="xdsoft_prev" style="visibility: visible;"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="12.25" viewBox="0 0 7 12.25" style="
-"> <path id="Path" d="M6.748,6.731,1.468,12A.859.859,0,0,1,.252,10.786L4.924,6.125.252,1.464A.859.859,0,1,1,1.468.251l5.28,5.267a.856.856,0,0,1,0,1.213Z" transform="translate(7 12.25) rotate(180)" fill="#000"></path> </svg></button><button type="button" class="xdsoft_today_button" style="visibility: visible;"></button><div class="xdsoft_label xdsoft_month"><span>ابريل</span><div class="xdsoft_select xdsoft_monthselect xdsoft_scroller_box"><div style="margin-top: 0px;"><div class="xdsoft_option " data-value="0">يناير</div><div class="xdsoft_option " data-value="1">فبراير</div><div class="xdsoft_option " data-value="2">مارس</div><div class="xdsoft_option xdsoft_current" data-value="3">ابريل</div><div class="xdsoft_option " data-value="4">مايو</div><div class="xdsoft_option " data-value="5">يونيو</div><div class="xdsoft_option " data-value="6">يوليو</div><div class="xdsoft_option " data-value="7">اغسطس</div><div class="xdsoft_option " data-value="8">سبتمبر</div><div class="xdsoft_option " data-value="9">اكتوبر</div><div class="xdsoft_option " data-value="10">نوفمبر</div><div class="xdsoft_option " data-value="11">ديسمبر</div></div><div class="xdsoft_scrollbar"><div class="xdsoft_scroller" style="height: 10px; margin-top: 0px;"></div></div></div><i></i></div><div class="xdsoft_label xdsoft_year"><span>2024</span><div class="xdsoft_select xdsoft_yearselect xdsoft_scroller_box"><div style="margin-top: 0px;"><div class="xdsoft_option " data-value="1950">1950</div><div class="xdsoft_option " data-value="1951">1951</div><div class="xdsoft_option " data-value="1952">1952</div><div class="xdsoft_option " data-value="1953">1953</div><div class="xdsoft_option " data-value="1954">1954</div><div class="xdsoft_option " data-value="1955">1955</div><div class="xdsoft_option " data-value="1956">1956</div><div class="xdsoft_option " data-value="1957">1957</div><div class="xdsoft_option " data-value="1958">1958</div><div class="xdsoft_option " data-value="1959">1959</div><div class="xdsoft_option " data-value="1960">1960</div><div class="xdsoft_option " data-value="1961">1961</div><div class="xdsoft_option " data-value="1962">1962</div><div class="xdsoft_option " data-value="1963">1963</div><div class="xdsoft_option " data-value="1964">1964</div><div class="xdsoft_option " data-value="1965">1965</div><div class="xdsoft_option " data-value="1966">1966</div><div class="xdsoft_option " data-value="1967">1967</div><div class="xdsoft_option " data-value="1968">1968</div><div class="xdsoft_option " data-value="1969">1969</div><div class="xdsoft_option " data-value="1970">1970</div><div class="xdsoft_option " data-value="1971">1971</div><div class="xdsoft_option " data-value="1972">1972</div><div class="xdsoft_option " data-value="1973">1973</div><div class="xdsoft_option " data-value="1974">1974</div><div class="xdsoft_option " data-value="1975">1975</div><div class="xdsoft_option " data-value="1976">1976</div><div class="xdsoft_option " data-value="1977">1977</div><div class="xdsoft_option " data-value="1978">1978</div><div class="xdsoft_option " data-value="1979">1979</div><div class="xdsoft_option " data-value="1980">1980</div><div class="xdsoft_option " data-value="1981">1981</div><div class="xdsoft_option " data-value="1982">1982</div><div class="xdsoft_option " data-value="1983">1983</div><div class="xdsoft_option " data-value="1984">1984</div><div class="xdsoft_option " data-value="1985">1985</div><div class="xdsoft_option " data-value="1986">1986</div><div class="xdsoft_option " data-value="1987">1987</div><div class="xdsoft_option " data-value="1988">1988</div><div class="xdsoft_option " data-value="1989">1989</div><div class="xdsoft_option " data-value="1990">1990</div><div class="xdsoft_option " data-value="1991">1991</div><div class="xdsoft_option " data-value="1992">1992</div><div class="xdsoft_option " data-value="1993">1993</div><div class="xdsoft_option " data-value="1994">1994</div><div class="xdsoft_option " data-value="1995">1995</div><div class="xdsoft_option " data-value="1996">1996</div><div class="xdsoft_option " data-value="1997">1997</div><div class="xdsoft_option " data-value="1998">1998</div><div class="xdsoft_option " data-value="1999">1999</div><div class="xdsoft_option " data-value="2000">2000</div><div class="xdsoft_option " data-value="2001">2001</div><div class="xdsoft_option " data-value="2002">2002</div><div class="xdsoft_option " data-value="2003">2003</div><div class="xdsoft_option " data-value="2004">2004</div><div class="xdsoft_option " data-value="2005">2005</div><div class="xdsoft_option " data-value="2006">2006</div><div class="xdsoft_option " data-value="2007">2007</div><div class="xdsoft_option " data-value="2008">2008</div><div class="xdsoft_option " data-value="2009">2009</div><div class="xdsoft_option " data-value="2010">2010</div><div class="xdsoft_option " data-value="2011">2011</div><div class="xdsoft_option " data-value="2012">2012</div><div class="xdsoft_option " data-value="2013">2013</div><div class="xdsoft_option " data-value="2014">2014</div><div class="xdsoft_option " data-value="2015">2015</div><div class="xdsoft_option " data-value="2016">2016</div><div class="xdsoft_option " data-value="2017">2017</div><div class="xdsoft_option " data-value="2018">2018</div><div class="xdsoft_option " data-value="2019">2019</div><div class="xdsoft_option " data-value="2020">2020</div><div class="xdsoft_option " data-value="2021">2021</div><div class="xdsoft_option " data-value="2022">2022</div><div class="xdsoft_option " data-value="2023">2023</div><div class="xdsoft_option xdsoft_current" data-value="2024">2024</div><div class="xdsoft_option " data-value="2025">2025</div><div class="xdsoft_option " data-value="2026">2026</div><div class="xdsoft_option " data-value="2027">2027</div><div class="xdsoft_option " data-value="2028">2028</div><div class="xdsoft_option " data-value="2029">2029</div><div class="xdsoft_option " data-value="2030">2030</div><div class="xdsoft_option " data-value="2031">2031</div><div class="xdsoft_option " data-value="2032">2032</div><div class="xdsoft_option " data-value="2033">2033</div><div class="xdsoft_option " data-value="2034">2034</div><div class="xdsoft_option " data-value="2035">2035</div><div class="xdsoft_option " data-value="2036">2036</div><div class="xdsoft_option " data-value="2037">2037</div><div class="xdsoft_option " data-value="2038">2038</div><div class="xdsoft_option " data-value="2039">2039</div><div class="xdsoft_option " data-value="2040">2040</div><div class="xdsoft_option " data-value="2041">2041</div><div class="xdsoft_option " data-value="2042">2042</div><div class="xdsoft_option " data-value="2043">2043</div><div class="xdsoft_option " data-value="2044">2044</div><div class="xdsoft_option " data-value="2045">2045</div><div class="xdsoft_option " data-value="2046">2046</div><div class="xdsoft_option " data-value="2047">2047</div><div class="xdsoft_option " data-value="2048">2048</div><div class="xdsoft_option " data-value="2049">2049</div><div class="xdsoft_option " data-value="2050">2050</div></div><div class="xdsoft_scrollbar"><div class="xdsoft_scroller" style="height: 10px; margin-top: 0px;"></div></div></div><i></i></div><button type="button" class="xdsoft_next" style="visibility: visible;"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11.667" viewBox="0 0 7 11.667"> <path id="Path" d="M6.748,6.411l-5.28,5.016a.892.892,0,0,1-1.216,0,.788.788,0,0,1,0-1.155L4.924,5.833.252,1.395a.789.789,0,0,1,0-1.155.892.892,0,0,1,1.216,0l5.28,5.016a.788.788,0,0,1,0,1.155Z" fill="#000"></path> </svg></button></div><div class="xdsoft_calendar"><table><thead><tr><th>جمعة</th><th>سبت</th><th>أحد</th><th>إثنين</th><th>ثلاثاء</th><th>أربعاء</th><th>خميس</th></tr></thead><tbody><tr><td data-date="29" data-month="2" data-year="2024" class="xdsoft_date xdsoft_day_of_week5 xdsoft_date xdsoft_other_month" title=""><div>29</div></td><td data-date="30" data-month="2" data-year="2024" class="xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_other_month xdsoft_weekend" title=""><div>30</div></td><td data-date="31" data-month="2" data-year="2024" class="xdsoft_date xdsoft_day_of_week0 xdsoft_date xdsoft_other_month xdsoft_weekend" title=""><div>31</div></td><td data-date="1" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week1 xdsoft_date" title=""><div>1</div></td><td data-date="2" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week2 xdsoft_date" title=""><div>2</div></td><td data-date="3" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week3 xdsoft_date" title=""><div>3</div></td><td data-date="4" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week4 xdsoft_date" title=""><div>4</div></td></tr><tr><td data-date="5" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week5 xdsoft_date" title=""><div>5</div></td><td data-date="6" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend" title=""><div>6</div></td><td data-date="7" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week0 xdsoft_date xdsoft_weekend" title=""><div>7</div></td><td data-date="8" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week1 xdsoft_date" title=""><div>8</div></td><td data-date="9" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week2 xdsoft_date" title=""><div>9</div></td><td data-date="10" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week3 xdsoft_date" title=""><div>10</div></td><td data-date="11" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week4 xdsoft_date" title=""><div>11</div></td></tr><tr><td data-date="12" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week5 xdsoft_date" title=""><div>12</div></td><td data-date="13" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend" title=""><div>13</div></td><td data-date="14" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week0 xdsoft_date xdsoft_weekend" title=""><div>14</div></td><td data-date="15" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week1 xdsoft_date" title=""><div>15</div></td><td data-date="16" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week2 xdsoft_date" title=""><div>16</div></td><td data-date="17" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week3 xdsoft_date" title=""><div>17</div></td><td data-date="18" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week4 xdsoft_date" title=""><div>18</div></td></tr><tr><td data-date="19" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week5 xdsoft_date" title=""><div>19</div></td><td data-date="20" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend" title=""><div>20</div></td><td data-date="21" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week0 xdsoft_date xdsoft_weekend" title=""><div>21</div></td><td data-date="22" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week1 xdsoft_date" title=""><div>22</div></td><td data-date="23" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week2 xdsoft_date" title=""><div>23</div></td><td data-date="24" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week3 xdsoft_date" title=""><div>24</div></td><td data-date="25" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week4 xdsoft_date" title=""><div>25</div></td></tr><tr><td data-date="26" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week5 xdsoft_date" title=""><div>26</div></td><td data-date="27" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week6 xdsoft_date xdsoft_weekend" title=""><div>27</div></td><td data-date="28" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week0 xdsoft_date xdsoft_weekend" title=""><div>28</div></td><td data-date="29" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week1 xdsoft_date xdsoft_current xdsoft_today" title=""><div>29</div></td><td data-date="30" data-month="3" data-year="2024" class="xdsoft_date xdsoft_day_of_week2 xdsoft_date" title=""><div>30</div></td><td data-date="1" data-month="4" data-year="2024" class="xdsoft_date xdsoft_day_of_week3 xdsoft_date xdsoft_other_month" title=""><div>1</div></td><td data-date="2" data-month="4" data-year="2024" class="xdsoft_date xdsoft_day_of_week4 xdsoft_date xdsoft_other_month" title=""><div>2</div></td></tr></tbody></table></div><button type="button" class="xdsoft_save_selected blue-gradient-button" style="display: none;">Save Selected</button></div><div class="xdsoft_timepicker"><span class="choose-time">اختر الوقت</span><button type="button" class="xdsoft_prev"></button><div class="xdsoft_time_box xdsoft_scroller_box"><div class="xdsoft_time_variant" style="margin-top: 0px;"><div class="xdsoft_time " data-hour="0" data-minute="0">00:00</div><div class="xdsoft_time " data-hour="1" data-minute="0">01:00</div><div class="xdsoft_time " data-hour="2" data-minute="0">02:00</div><div class="xdsoft_time xdsoft_current" data-hour="3" data-minute="0">03:00</div><div class="xdsoft_time " data-hour="4" data-minute="0">04:00</div><div class="xdsoft_time " data-hour="5" data-minute="0">05:00</div><div class="xdsoft_time " data-hour="6" data-minute="0">06:00</div><div class="xdsoft_time " data-hour="7" data-minute="0">07:00</div><div class="xdsoft_time " data-hour="8" data-minute="0">08:00</div><div class="xdsoft_time " data-hour="9" data-minute="0">09:00</div><div class="xdsoft_time " data-hour="10" data-minute="0">10:00</div><div class="xdsoft_time " data-hour="11" data-minute="0">11:00</div><div class="xdsoft_time " data-hour="12" data-minute="0">12:00</div><div class="xdsoft_time " data-hour="13" data-minute="0">13:00</div><div class="xdsoft_time " data-hour="14" data-minute="0">14:00</div><div class="xdsoft_time " data-hour="15" data-minute="0">15:00</div><div class="xdsoft_time " data-hour="16" data-minute="0">16:00</div><div class="xdsoft_time " data-hour="17" data-minute="0">17:00</div><div class="xdsoft_time " data-hour="18" data-minute="0">18:00</div><div class="xdsoft_time " data-hour="19" data-minute="0">19:00</div><div class="xdsoft_time " data-hour="20" data-minute="0">20:00</div><div class="xdsoft_time " data-hour="21" data-minute="0">21:00</div><div class="xdsoft_time " data-hour="22" data-minute="0">22:00</div><div class="xdsoft_time " data-hour="23" data-minute="0">23:00</div></div><div class="xdsoft_scrollbar"><div class="xdsoft_scroller" style="height: 10px; margin-top: 0px;"></div></div></div><button type="button" class="xdsoft_next"></button></div></div>
+
 <a href="javascript:void(0)" class="date-filter-link filter-button radius-btn mt-10 date_c">الفلترة</a>
 </div>
 </div>
 </div>
 </div>
-</div><hr>
+</div>
+	<hr>
 	
 	<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
                                         <div class="header">
