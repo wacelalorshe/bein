@@ -1,2084 +1,239 @@
-<!DOCTYPE html>
-
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600&display=swap");
-body {
- background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);  padding: 0px;
- font-family: "Baloo Bhaijaan 2", cursive, Dubai-Bold, Changa, Droid Arabic Kufi, tahoma;
-   500;
- font-size: 16px;
- text-align: right; 
- color: #fff;
- margin: auto;
- /*   position: relative; */
- direction: rtl;
- background-size: cover;
-}
-span.match-date.end {
- background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); padding-left: 5px; padding-right: 5px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
-
-}
-.section {
- margin: 0 0px;
-}
-span.match-date.soon {
- background: #000;
-}
-.widget ul {
- padding: 0px 0.25em 0 0;
- margin: 0;
- line-height: 1.2;
-}
-.col {
- border: solid 0px #000;
- padding: 10px;
-}
-
-:root {
- --header-color: #ff000000;
- --logo-background-image: linear-gradient(to right, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7);padding: 2px; 
- --widget-title-bg: background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);; padding: 2px; 
- --theme-color-style: background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);;padding: 2px; 
- --btnplayer: background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);;  padding: 2px; 
- --todaybg: #6f2f9f;
- --tomorobg: #6f2f9f;
- --yrsdaybg: #6f2f9f;
- --live-start: #04FF00;
- --live-soon: #000;
- --live-end: #003828;
- --bar-background: #ff000000;
- --post-header-background: #eceef2;
- --card-background: #eceef2;
- --border-radius: 5px;
- --font-name: "Baloo Bhaijaan 2", cursive, Dubai-Bold, Changa, Droid Arabic Kufi, tahoma;
-
- /*  --header-color: #fff7FF; background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);;  padding: 2px; 
-    --widget-title-bg: #6f2f9f;
-    --theme-color-style: #6f2f9f;
-    --btnplayer: #6f2f9f;
-    --todaybg: #6f2f9f;
-    --tomorobg: #6f2f9f;
-    --yrsdaybg: #6f2f9f;
-    --live-start: #e0190b;
-    --live-soon: #000;
-    --live-end: #000;
-    --bar-background: #D4DBFF;
-    --post-header-background: #25008C;
-    --card-background: #000;
-    --border-radius: 5px;
-    --font-name: Neo Sans Arabic,Changa,Segoe UI;*/
-}
-
-.match-timing .soon {
- background: #000;
-}
-
-.match-timing .end {
- background: #000;
-}
-
-.match-event {
- border: 1px solid #000;
- overflow: hidden;
- text-align: center;
- background: #000;
- margin-bottom: 12px;
- position: relative;
- border-radius: 5px;
- order: 3;
-}
-.match-name,
-.match-event.ch-end #match-hour,
-.match-event.ch-live #match-hour,
-.match-event.ch-soon #result-now,
-.match-event.notstart #result-now,
-.match-event.h,
-.match-event.ch-end #match-live,
-.match-event.d #match-live {
- display: none !important;
-}
-.match-event:last-child {
- margin-bottom: 12px;
-}
-.matchflex {
- display: flex;
- flex-direction: column; /*margin:12px 12px 0*/
-}
-.match-event.ch-live {
- order: 1;
-}
-.match-event.ch-soon {
- order: 2;
-}
-.match-event.l {
- order: 0;
-}
-.match-event.l1 {
- order: -2;
-}
-.match-event.l2 {
- order: -1;
-}
-.match-event.ch-end {
- order: 5;
-}
-.match-event a {
- color: #fff;
-}
-.match-event h4 {
- margin: 30px 0;
-}
-.first-team,
-.left-team,
-.match-time {
- width: 33.33333333%;
- float: right;
-}
-.team-logo {
- float: left;
- width: 30%;
-}
-.left-team .team-logo {
- float: right;
-}
-.team-logo img {
- margin: 10px auto;
- display: flex;
-}
-.team-name {
- margin: 28px auto;
- display: table;
-   500;
-}
-.match-timing {
- margin: 12px auto;
-}
-#result-now {
- font-size: 21px;
- letter-spacing: 5px;
- margin-right: -5px;
- color: #eceef2;
-}
-.match-event.ch-end #result-now,
-.match-event.ch-live #result-now {
- color: #fff;
-}
-#result-noww {
- font-size: 21px;
- margin-right: -5px;
- direction: ltr;
-}
-.match-timing .match-date,
-.match-timing .live:before {
- color: #fff;
- background: #25008C;
- border-radius: 5px;
- font-size: 14px;
- width: 90px;
- line-height: 1.9;
- display: table;
- margin: auto;
- margin-top: 6px;
- position: relative;
- border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border: 1px solid #000; /* اختياري: إضافة حدود للعنصر */
-    
-}
-.match-timing .live:before {
- content: "جارية الآن";
- position: absolute;
- animation: blinker 500ms ease-in-out infinite;
- margin: 0;
- top: 0;
- right: 0;
- left: 0;
- bottom: 0;
- border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border: 1px solid #000; /* اختياري: إضافة حدود للعنصر */
-    
-}
-.match-timing .live {
- background: #25008C;
- border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border: 1px solid #000; /* اختياري: إضافة حدود للعنصر */
-    
-}
-.match-timing .end {
- background: #fff;
- border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border: 1px solid #000; /* اختياري: إضافة حدود للعنصر */
-    
-}
-.match-timing .soon {
- background: #000;
- border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border-radius: 10px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border: 1px solid #000; /* اختياري: إضافة حدود للعنصر */
-    
-}
-.match-info {
- border-top: 1px solid #000;
- display: table;
- overflow: hidden;
- width: 100%;
-}
-.match-info li {
- width: 34.33333333%;
- float: right;
- font-size: 14px;
-   
-}
-.match-info li:before {
- content: "  معلق المبـاراة 🎤";
- margin-left: 1px;
+<html dir="rtl" lang="ar">
+ <head> 
+ 	
  
- color: #fff;
-padding-left: 5px; padding-right: 5px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
+  <link rel="icon" href="https://www.ysscores.com/images/favicon.png" type="image/png"> 
+  <link href="https://www.ysscores.com/css/bootstrap.rtl.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/owl.carousel.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/owl.theme.default.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/jquery.datetimepicker.min.css" rel="stylsheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/zuck.min.css" rel="styleseet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/style.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/responsive.css" rel="stylesheet" type="text/css"> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="description" content="موقع رياضي يهتم بتغطية أهم الأحداث الرياضية حول العالم بتغطية مميزة ولحظية"> 
+  <meta name="keywords" content="نتائج حية،أخبار،مباريات،تشكيلة،ترتيب الهدافين،ترتيب البطولات،بث،فيديو،ملخصات،أهداف،إحصائيات"> 
+  <meta name="_token" content="UjBWHdVPEsoDU9daZwWUPUGSrTYXzTMtRx42Gh54" no_result="لا تتوفر نتائج" detail="التفاصيل" no_matches="لا توجد مباريات لهذا اليوم" report="إبلاغ" edit="تعديل" delete="حذف" alert_msg="هل أنت متأكد من حذف هذا الحقل" yes="نعم" no="لا"> 
+  <title>يلا شووت - متابعة لحظية للمباريات</title> 
 
-
-
-}
-.match-info li:first-child:before {
- content: "   القناة الناقلة 📺";
- margin-left: 1px;
-  color: #fff;
-background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); padding-left: 5px; padding-right: 5px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
-}
-.match-info li:last-child:before {
- content: " جولة المبـاراة 🏆";
- margin-left: 0px;
-  padding: 0px; 
- color: #fff;
-    background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); padding-left: 5px; padding-right: 5px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
-}
-  .text-match {
-    color: aliceblue;
-}
-#overlay-match {
- position: absolute;
- top: 0;
- bottom: 0;
- left: 0;
- right: 0;
- height: 100%;
- width: 100%;
- opacity: 0;
- cursor: pointer;
- background: rgb(0 0 0 / 90%);
- z-index: 9;
-}
-.match-event:hover #overlay-match {
- opacity: 1;
-}
-#watch-match {
- position: absolute;
- bottom: 0;
- right: 0;
- height: 45px;
- margin: auto;
- left: 0;
- top: 0;
- width: 45px;
- background: no-repeat center
-}
-.post-box ul {
- padding: 12px 12px 0;
- padding-bottom: 0;
- overflow: hidden;
-}
-.post-box .rnav-title {
- position: absolute;
- right: 0;
- bottom: 0;
- left: 0;
- padding: 10px;
- background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7) 40%, #غير مدرج00);
- text-shadow: 0 1px 1px #000;
- color: #25008C;
- font-size: 16px;
- line-height: 16px;
-}
-.post-box li {
- position: relative;
- overflow: hidden;
- float: right;
- margin-left: 12px;
- margin-bottom: 12px;
- width: calc((100% - 12px) / 3);
- height: auto;
- position: relative;
- overflow: hidden;
- border-radius: 8px;
-}
-.post-box li:first-child {
- width: calc(100% - ((100% + 24px) / 3));
-}
-.post-box li:first-child .rnav-title {
- font-size: 20px;
- line-height: 20px;
-}
-.post-box li:last-child,
-.post-box li:nth-child(2),
-.post-box li:nth-child(3) {
- margin-left: 0;
-}
-.post-box li:nth-child(5) {
- width: calc((100% - 48px) / 3);
-}
-.post-box img {
- max-width: 100%;
- height: 200px;
-}
-.post-box li:first-child img {
- height: 423px;
-}
-
-a.tablinks.g {
- background-color: #95غير مدرج;
- border-radius: 2px;
- box-shadow: 4px -4px 0px rgb(0 0 0);
- -webkit-animation: flash linear 1s infinite;
- -moz-animation: flash linear 1s infinite;
- -o-animation: flash linear 1s infinite;
- animation: flash linear 4s infinite;
-}
-
-@media screen and (max-width: 550px) {
- .menu-section .container {
-  padding: 0 12px;
- }
- .panel-default .box-title {
-  padding: 12px 12px 0;
- }
- .panel-default .box-title h2 {
-  float: none;
-  margin-bottom: 12px;
-  text-align: center;
- }
- .panel-default .nav-tabs {
-  float: none;
-  margin: 0;
-  display: inline-block;
-  width: 100%;
- }
- .panel-default .nav-tabs li {
-  width: 33.333%;
-  margin: 0;
- }
- .panel-default .nav-tabs li a {
-  text-align: center;
-  padding: 0;
-  float: none;
-  display: block;
- }
- .nav-tabs .toma a {
-  margin: 0 6px;
- }
- .team-logo img {
-  margin: 7px auto;
-  margin-bottom: 0;
-  width: 50px;
-  height: 50px;
- }
- .team-name {
-  margin: 7px auto;
-  margin-top: 0;
- }
- .match-timing {
-  margin: 13px auto;
- }
- .team-logo {
-  width: 100%;
- }
- .match-info li {
-  width: 50%;
- }
- /*.match-info li:nth-child(2){display:none;}*/
- .index .blog-posts-hentry {
-  width: 50%;
- }
- .whatsapp.whatsapp-mobile {
-  display: block;
- }
- .whatsapp.whatsapp-desktop {
-  display: none;
- }
- #box-posts ul li {
-  width: 50%;
- }
- #feeds-posts {
-  height: 1350px;
- }
- .tourItem .item {
-  height: initial;
- }
- .tourItem .item .dtls {
-  margin: auto;
-  float: none;
-  display: table;
-  margin-bottom: 12px;
- }
- .tourItem .links {
-  float: none;
-  display: table;
-  margin: auto;
- }
-}
-
-a {
- color: #fff;
- text-decoration: none;
-}
-img {
- font-size: 2;
- pointer-events: all;
-}
-a:focus,
-a:hover {
- color: var(--theme-color-style);
- transition: 0.5s ease;
-}
-* {
- margin: 0;
- padding: 0;
- outline: 0;
- list-style: none;
-}
-
- /* تغير خلفية المباراة */
-.match-event {
- box-shadow: 0px 0px 55px rgb(148 144 137 / 100%);
- border-radius: 99px 0px 90px 0px;
- color: #FF4800;
- overflow: hidden;
- text-align: center;
-background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
- margin-bottom: 0px;
- position: relative;
- color: #fff; 
-
-/* تغيير لون النص  للمعلق*/
- border: 11px solid #000; /* اختياري: إضافة حدود للعنصر */
+</head> 
+ <body> 
+  <header> 
+  	
+   
+          
         
-
-
- 
- 
-}
-.match-event.ch-live #match-hour {
- display: none !important;
-}
-
-.match-event:last-child {
- margin-bottom: 0px;
-}
-.match-event.ch-live {
- order: 1;
-}
-.match-event a {
- color: #fff;
-}
-.first-team,
-.left-team,
-.match-time {
- width: 33.33333333%;
- float: right;
-}
-.team-logo {
- float: right;
- width: 50%;
-}
-.left-team .team-logo {
- float: left;
-}
-.team-logo img {
- margin: 10px auto;
- display: flex;
-}
-.team-name {
- margin: 28px auto;
- display: table;
-}
-.match-timing {
- margin: 12px auto;
-}
-
-#livesherif1 {
-/* line-height: 2.5;
-
- color: #fff;
- width: 93px;
- display: block;
- margin: auto;
- margin-top: 6px;
- padding: 1px;
- font-size: 17px;
- background-color: #fff;
- border-radius: 6px;*/
+       
+          
+      
+  </header> 
   
-      color: #fff;
-    width: 50px;
-    display: block;
-    margin: auto;
-    margin-top: 6px;
-    padding: 1px;
-    font-size: 17px;
-    background-color: #fff;
-    border-radius: 6px;
-    -webkit-animation: flash linear 1s infinite;
-    -moz-animation: flash linear 1s infinite;
-    -o-animation: flash linear 1s infinite;
-    /* animation: flash linear 1s infinite; */
+  <div class="mobile-header"> 
+   <div class="container"> 
+    <div class="mobile-header-wrap"> 
+  
+     <style>
+     	
+     
 
-}
-#livesherif2 {
- color: #fff7FF;
- width: 93px;
- display: block;
- margin: auto;
- margin-top: 6px;
- padding: 1px;
- font-size: 17px;
- background-color: #00F5FF;
- border-radius: 6px;
-}
-#livesherif3 {
- color: #fff7FF;
- width: 93px;
- display: block;
- margin: auto;
- margin-top: 6px;
- padding: 1px;
- font-size: 17px;
- background-color: #00F5FF;
- border-radius: 6px;
- -webkit-animation: flash linear 1s infinite;
- -moz-animation: flash linear 10s infinite;
- -o-animation: flash linear 1s infinite;
- /* animation: flash linear 1s infinite; */
-}
-
-.match-timing .match-date{
- color: #fff;
- background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);padding-left: 5px; padding-right: 5px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
- border-radius: var(--border-radius);
- font-size: 15px;
- width: 80px;
- line-height: 1.5;
- display: table;
- margin: auto;
- margin-top: 5px;
- position: relative;
-}
-.match-timing .live:before {
- color: #FF9000;
- background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); padding-left: 5px; padding-right: 5px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
- border-radius: var(--border-radius);
- font-size: 15px;
- width: 80px;
- line-height: 1.5;
- display: table;
- margin: auto;
- margin-top: 5px;
- position: relative;
-}
-
-.match-timing .live:before {
- content: "جارية الآن";
-
- position: absolute;
- animation: blinker 500ms ease-in-out infinite;
- margin: 0;
-}
-.match-timing .live {
- background: var(--live-start);
-}
-.match-info {
-	max-width: 100%;
-
-padding:20px;
-padding-top:20px;
-padding-bottom:10px;
- border-top:0px solid #FF0037;
- margin-bottom: 2%;
- border-bottom: 0px solid #4C5A9A;الخط
- display: table;
- overflow: hidden;
- width: 120%;
-box-shadow: 0 10px 5px  rgba(227, 218, 207, 10);
- border-bottom: 10px groove #E7E1D6;
-    border-top: 0px groove rgb(255 255 255/ 80%);
-border-left: 0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-border-radius: 100px 100px 100px 100px;" 
-
-  /* تغيير حجم النص في المعلق*/
-}
-.match-info li {
- width: 33.333333333%;
-
- float: right;
- font-size: 12px;
-   
-}
-#overlay-match {
- position: absolute;
- 
- top: 0;
- bottom: 0;
- left: 0;
- right: 0;
- height: 100%;
- width: 100%;
- opacity: 0;
- cursor: pointer;
- background: rgb(47 47 47 / 72%);
- z-index: 9;
-}
-.match-event:hover #overlay-match {
- opacity: 1;
-}
-#watch-match {
- position: absolute;
- bottom: 0;
- right: 0;
- height: 45px;
- margin: auto;
- left: 0;
- top: 0;
- width: 45px;
- background: no-repeat center
-}
-
-/* تغيير حجم الصور */
-@media screen and (max-width: 500px) {
- .team-logo img {
-  margin: 7px auto;
-  margin-bottom: 0;
-  width: 60px;
-  height: 60px;
- }
- .team-name {
-  margin: 7px auto;
-  margin-top: 60px; /* margin-top: 25px; */
-
- }
- .match-timing {
-  margin: 10px auto;
- }
- .team-logo {
-  width: 100%;
- }
- .match-info {
-  /* display: none; */
- }
-} /*! CSS Used keyframes */
-@keyframes blinker {
- 50% {
-  opacity: 0;
- }
-}
-.ch-end #match-hour {
- display: none !important;
-}
-#watch-match {
- position: absolute;
- bottom: 0;
- right: 0;
- height: 45px;
- margin: auto;
- left: 0;
- top: 0;
- width: 45px;
- background: no-repeat center
-}
-
-.panel-footer {
- color: #00F5FF;
- background: #000;
- border-radius: var(--border-radius);
- font-size: 14px;
- width: 100%;
- line-height: 2.4;
- display: table;
- margin: auto;
- margin-top: 6 px;
- position: relative;
- text-align: center;
- box-shadow: 9px 6px 12px rgb(24 24 24 / 39%);
-}
-
-/***  التاريخ  **/
-
-.gadwlgadwl {
- float: none;
- width: 100%;
-}
 
 .time {
+ font-size: 15px; /* حجم الخط */
+            color: #fff; /* لون النص */
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+                z-index: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    top: 2.0%;
+            position: fixed;
+margin: 0px 0;
+ border-bottom: 4px groove #000;
+    border-top: 4px ridge #000;
+border-left: 0px ridge #fff;
+border-right: 0px ridge #fff;
+font-weight: bold; text-align: center;color: #; 
+width:90%;
+border-radius: 10px 10px 10px 10px;
+ height:43px;
+            
+            padding: 3px; /* مسافة داخلية */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1.1); /* ظل */
+            transition: all 0.3s; /* تأثير الانتقال */
+        }
 
- box-shadow: 0 6px 18px 0 rgba(0, 0, 25, 25);
- display: block;
- background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
- clear:#fff ;
- color: #fff;
- border-radius: 3px;
- padding: 15px;
- overflow: hidden;
- margin: 0 0 15px;
- /*   bold; */
- text-align: center;
- border-radius: 100px; /* يمكنك تعديل القيمة هنا لتحقيق الشكل المطلوب */
-    border-radius: 50px 50px 50px 50px ;
+        .professional-title:hover {
+            color: #0C00FF; /* لون النص عند التمرير */
+            background-color: #FFF100; /* لون الخلفية عند التمرير */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
 
-border-radius: 0px 0px 40px 40px ;
-border-bottom: 10px groove #151825;
-border-top: 0px ridge #D4DBFF;    
-border-left: 1px ridge #000;
-border-right: 1px ridge #000;
-margin:0px 0px;
-
-padding: 4%; 
-    }
+}
 svg.svg-inline--fa.fa-calendar-alt.fa-w-14 {
- color: #fff;
+ color: #FFBA00;
  width: 28px;
- height: 28px;
+ height: 20px;
+ margin-left: 150px;
 }
 div#clocktw,
 svg.svg-inline--fa.fa-calendar-alt.fa-w-14 {
  display: inline-block;
  vertical-align: middle;
- margin: 0 1px;
-}
-div#clocktw {
- font-size: 17px;
-  
+ margin: 0px;
 }
 
-.alert-success {
- color: #FFD700;
- background-color: #d4edda;
- border-color: #c3e6cb;
-}
-.alert {
- position: relative;
- padding: 0.75rem 1.25rem;
- margin-bottom: 1rem;
- border: 1px solid transparent;
- border-radius: 0.25rem;
-}
-/***  التاريخ  **/
+hr {
+ font-size: 6px;
+ color: #fff; 
+ 
 
-.no-match.h {
- display: none;
-}
-.no-match {
- background: #FFD500;
- -webkit-border-radius: 8px;
- -moz-border-radius: 8px;
- border-radius: 6px;
- text-align: center;
- /* margin-top: 20px; */
- padding: 10px 0px;
-}
-
-.no-match span.InfoIcon {
- width: 100%;
- display: block;
- height: 32px;
- position: relative;
-}
-
-.no-match span.Msg {
- margin-top: 2px;
- display: block;
- text-align: center;
- color: #fff7FF;
- font-size: 18px;
-  
-}
-img.img {
- max-width: 38px;
- background-repeat: no-repeat;
- /* background-position: -427px 0px; */
- width: 30px;
- height: 34px;
-}
-
-/***********************/
-
-/********/
-
-ul {
- margin: 0;
- padding: 0;
-}
-li {
- display: list-item;
- text-align: -webkit-match-parent;
-}
-* {
- list-style: none;
- text-decoration: none;
- margin: 0;
- padding: 0;
- outline: 0;
-}
-*,
-:before,
-:after {
- box-sizing: border-box;
-}
-a {
- color: #FFD500;
-}
-.clear {
- clear: both;
-}
-.widget {
- margin: 0;
-}
-.widget li {
- padding: 0;
-}
-img {
- max-width: 100%;
-}
-.container {
- padding: 0 10px;
-}
-.skyliveapp-match h2.title,
-.quickedit,
-.ContactForm {
- display: none;
-}
-/* match center */
-.match-center {
- margin-bottom: 10px;
- width: 100%;
- height: 44px;
- /* box-shadow:rgba(0, 0, 25, 25 / 39%); */
-}
-.match-center.e {
- margin-top: 0;
-}
-.match-center button.tablinks.active {
- color: #fff;
- background-color: #f9bb47;
-}
-
-.match-center .tablinks {
-/* width: 33.333%; */
- width: 50%;
- float: right;
- text-align: center;
-   100;
- font-size: 13px;
- border: 0;
- background-color: #b48b10;
- height: 40px;
- line-height: 40px;
- text-decoration: none;
-}
-
-a {
- color: #fff7FF;
-}
-
-.match-center button.tablinks {
- background-color: #1c1c1c;
-}
-a.tablinks.t {
- color: #fff7FF;
- background-color: #FFD700;
-}
-#goals {
- display: none;
-}
-button.tablinks.g {
- display: none;
-}
-
-.match-center .tablinks.active {
- color: #fff7FF;
- background-color: #FFD700;
-}
-/* match */
-#tommorw {
- display: none;
-}
-.match {
- background-color: #1d1d1d;
- margin: 0px 0px 10px 0px;
- height: 65px;
- border-radius: 0px;
- box-shadow: 7px 8px 12px rgba(24, 24, 24, 0.39);
-}
-
-.match-center {
- margin-bottom: 10px;
- width: 100%;
- height: 40px;
-}
-.match-center button.tablinks.active {
- color: #151515;
- background-color: #f9bb47;
-}
-
-
-a.tablinks.t {
- color: #fff7FF;
-}
-#goals {
- display: none;
-}
-button.tablinks.g {
- display: none;
-}
-.float_wrapper {
- width: 100%;
- z-index: 99999;
-}
-.no-scroll {
- top: 60px;
-}
-.scroll {
- top: 0;
-}
-/** logo **/
-img:not(.initial) {
- transition: opacity 1s;
-}
-.logo-small img {
- width: 70px;
- margin: 0;
- border-radius: calc(var(--finwallapp-rounded) - 8px);
- box-shadow: 0 3px 5px rgb(0 0 0 / 15%);
- -webkit-box-shadow: 0 3px 5px rgb(0 0 0 / 15%);
- -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
- margin-right: 8px;
- border: 0;
- vertical-align: middle;
-}
-
-.logo-small h5,
-.logo-small .h5 {
- font-size: 18px;
- line-height: 18px;
- display: inline-block;
- margin: 0 auto;
- vertical-align: middle;
-}
-
-.text-secondary {
- color: #ffffff !important;
-}
-.fw-light {
-   300 !important;
-}
-
-.col.text-center {
- padding: 10px;
- background: #1c1c1c;
-}
-span.text-secondary.fw-light2 {
- font-size: 13px;
-}
-
-/** logo **/
-
-::-webkit-scrollbar {
- width: 10px;
-}
-::-webkit-scrollbar-thumb {
- -webkit-shadow: inset 0 0 0 #FFD700;
- -webkit-border-radius: 0px;
- background-image: -webkit-linear-gradient(top, #FFD700 100%, #FFD700 100%);
-}
-::-webkit-scrollbar-track {
- -webkit-shadow: inset 0 0 0 #000;
- -webkit-border-radius: 100px;
-}
-
-.match-event:last-child {
- margin-bottom: 12px;
-}
-.matchflex {
- display: flex;
- flex-direction: column; /*margin:12px 12px 0*/
-}
-.match-event.ch-live {
- order: 1;
-}
-.match-event.ch-soon {
- order: 2;
-}
-.match-event.l {
- order: 0;
-}
-.match-event.l1 {
- order: -2;
-}
-.match-event.l2 {
- order: -1;
-}
-.match-event.ch-end {
- order: 5;
-}
-.match-event a {
- color: #fff;
-}
-.match-event h4 {
- margin: 30px 0;
-}
-.first-team,
-.left-team,
-.match-time {
- width: 33.33333333%;
- float: right;
-}
-
-.resulta {
- width: 80%;
- float: right; /* background: #FFD700; */
- display: initial; /* border-top: 1px solid #c1c1c1; */ /* text-align: center; */
- line-height: 20px;
-}
-.team1 {
- width: 50%;
- float: right;
-}
-.team2 {
- width: 50%;
- float: right;
-}
-.team1,
-.team2 {
- text-align: center;
- direction: rtl;
-}
-.team1 table,
-.team12 table {
- width: 100%;
- float: right;
- padding: 0 5px;
-}
-.team1 table tr,
-.team2 table tr {
- /* padding: 0 5px; */
- float: left;
- width: 100%;
- border: unset; /* display: flex; */
- justify-content: center; /* background: #cfcfcf; */
- margin: 1px 0;
- border-radius: 5pc;
-}
-td.goals {
- /* background: #ebcccc; */ /* padding: 0 5px; */ /* border: unset; */ /* min-width: 20px; */ /* text-align: center; */ /* font-size: 14px; */
-}
-td.goals {
- /* background: #000efe; */ /* min-width: 20px; */
- text-align: center; /* display: inline-table; */
-}
-@media screen and (max-width: 1000px) {
- .team1 table tr,
- .team2 table tr {
-  background: #2f2f2f;
- }
- .resulta {
-  width: 100%;
-  font-size: 12px;
-  line-height: 12px;
- }
- .match-info {
-  /*display: none;*/
- }
- .team2 table {
-  width: 100%;
-  float: right;
-  padding: 0 5px;
- }
- .resulta td {
-  min-width: 30px;
-  padding: 0px;
- }
- .first-team,
- .left-team,
- .match-time {
-  width: calc(100% / 3);
-  float: right;
- }
-}
-.team2 {
- /* border-right: 1px solid #474747; */
-}
-table.fullWidth {
- /* text-align: center; */
- padding: 0 5px;
-}
-.team2 {
-}
-.resulta td {
- min-width: 20px; /* display: inline-table; */
-}
-.team1 table tr,
-.team2 table tr {
+ border: 3px groove #000;
+ 
 }
 
 
 
-
-</body>
-</html>
-<!--- اقسام التطبيق --->
-
-</div>
-
-<style>
-    
-
-  
-    
-    .navsiteta li strong {
-        background: #3749b400;
     }
-    
-    .box-title {
-        border-radius: 10px;
-        background-color: #fff;
-        margin-bottom: 40px;
-        border-bottom: transparent;
-    }
-    
-    .card-title1{
-        text-align:right;
-        font-size: 16px;
-         
-        
-    }
-    .card-title2{
-        text-align:right;
-        font-size: 15px;
-         
-        
-    }
-    
-    .panel-default {
-        box-shadow: 0 0 2px rgb(0 0 0 / 0%);
-        background: #000;
-    }
-    .matchflex {
-        margin: 0;
-    }
-    
-    .box-title h1,.box-title h2 ,.box-title h3 {
-        font-size: 20px;
-        background: #47474700;
-          900;
-        color: #fff;
-        float: unset;
-        text-align: center!important;
-    }
-    strong {
-          800;
-    }
-    
-    @media (max-width: 600px){
-        .box-title h1 {
-            font-size: 16px;
-        }
-        .menublabel.op {
-            background: #7e7e7e47;
-        }
-    }
-    
-    .navbar-brand {
-        background: #3749b400;
-    }
-    .match-event {
-        align-items: center;
-        justify-content: center;
-        border-radius: 0px;
-        background-color: #003828;
-        padding: 10px;
-        margin-bottom: 5px;
-        border: unset;
-    }
-    .first-team,.left-team {
-    
-        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);;
-
-
-        border-radius: 19px;
-        color:#000;
-    
-    
-    }
-    
-    
-    
-    .team-name {
-       
-        font-size: 16px;
-        /* margin: 28px auto; */
-        
-          600;
-        text-align: right;
-        padding-right: 5px;
-        text-align: center;
-    
-    }
-    
-    .left-team .team-logo {
-        float: right;
-    }
-    
-    
-    
-    @media (min-width: 600px){
-        .team-logo {
-            float: right;
-            width: 30%;
-        }
-    
-        .first-team,.left-team {
-            width: 30%;
-            border: 1px solid #730097;
-        }
-    
-        .match-time {
-            width: 29%;
-        }
-    }
-    
-    .post-title a{
-        color:#000;
-        font-size: 14px;
-    }
-    .blog-post.hentry.index-post{
-        background:transparent;
-    
-        text-align: center;
-        padding: 30px 20px;
-        border: 1px solid #000;
-        border-radius: 10px;
-    }
-    .posts-thumb img{
-        border-radius: 10px;
-    }
-    #match-hour{
-        color:#000;
-        font-size: 14px;
-          
-    
-    }
-    #result-now{
-    77   background-image: linear-gradient(to right, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7);  padding: 2px; 
-        font-size: 20px;
-          
-    }
-    
-    .tabsbox {
-        color: #fff;
-        background: #000;
-    }
-    
-    .row {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    
-    .myframe{
-        min-height: 400px;
-        width: 100%;
-        padding-top:0.2rem;
-    }
-    
-    #table-league {
-        color: #c7def2;
-        font-size: 14px;
-          
-    }
-    
-    #table-score {
-        color: #fff;
-        font-size: 20px;
-          
-    }
-    @media (max-width: 600px) {
-    #matchLeague {
-        font-size: 10px !important;
-    }
-    .team-name {
-        font-size: 12px !important;
-    }
-    h2 {
-        font-size: 16px !important;
-    }
-    .card-title1 {
-        font-size: 15px !important;
-    }
-    .card-title2 {
-        font-size: 14px !important;
-    }
-    p {;
-        font-size: 14px !important;
-    }
-    
-      .blog-post.hentry.index-post {
-        padding: 5px 10px;
-        }
-        .post-title a {
-        font-size: 11px;
-    }
-    }
-        
-        
-    
-    
-
-  
 </style>
-    
-    
-      
-    	
-    
 
 
-    
-
-
-
-
-
-</style>
-  
- <!---------------------------------------Gadwl sf7at  ------------------------------------->  
 <div class='gadwlgadwl'>
 <div class='time'>
+
+
 <svg aria-hidden='true' class='svg-inline--fa fa-calendar-alt fa-w-14' data-icon='calendar-alt' data-prefix='far' focusable='false' role='img' viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg'><path class='' d='M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z' fill='currentColor'></path></svg>
-<div class='timeanddatetw' id='clocktw'>مباريات اليوم | الاربعاء 05.03.2025  </div>
+
+<div class='timeanddatetw' id='clocktw'> مباريات اليوم | السبت 08.03.2025       </div>
 </div>
-<script>/*<![CDATA[*/function refrClock() {
-	var e = new Date,
-		t = e.getSeconds(),
-		r = e.getMinutes(),
-		n = e.getHours(),
-		o = e.getDay(),
-		c = e.getDate(),
-		g = e.getMonth(),
-		a = e.getFullYear(),
-		l = new Array("الاحد", "الاثنين", "الثلاثاء", "الاربعاء", "الخميس", "الجمعة", "السبت"),
-		u = new Array("يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيو", "يوليو", "اغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر");
-	t < 10 && (t = "0" + t), r < 10 && (r = "0" + r), 12 < n && (n -= 12), n < 10 && (n = "0" + n), document.getElementById("clocktw").innerHTML = l[o@CCORCH@ + " " + c + " " + u[g@CCORCH@ + " " + a
-}
-refrClock();/*@CCORCH@@CCORCH@>*/</script>
+
 <!---------------------------------------------------------------------------------  ------->
-
-  
-
-
-
-   
-<!---------------------------------------------------------------------------------------->
-
-
-
-<!---------------------------------------------------------------------------------------->
-  
-
-  
-</div>
-</div>
-  
-
-
-<!---------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------->
-
-<script src= https://cdn.jsdelivr.net/gh/asfarmed/players@main/timer.js ></script>
-<script src= //ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js ></script>
-<script src= https://cdn.statically.io/gh/yallashoot808/yalla-shoot-new/25ff629f/mmt.js ></script>
-<script src= https://cdn.statically.io/gh/yallashoot808/yalla-shoot-new/96be9fd3/timer.js ></script>
-<script>//<![CDATA[
-$(document).ready(function(){$(".match-event .match-date").each(function(){var t=$(this),a=t.data("start"),e=t.data("gameends"),m=moment(a,"YYYY-MM-DD HH:mm:ssZ"),n=moment(e,"YYYY-MM-DD HH:mm:ssZ"),e=moment.utc().format("YYYY-MM-DD HH:mm:ssZ"),m=m.diff(e,"minutes"),e=n.diff(e,"minutes");switch(!0){case 15<m:var d=moment.utc(a).toDate();t.parent().find("match-hour").text(moment(d).format("LT")),t.parent().find(".match-date").html("تبداء قريبا").addClass("not-start"),t.parents(".match-event").addClass("notstart");break;case 0<m:d=moment.utc(a).toDate(),t.parent().find("match-hour").text(moment(d).format("LT")),t.parent().find(".match-date").html(" تبدا قريبا").addClass("تبداء قريبا"),t.parents(".match-event").addClass("ch-تبداء قريبا");break;case 0<e:d=moment.utc(a).toDate(),t.parent().find(".match-date").html("جارية الآن").addClass("live"),t.parent().find("match-hour").text(moment(d).format("LT")),t.parents(".match-event").addClass("ch-live");break;default:d=moment.utc(a).toDate(),t.parent().find("match-hour").text(moment(d).format("LT")),t.parent().find(".match-date").html("ٳنــتــهــت").addClass("end"),t.parents("match-event").addClass("ch-end")}})});
-//@CCORCH@@CCORCH@></script>
-
-
-</div>
-
-<style>
-    
-
-  
-    
-    .navsiteta li strong {
-        background: #3749b400;
-        
-    }
-    
-    .box-title {
-        border-radius: 10px;
-        background-color: #fff;
-        margin-bottom: 40px;
-        border-bottom: transparent;
-    }
-    
-    .card-title1{
-        text-align:right;
-        font-size: 16px;
-       
-        
-    }
-    .card-title2{
-        text-align:right;
-        font-size: 15px;
-        
-        
-    }
-    
-    .panel-default {
-        box-shadow: 0 0 2px rgb(0 0 0 / 30%);
-        background: #000;
-        
-    }
-    .matchflex {
-        margin: 0;
-        
-    }
-    
-    .box-title h1,.box-title h2 ,.box-title h3 {
-        font-size: 20px;
-        background: #47474700;
-          900;
-        color: #fff;
-        float: unset;
-        text-align: center!important;
-        
-    }
-    strong {
-          800;
-    }
-    
-    @media (max-width: 600px){
-        .box-title h1 {
-            font-size: 16px;
-            
-        }
-        .menublabel.op {
-            background: #7e7e7e47;
-        }
-    
-    
-    .navbar-brand {
-       background-image: linear-gradient(to right, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7);
-        
-    }
-    /* مسافة بين المباريات */
-    .match-event {
-        align-items: center;
-        justify-content: center;
-        
-        background-color: #003828;
-        padding: 10px;
-        margin-bottom: 20px;
-      box-shadow: 0 -0px 5px  rgba(255, 255, 255, 100);
-     border-bottom: 10px groove #9C9689;
-    border-top: 5px groove #9C9689;
-border-left: 0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-border-radius: 50px 50px 50px 50px;" 
-    }
-    .first-team,.left-team {
-background-image: linear-gradient(to right, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7, #E8E2D7);
-
-border-bottom: 10px groove #949089;
-    border-top: 0px groove rgb(255 255 255/ 80%);
-border-left: 0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-
-
-border-radius: 20px 20px 20px 20px;
-        
-    
-    }
-    
-    
-    
-    .team-name {
-       
-        font-size: 12px;
-        /* margin: 100px auto; */
-        
-         
-        text-align: right;
-        padding-right: 1px;
-        text-align: center;
-    
-    }
-    
-    .left-team .team-logo {
-        float: right;
-    }
-    
-    
-    
-    @media (min-width: 400px){
-        .team-logo {
-            float: right;
-            width: 100%;
-        }
-    
-        
-        .match-time {
-            width: 29%;
-        }
-    }
-    
-    .post-title a{
-        color:#000;
-        font-size: 14px;
-    }
-    .blog-post.hentry.index-post{
-        background:transparent;
-    
-        text-align: center;
-        padding: 50px 50px;
-        border: 1px solid #000;
-        border-radius: 10px;
-    }
-    .posts-thumb img{
-        border-radius: 10px;
-    }
-    #match-hour{
-        color:#000;
-        font-size: 14px;
-         
-    
-    }
-    #result-now{
-        background-image: 55linear-gradient(to right, #D4DBFF, #E8ECFF , #D4DBFF);  padding: 0px; 
-        font-size: 20px;
-        
-        
-    }
-    
-    .tabsbox {
-        color: #fff;
-        background: #000;
-    }
-    
-    .row {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    
-    .myframe{
-        min-height: 400px;
-        width: 100%;
-        padding-top:0.2rem;
-    }
-    
-    #table-league {
-        color: #c7def2;
-        font-size: 14px;
-         
-    }
-    
-    #table-score {
-        color: #fff;
-        font-size: 10px;
-         
-    }
-    @media (max-width: 600px) {
-    #matchLeague {
-        font-size: 10px !important;
-    }
-    .team-name {
-        font-size: 12px !important;
-    }
-    h2 {
-        font-size: 16px !important;
-    }
-    .card-title1 {
-        font-size: 15px !important;
-    }
-    .card-title2 {
-        font-size: 14px !important;
-    }
-    p {;
-        font-size: 14px !important;
-    }
-    
-      .blog-post.hentry.index-post {
-        padding: 5px 10px;
-        }
-        .post-title a {
-        font-size: 21px;
-    }
-    }
-       
-  
-   
-		 .image-with-text {
-      display: flex;
-      align-items: center;
-
-    }
-    
-    .image-with-text img {
-      width: 20%;
-      height: auto;
-      margin-right: 20%; /* تحويل الصورة إلى الجانب الأيمن */
-    }
-
-    .image-with-text p {
-    	
-      position: relative; /* تغيير نوع الموضع */
-      font-size: 10px; /* تغيير حجم النص إلى 20 بكسل */
-      left: -6; /* تحريك النص 20 بكسل لليسار */
-      color: #FF1D00; /* تغيير لون النص إلى اللون الأزرق */
-    }
-
-    .image-with-text .second-image {
-      margin-left: 20%; /* تحويل الصورة الثانية إلى الجانب الأيمن */
-      margin-right: 20%; /* إضافة مسافة بين الصورة الثانية والنص */
-    }
-    
-
-
-    
-<style>
-
-
-    .ttl {
-    	
-        margin-bottom: 10px;
-    }
-
-    .matchesTtl {
-    	
-
-       display: flex; /* استخدام Flexbox للعناصر */
-    justify-content: center; /* توسيط العناصر أفقيًا */
-    align-items: center; /* توسيط العناصر عموديًا */
-
-    text-align: center; /* توسيط النص */
-    height: 6vh; /* تعيين ارتفاع العنصر ليكون ملء الشاشة بالكامل */
-width: 100%;
-      
-border-radius: 0px 0px 0px 0px ;
-border-bottom: 0px double #FF0004;
-border-top: 0px double #000;    
-border-left: 0px double #FF0004;
-border-right: 0px double #000;
-margin:10px 0px;
-padding: 5%; 
-margin-bottom: 20px;
-max-width: 100%;
-width: 100%;
-
-      
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 50% 50%;
-        font-weight: bold;
-
-        color: #FF0900;
-        text-align: center;
-        font-size: 13px;
-        text-decoration: none;
-        border-radius: 0px;
-        margin:0%;
-        
-        max-width: 33%;
-width: 33%;
-
+<br><br>
      
-margin: 3px; /* تباعد الصور عن النص */
-background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);padding: 2px; 
- --widget-title-bg: background-image: linear-gradient(to right, #9C9689, #FDFDFC, #F3EDEA, #DED8CC, #E1D7CD, #E8E2D7, #E8E2D7, #F3EDEA, #FDFDFC, #9C9689); padding: 2px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
-margin:10px 10px;
-padding: 2%; 
-box-shadow: 0 10px 8px  rgba(0, 0, 0, 100); 
-    }
-
-    .btn span {
-        margin-right: 0%;
-    }
-    
-.btn span {
-        margin-left: 0%;
-        
-    }
-    h4 {
-    	text-align: center;
-        font-size: 13px;
-color: #fff;
-font-weight: bold;
-
-        margin: 8%;
-        max-width: 33%;
-width: 33%;
-
-background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); padding: 2px; 
-border-bottom: 3px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-font-weight: bold; text-align: center;color: #; 
-border-radius: 80px 80px 80px 80px;" 
-margin:20px 20px;
-padding: 2%; 
-box-shadow: 0 10px 8px  rgba(0, 0, 0, 100); 
-        
-    }
-
-    p {
-      
- margin-bottom:0%; /* تحديد المسافة العمودية بين الفقرات */
-     }
    
- 
- hr {
-    border: 1px ridge #000;
-
-max-width: 90%;
-width: 600%;
-margin:2%;
-</style>
-
-
-	
-<section class="matchesHp">
-    <div class="ttl">
-        <div class="matchesTtl">
-            <a href="go:tt" class="btn yesterday">
-                <span>ترتيب الدوريات</span>
-            </a>
-            <h4>مباريات اليوم</h4>
-            <a href="go:Nta" class="btn tomorrow">
-                <span>نتائـج مبـاشـرة</span>
-            </a>
-        </div>
-        
-	
+</div>
+   </div> 
+  </div> 
    
+  <section class="championships-section"> 
+   <div class="container"> 
+    <div class="row main-row">
+    	
     
+   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<br><br><br><br>
 	
-	
-	<style>
-		
-  .centered-content {
-    display: flex; /* استخدام Flexbox للعناصر */
-    justify-content: center; /* توسيط العناصر أفقيًا */
-    align-items: center; /* توسيط العناصر عموديًا */
-    text-align: center; /* توسيط النص */
-    height: 6vh; /* تعيين ارتفاع العنصر ليكون ملء الشاشة بالكامل */
-margin:10px 40px;;
-max-width: 80%;
-width: 80%;
-height:  7.5%;
-
-       margin-bottom: 20px;
-        
-    
-background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+	<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="15" src="https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png">
+                                                </div>
+                                                <b>الدوري الانجليزي الممتاز    </b>
+                                            </a>
+                                        </div>
+                                                                                                                                    <a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODMudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg3Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Nottingham Forest vs Manchester City" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>نوتينغهام فورست</b><div class="img"><img loading="lazy" width="20" height="20" alt="نوتينغهام فورست" title="نوتينغهام فورست" src="https://api.yalla-score.com/uploads/teams/65.png"></div></div></div><div class="result-wrap"><b class="match-date">15:30</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/50.png" width="20" height="20" alt="مانشستر سيتي" title="مانشستر سيتي"></div><b>مانشستر سيتي</b></div></div></a>
+                                                     
  
- border-bottom: 8px groove rgb(0 0 0 / 80%);
-    border-top: 3px groove rgb(255 255 255/ 80%);
-border-left: :0px groove rgb(255 255 255/ 80%);
-border-right: 0px ridge rgb(255 255 255 / 100%);
-
-border-radius: 80px 80px 80px 80px;" 
-font-weight: bold; 
-text-align: center;
-
-  }
-
-  .centered-content p {
-    
-  }
-
-  .centered-content img {
-max-width: 10%;
-width:  10%;
-
-      height:  60%;
-    
-    
-    margin: 0 20px; /* تباعد الصور عن النص */
-    
-    
-  }
-  
-  .colorbein {
-  color: #fff;
-}
-
-
-.colornumper {
-  color: #fff;
-}
-
-
-.colorsport {
-  color: #fff;
-}
-
-
-  .colorاسود {
-  color: #fff;
-}
-
-.color2 {
-  color: #fff;
-}
-
-
-.color3 {
-  color: #fff;
-}
-
-    .color4 {
-  color: #fff;
-}
-
-.color5 {
-  color: #fff;
-}
-
-.color6{
-  color: #fff;
-}
-
-.color7 {
-  color: #fff;
-}
-
-.color8 {
-  color: #fff;
-}
-
-.color9{
-  color: #fff;
-}
-
-
-.color10{
-  color: #fff;
-}
-
-.color11 {
-  color: #fff;
-}
-
-.color12 {
-  color: #fff;
-}
-
-.color13 {
-  color: #fff;
-}
-
-.color14 {
-  color: #fff;
-}
-
-.color15 {
-  color: #fff;
-}
-
-
-
-
-
-
-</style>
+ <a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODMudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg3Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Liverpool vs Southampton" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>ليفربول</b><div class="img"><img loading="lazy" width="20" height="20" alt="ليفربول" title="ليفربول" src="https://api.yalla-score.com/uploads/teams/40.png"></div></div></div><div class="result-wrap"><b class="match-date">18:00</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/41.png" width="20" height="20" alt="ساوثهامبتون" title="ساوثهامبتون"></div><b>ساوثهامبتون</b></div></div></a>
  
-<div class="centered-content">
-  <img src="     https://www2.0zz0.com/2025/01/20/23/479060896.png ">
-  <p><p><span class="color10">   دوري ابطال اوربا <span class="color12"> <span class="color11"></span></p>
-  <img src=" https://www2.0zz0.com/2025/01/20/23/479060896.png" alt="Second Image Description">
-</div>
+ <a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDV8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDV8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODIudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNXxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg4Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzV8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Brentford vs Aston Villa" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>برينتفورد</b><div class="img"><img loading="lazy" width="20" height="20" alt="برينتفورد" title="برينتفورد" src="https://api.yalla-score.com/uploads/teams/55.png"></div></div></div><div class="result-wrap"><b class="match-date">20:30</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/66.png" width="20" height="20" alt="أستون فيلا" title="أستون فيلا"></div><b>أستون فيلا</b></div></div></a>
+ 
+ <a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDV8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDV8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODIudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNXxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg4Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzV8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Wolves vs Everton" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>وولفرهامبتون</b><div class="img"><img loading="lazy" width="20" height="20" alt="وولفرهامبتون" title="وولفرهامبتون" src="https://api.yalla-score.com/uploads/teams/39.png"></div></div></div><div class="result-wrap"><b class="match-date">23:00</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/45.png" width="20" height="20" alt="إيفرتون" title="إيفرتون"></div><b>إيفرتون</b></div></div></a>
+ 
+	<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/LaLiga_2023_Horizontal_Logo.svg/2560px-LaLiga_2023_Horizontal_Logo.svg.png">
+                                                </div>
+                                                <b>الدوري الاسباني     </b>
+                                            </a>
+                                        </div>
+                     <a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODMudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg3Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Barcelona vs Osasuna" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>برشلونة</b><div class="img"><img loading="lazy" width="20" height="20" alt="برشلونة" title="برشلونة" src="https://api.yalla-score.com/uploads/teams/529.png"></div></div></div><div class="result-wrap"><b class="match-date">23:00</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/727.png" width="20" height="20" alt="أوساسونا" title="أوساسونا"></div><b>أوساسونا</b></div></div></a>
+                                  
+                                  
+                                  
 
-<div id="em92319y" class="match-event" data-result="0-0">
-<a title="###" id="match-live" href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODMudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg3Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
- ">
-<div id="overlay-match"><div id="watch-match"></div></div>
-</a>
-<div class="first-team">
-<div class="team-logo"><img alt="#" height="70" src="     https://api.yalla-score.com/uploads/teams/209.png  " title="اسم الفريق" width="70" /></div><div
-<div class="team-name">      فينورد روتردام</div>
-</div>
-<div class="match-time">
-<div class="match-timing">
-<div id="match-hour">08:45م</div>
-<div id="result-now">0:0</div>
-<span id="dem14794y" class="match-date" data-start="2025-03-05T 20:45:00:00+03:00" data-gameends="2025-03-05T 22:45:00:00+03:00"> </span></div>
-</div>
-<div class="left-team">
-<div class="team-logo"><img alt="#" height="70" src="    https://api.yalla-score.com/uploads/teams/505.png" title="اسم الفريق" width="70" /></div>
-<div class="team-name">إنتر ميلانو </div>
-</div>
-<div class="match-info"><br><hr>.
-<ul>
-<li><span><br><br>              <p><p><span class="colorbein">   bein <span class="colorbein"> sport <span class="colorbein">1</span></p></span></li>
-<li><span><br><br> <p><p><span class="colorbein">   احمد     <span class="colorbein"> البلوشي<span class="colorbein"></span></p></span> </span></li>
-<li><span><br><br> <p><p><span class="colorbein">   دور الـ   <span class="colorbein"> 16 <span class="colorbein"></span></p></span>   </span></li>
-</ul>
-</div>
-</div>
+  <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://img.kooora.com/?i=o%2Fl%2F22%2F426%2Fitalian-calcio-leagu-2.png">
+                                                </div>
+                                                <b>الدوري الايطالي     </b>
+                                            </a>
+                                        </div>
+                                                              <a href="xmtv://XPOLA808Sx0aMDAyeGRkYGMqPz9lY3V8dXNkf2I+c3R+Pnl+ZHl3YnF8PX9kZD5+dWQ/UVRDQCE/UVRDQCE+eWN9fD99cX55dnVjZD59YHRsc3FjZC12cXxjdWx+cX11LV1lfGR5bHRifT15fnZ/LXN8dXFie3VpbHVyJXEjcSQodiN1ISkhcSAgdSNxcyF1InQkJyBzJCkhKiJzKHInISkoJSYjJSIndSUiJHQmJiYiKHMgKSJ1diF2Mh0aTQ==" title="Lecce vs AC Milan" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b> ليتشي</b><div class="img"><img loading="lazy" width="20" height="20" alt=" ليتشي" title=" ليتشي" src="https://api.yalla-score.com/uploads/teams/867.png"></div></div></div><div class="result-wrap"><b class="match-date">20:00</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/489.png" width="20" height="20" alt="ميلان" title="ميلان"></div><b>ميلان</b></div></div></a>
+
+          <a href="xmtv://XPOLA808Sx0aMDAyeGRkYGMqPz9lY3V8dXNkf2I+c3R+Pnl+ZHl3YnF8PX9kZD5+dWQ/UVRDQCE/UVRDQCE+eWN9fD99cX55dnVjZD59YHRsc3FjZC12cXxjdWx+cX11LV1lfGR5bHRifT15fnZ/LXN8dXFie3VpbHVyJXEjcSQodiN1ISkhcSAgdSNxcyF1InQkJyBzJCkhKiJzKHInISkoJSYjJSIndSUiJHQmJiYiKHMgKSJ1diF2Mh0aTQ==" title="Inter vs Monza" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>إنتر ميلانو</b><div class="img"><img loading="lazy" width="20" height="20" alt="إنتر ميلانو" title="إنتر ميلانو" src="https://api.yalla-score.com/uploads/teams/505.png"></div></div></div><div class="result-wrap"><b class="match-date">22:45</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/1579.png" width="20" height="20" alt="مونزا" title="مونزا"></div><b>مونزا</b></div></div></a>
+
+                                                     <div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://upload.wikimedia.org/wikipedia/ar/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png">
+                                                </div>
+                                                <b> الدوري الالماني     </b>
+                                            </a>
+                                        </div>
+                                                  
+<a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDl8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDl8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4NzgudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yOXxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDkyLm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzl8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Bayer Leverkusen vs Werder Bremen" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>باير ليفركوزن</b><div class="img"><img loading="lazy" width="20" height="20" alt="باير ليفركوزن" title="باير ليفركوزن" src="https://api.yalla-score.com/uploads/teams/168.png"></div></div></div><div class="result-wrap"><b class="match-date">17:30</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/162.png" width="20" height="20" alt="فيردر بريمن" title="فيردر بريمن"></div><b>فيردر بريمن</b></div></div></a>
+
+<a href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDh8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4NzkudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yOHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDkxLm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ 
+ " title="Bayern München vs VfL Bochum" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>بايرن ميونخ</b><div class="img"><img loading="lazy" width="20" height="20" alt="بايرن ميونخ" title="بايرن ميونخ" src="https://api.yalla-score.com/uploads/teams/157.png"></div></div></div><div class="result-wrap"><b class="match-date">17:30</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/176.png" width="20" height="20" alt="بوخوم" title="بوخوم"></div><b>بوخوم</b></div></div></a>
 
 
-<div id="em92319y" class="match-event" data-result="0-0">
-<a title="###" id="match-live" href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODMudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg3Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
- ">
-<div id="overlay-match"><div id="watch-match"></div></div>
-</a>
-<div class="first-team">
-<div class="team-logo"><img alt="#" height="70" src="     https://api.yalla-score.com/uploads/teams/85.png " title="اسم الفريق" width="70" /></div><div
-<div class="team-name">باريس    </div>
-</div>
-<div class="match-time">
-<div class="match-timing">
-<div id="match-hour">11:00م</div>
-<div id="result-now">0:0</div>
-<span id="dem14794y" class="match-date" data-start="2025-03-05T 23:00:00:00+03:00" data-gameends="2025-03-06T 00:55:00:00+03:00"> </span></div>
-</div>
-<div class="left-team">
-<div class="team-logo"><img alt="#" height="70" src="    https://api.yalla-score.com/uploads/teams/40.png " title="اسم الفريق" width="70" /></div>
-<div class="team-name">  ليفربول      </div>
-</div>
-<div class="match-info"><br><hr>.
-<ul>
-<li><span><br><br>              <p><p><span class="colorbein">   bein <span class="colorbein"> sport <span class="colorbein">1</span></p></span></li>
-<li><span><br><br> <p><p><span class="colorbein">   حسن      <span class="colorbein"> العيدروس<span class="colorbein"></span></p></span> </span></li>
-<li><span><br><br> <p><p><span class="colorbein">   دور الـ   <span class="colorbein"> 16 <span class="colorbein"></span></p></span>   </span></li>
-</ul>
-</div>
-</div>
-
+<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://upload.wikimedia.org/wikipedia/ar/d/dc/Ligue_1.png">
+                                                </div>
+                                                <b>الدوري الفرنسي     </b>
+                                            </a>
+                                        </div>
+                                        
+                                        
+                                        
+                                                        <a href=" xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDd8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDd8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODAudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yN3xkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDkwLm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzd8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
+ " title="Rennes vs Paris Saint Germain" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b> رين</b><div class="img"><img loading="lazy" width="20" height="20" alt=" رين" title=" رين" src="https://api.yalla-score.com/uploads/teams/94.png"></div></div></div><div class="result-wrap"><b class="match-date">19:00</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/85.png" width="20" height="20" alt="باريس سان جيرمان" title="باريس سان جيرمان"></div><b>باريس سان جيرمان</b></div></div></a>
 
 
 
 
-<div id="em92319y" class="match-event" data-result="0-0">
-<a title="###" id="match-live" href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDZ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDZ8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODEudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNnxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg5Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzZ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
- ">
-<div id="overlay-match"><div id="watch-match"></div></div>
-</a>
-<div class="first-team">
-<div class="team-logo"><img alt="#" height="70" src="         https://api.yalla-score.com/uploads/teams/157.png" title="اسم الفريق" width="70" /></div><div
-<div class="team-name">      بايرن ميونخ    </div>
-</div>
-<div class="match-time">
-<div class="match-timing">
-<div id="match-hour">11:00م</div>
-<div id="result-now">0:0</div>
-<span id="dem14794y" class="match-date" data-start="2025-03-05T 23:00:00:00+03:00" data-gameends="2025-03-06T 00:55:00:00+03:00"> </span></div>
-</div>
-<div class="left-team">
-<div class="team-logo"><img alt="#" height="70" src="   https://api.yalla-score.com/uploads/teams/168.png  " title="اسم الفريق" width="70" /></div>
-<div class="team-name">   باير ليفركوزن     </div>
-</div>
-<div class="match-info"><br>
-<ul>
-<li><span><br><br>              <p><p><span class="colorbein">   bein <span class="colorbein"> sport  <span class="colorbein">3</span></p></span></li>
-<li><span><br><br> <p><p><span class="colorbein">   حفيظ     <span class="colorbein"> دراجي  <span class="colorbein"></span></p></span> </span></li>
-<li><span><br><br> <p><p><span class="colorbein">   دور  <span class="colorbein"> 16 <span class="colorbein"></span></p></span>   </span></li>
-</ul>
-</div>
-</div>
+<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="25" src="https://api.yalla-score.com/uploads/leagues/307.png">
+                                                </div>
+                                                <b>ــ           الدوري السعودي     </b>
+                                            </a>
+                                        </div>
+                                                        <a href="xmtv://XPOLA808Sx0aMDAyeGRkYGMqPz9jY3M9IT11fnM+dXR3dX51aGRzdH4+fnVkP39lZD9mIT9zJikmdSQoISlyJSUkISQjKChxIXEkKCd1KHEkJXNxIT95fnR1aD59YHRsc3FjZC12cXxjdWx+cX11LdmV2LrYqdi/2L9sdGJ9PXl+dn8tc3x1cWJ7dWlsdCgkcyMiJXYjJighJHYjKXJydSUpICggIiciciEgcyMqJSUgJyIndHUkcykmdXYhdXN2dignJCkgJSQpIyUoIHYyHRpN" title="Al Taawon vs Damac" class=" inline-match-item  match-with-result"><div class="first-team"><div class="team---item"><b>التعاون</b><div class="img"><img loading="lazy" width="20" height="20" alt="التعاون" title="التعاون" src="https://api.yalla-score.com/uploads/teams/2936.png"></div></div></div><div class="result-wrap"><b class="match-date">22:00</b></div><div class="second-team"><div class="team---item"><div class="img"><img loading="lazy" src="https://api.yalla-score.com/uploads/teams/2956.png" width="20" height="20" alt="ضمك" title="ضمك"></div><b>ضمك</b></div></div></a>
 
-<div id="em92319y" class="match-event" data-result="0-0">
-<a title="###" id="match-live" href="xmtv://WwogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDV8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgQVNFRUwtVFYgICAgICDigJgiLAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDV8dXNlci1hZ2VudD1TdHJlYW13aXJlU21hcnRlcnNQbGF5ZXJ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIExPVyAoMjQwUCkgIOKAmCIsCiAgCiAgImh0dHA6Ly9yMmNmaXo4emJ2LnNwby5pc25vbi5tZToyNTQ2MS9saXZlLzBuNDkxOTc5MDBhOUQwLzg5MTAxbnQ2aDc5VGU5LzM4ODIudHN8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFNEICg0ODBQKSAg4oCYIiwKCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNXxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikgIOKAmCIsCgoKImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg4Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYIiwKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzV8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEIChWUE4pICDigJgiCl0=
- ">
-<div id="overlay-match"><div id="watch-match"></div></div>
-</a>
-<div class="first-team">
-<div class="team-logo"><img alt="#" height="70" src="         https://api.yalla-score.com/uploads/teams/211.png " title="اسم الفريق" width="70" /></div><div
-<div class="team-name">      بنفيكا    </div>
-</div>
-<div class="match-time">
-<div class="match-timing">
-<div id="match-hour">11:00م</div>
-<div id="result-now">0:0</div>
-<span id="dem14794y" class="match-date" data-start="2025-03-05T 23:00:00:00+03:00" data-gameends="2025-03-06T 00:55:00:00+03:00"> </span></div>
-</div>
-<div class="left-team">
-<div class="team-logo"><img alt="#" height="70" src="   https://api.yalla-score.com/uploads/teams/529.png  " title="اسم الفريق" width="70" /></div>
-<div class="team-name">   برشلونة     </div>
-</div>
-<div class="match-info"><br>
-<ul>
-<li><span><br><br>              <p><p><span class="colorbein">   bein <span class="colorbein"> sport  <span class="colorbein">2</span></p></span></li>
-<li><span><br><br> <p><p><span class="colorbein">   عصام      <span class="colorbein"> الشوالي  <span class="colorbein"></span></p></span> </span></li>
-<li><span><br><br> <p><p><span class="colorbein">   دور  <span class="colorbein"> 16 <span class="colorbein"></span></p></span>   </span></li>
-</ul>
-</div>
-</div>
-
-
+                                                             
 
 
