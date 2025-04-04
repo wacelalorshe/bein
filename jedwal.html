@@ -1,62 +1,162 @@
 <!DOCTYPE html>
 <html lang='ar' dir='rtl'>
 <head>
-<meta charset='UTF-8'><title>وسيل لايف برو</title>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وسيل لايف برو</title>
 <style>
-    body{background:#000;color:white;text-align:center;padding-top:50px;}
-    h2{position:fixed;top:0;left:0;width:100%;background-image: linear-gradient(to right, #000, #000, #000, #000, #000, #000);padding:12px 0;margin:0;z-index:1000;font-size:18px;border-bottom:4px solid #3A4266;box-shadow: 0px 0px 30px rgba(255, 255, 255, 1.1); } 
-    .match-box {
-        border: 1px solid white; 
-        padding: 10px; 
-        margin: 10px auto; 
-        border-radius: 18px; 
-        background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); box-shadow: 0px 0px 0px rgba(255, 255, 255, 1.1); 
-        width: 90%; 
-        max-width: 600px;
-        text-decoration: none; /* إزالة التزيين من الرابط */
-        display: block; /* لجعل الرابط يأخذ المساحة كاملة */
-        color: inherit; /* للحفاظ على لون النص */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
-    .match-info { display: flex; align-items: center; justify-content: space-between; padding: 5px; } 
-    .match-info div { text-align: center; width: 32%; } 
-    .match-info img { width: 40px; height: 40px; border-radius: 50%; } 
-    
-    .match-time { background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825); color: white; font-size: 14px; padding: 4px 8px; border-radius: 6px; } 
-    .match-details { padding: 5px; margin-top: 4px; display: flex; text-align: center; font-size: 13px; border-top: 2px solid white; position: relative; } 
-    .match-details div { flex: 1; padding: 6px; position: relative; } 
-    .match-details div:nth-child(2)::after { content: ""; position: absolute; top: 50%; right: 0; width: 1px; height: 70%; background: white; transform: translateY(-50%); }
+
+    body {
+        background: #000;
+        color: white;
+        text-align: center;
+        padding: 70px 0 20px;
+        min-height: 100vh;
+    }
+
+    h2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #000;
+        padding: 12px 0;
+        margin: 0;
+        z-index: 1000;
+        font-size: clamp(16px, 4vw, 20px);
+        border-bottom: 4px solid #3A4266;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        border: 2px groove #fff;
+        border-left: 0;
+        border-right: 0;
+        font-weight: bold;
+        width: 90%;
+        max-width: 600px;
+        margin: 15px auto;
+        padding: 8px;
+        border-radius: 10px;
+        background: linear-gradient(to right, #151825, #3A4266, #151825);
+    }
+
+    .match-box {
+        border: 1px solid white;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 18px;
+        background: linear-gradient(to right, #151825, #3A4266, #151825);
+        width: 90%;
+        max-width: 600px;
+        text-decoration: none;
+        display: block;
+        color: inherit;
+        transition: transform 0.2s;
+    }
+
+    .match-box:hover {
+        transform: scale(1.02);
+    }
+
+    .match-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        gap: 10px;
+    }
+
+    .match-info div {
+        text-align: center;
+        width: 32%;
+        flex: 1;
+    }
+
+    .match-info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .match-time {
+        background: linear-gradient(to right, #151825, #3A4266, #151825);
+        color: white;
+        font-size: 14px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        display: inline-block;
+        margin: 5px 0;
+    }
+
+    .match-details {
+        padding: 8px 0 0;
+        margin-top: 8px;
+        display: flex;
+        font-size: clamp(12px, 3vw, 14px);
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        justify-content: space-around;
+    }
+
+    .match-details div {
+        padding: 6px;
+        position: relative;
+        flex: 1;
+    }
+
+    .match-details div:nth-child(2)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 1px;
+        height: 70%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-50%);
+    }
+
+    .img img {
+        max-width: 40px;
+        height: auto;
+        max-height: 30px;
+        object-fit: contain;
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding-top: 60px;
+        }
+        
+        .match-info img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .match-time {
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+        
+        .flex-container {
+            gap: 10px;
+            padding: 6px;
+            font-size: 14px;
+        }
+    }
 </style>
 </head>
 <body>
 <h2>جدول مباريات اليوم</h2>
-
-<style>
-    .flex-container {
-        display: flex;
-        justify-content: center; /* محاذاة أفقية */
-        align-items: center; /* محاذاة رأسية */
-        gap: 15px; /* المسافة بين العناصر */
-        border-bottom: 2px groove #fff;
-    border-top: 2px ridge #fff;
-border-left: 0px ridge #fff;
-border-right: 0px ridge #fff;
-font-weight: bold; text-align: center;color: #; 
-width:50%;
-border-radius: 10px 10px 10px 10px;
-margin-right: 90px; /
-padding-left: 5px; 
-padding-top: 5px; 
-padding-bottom: 5px; 
-padding-right: 5px; 
-color: #fff; 
-box-shadow: 0px 0px 30px rgba(255, 255, 255, 1.1); 
-background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);!
-    }
-    
-    .img img {
-        width: 20px; /* حجم الصورة */
-        margin-right: 10px; /* مسافة إضافية من اليسار */
-    }
 </style>
 <br>
 <div class="flex-container">
