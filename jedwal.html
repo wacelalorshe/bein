@@ -1,220 +1,272 @@
-<!DOCTYPE html>
-<html lang='ar' dir='rtl'>
-<head>
-<meta charset='UTF-8'>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>وسيل لايف برو</title>
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+<html dir="rtl" lang="ar">
+ <head> 
+ 	
+ 
+  <link rel="icon" href="https://www.ysscores.com/images/favicon.png" type="image/png"> 
+  <link href="https://www.ysscores.com/css/bootstrap.rtl.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/owl.carousel.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/owl.theme.default.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/jquery.datetimepicker.min.css" rel="stylsheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/zuck.min.css" rel="styleseet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/style.css" rel="stylesheet" type="text/css"> 
+  <link href="https://www.ysscores.com/css/responsive.css" rel="stylesheet" type="text/css"> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="description" content="موقع رياضي يهتم بتغطية أهم الأحداث الرياضية حول العالم بتغطية مميزة ولحظية"> 
+  <meta name="keywords" content="نتائج حية،أخبار،مباريات،تشكيلة،ترتيب الهدافين،ترتيب البطولات،بث،فيديو،ملخصات،أهداف،إحصائيات"> 
+  <meta name="_token" content="UjBWHdVPEsoDU9daZwWUPUGSrTYXzTMtRx42Gh54" no_result="لا تتوفر نتائج" detail="التفاصيل" no_matches="لا توجد مباريات لهذا اليوم" report="إبلاغ" edit="تعديل" delete="حذف" alert_msg="هل أنت متأكد من حذف هذا الحقل" yes="نعم" no="لا"> 
+  <title>يلا شووت - متابعة لحظية للمباريات</title> 
 
-    body {
-        background: linear-gradient(to right, #000, #151825, #000);
-        color: white;
-        text-align: center;
-        padding: 70px 0 20px;
-        min-height: 100vh;
-    }
-
-    h2 {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        color: #FFF; 
-        font-weight: bold;
-
-
-
-        padding: 15px 0;
-        margin: 0;
-        z-index: 1000;
-        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
-        border-radius: 0px 0px 20px 20px;
-        font-size: clamp(16px, 4vw, 20px);
-        border-bottom: 7px double #434C75;
-        box-shadow: 0 0px 15px rgba(255, 255, 255, 8.1);
-    }
-
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 105px;
-        border: 3px double #434C75;
-        border-left: 0;
-        border-right: 0;
-        font-weight: bold;
-        width: 88%;
-        max-width: 600px;
-        margin: 15px auto;
-        padding: 8px;
-        border-radius: 10px;
-        background: linear-gradient(to right, #151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825);
-    }
-
-    .match-box {
-        border: 15px double #151825;
-        padding: 10px;
-        margin: 10px auto;
-        border-radius: 18px;
-        background: linear-gradient(to right, #151825, #3A4266, #151825);
-        width: 90%;
-        max-width: 600px;
-        text-decoration: none;
-        display: block;
-        color: inherit;
-        box-shadow: 0 0px 10px rgba(255, 255, 255, 5.1);
-        transition: transform 0.2s;
-    }
-
-    .match-box:hover {
-        transform: scale(1.02);
-    }
-
-    .match-info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 5px;
-        gap: 10px;
-    }
-
-    .match-info div {
-        text-align: center;
-        width: 32%;
-        flex: 1;
-    }
-
-    .match-info img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    .match-time {
-        background: linear-gradient(to right, #151825, #3A4266, #151825);
-        color: white;
-        font-size: 14px;
-        padding: 6px 12px;
-        border-radius: 6px;
-        display: inline-block;
-        margin: 5px 0;
-           box-shadow: 0 0px 10px rgba(255, 255, 255, 5.1);
-    }
-
-    .match-details {
-        padding: 8px 0 0;
-        margin-top: 8px;
-        display: flex;
-        font-size: clamp(12px, 3vw, 14px);
-        border-top: 1px groove rgba(255, 255, 255, 0.5);
-        justify-content: space-around;
-    }
-
-    .match-details div {
-        padding: 8px;
-        position: relative;
-        flex: 1;
-    }
-
-    .match-details div:nth-child(2)::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 1px;
-        height: 70%;
-        background: rgba(255, 255, 255, 0.7);
-        transform: translateY(-50%);
-    }
-
-    .img img {
-        max-width: 40px;
-        height: auto;
-        max-height: 30px;
-        object-fit: contain;
+</head> 
+ <body> 
+  <header> 
+  	
+   
+          
         
-    }
+       
+          
+      
+  </header> 
+  
+  <div class="mobile-header"> 
+   <div class="container"> 
+    <div class="mobile-header-wrap"> 
+  
+     <style>
+     	
+     
 
-    @media (max-width: 480px) {
-        body {
-            padding-top: 60px;
-        }
-        
-        .match-info img {
-            width: 30px;
-            height: 30px;
+
+.time {
+ font-size: 15px; /* حجم الخط */
+            color: #fff; /* لون النص */
+            background-image: linear-gradient(to right, #151825, #3A4266, #3A4266, #3A4266, #3A4266, #151825);
+                z-index: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    top: 2.0%;
+            position: fixed;
+margin: 0px 0;
+ border-bottom: 4px groove #000;
+    border-top: 4px ridge #000;
+border-left: 0px ridge #fff;
+border-right: 0px ridge #fff;
+font-weight: bold; text-align: center;color: #; 
+width:90%;
+border-radius: 10px 10px 10px 10px;
+ height:43px;
             
+            padding: 3px; /* مسافة داخلية */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1.1); /* ظل */
+            transition: all 0.3s; /* تأثير الانتقال */
         }
-        
-        .match-time {
-            font-size: 12px;
-            padding: 4px 9px;
-        }
-        
-        .flex-container {
-            gap: 10px;
-            padding: 6px;
-            font-size: 17px;
-        }
+
+        .professional-title:hover {
+            color: #0C00FF; /* لون النص عند التمرير */
+            background-color: #FFF100; /* لون الخلفية عند التمرير */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+
+}
+svg.svg-inline--fa.fa-calendar-alt.fa-w-14 {
+ color: #FFBA00;
+ width: 28px;
+ height: 20px;
+ margin-left: 150px;
+}
+div#clocktw,
+svg.svg-inline--fa.fa-calendar-alt.fa-w-14 {
+ display: inline-block;
+ vertical-align: middle;
+ margin: 0px;
+}
+
+hr {
+ font-size: 6px;
+ color: #fff; 
+ 
+
+ border: 3px groove #000;
+ 
+}
+
+
+
     }
 </style>
-</head>
-<body>
-<h2>                        مباريات اليوم | السبت 12.04.2025             </h2>
 
 
-<br>
-</style>
+<div class='gadwlgadwl'>
+<div class='time'>
 
 
-<div class="flex-container">
-		<img src="https://www2.0zz0.com/2025/04/08/21/363638308.png  "style="width: 35px; height: 29px;"
-    <b>دوري ابطال اوروبا</b>
-    <div class="img">
-        <img src="https://www2.0zz0.com/2025/04/08/21/363638308.png  "style="width: 80px; height: 45px;"
->
-    </div>
-</div>
-    </div>
+<svg aria-hidden='true' class='svg-inline--fa fa-calendar-alt fa-w-14' data-icon='calendar-alt' data-prefix='far' focusable='false' role='img' viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg'><path class='' d='M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z' fill='currentColor'></path></svg>
+
+<div class='timeanddatetw' id='clocktw'> ♥  </div>
 </div>
 
-
-<a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjIubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAiaHR0cHM6Ly9hZi5heWFzc3BvcnQuaXIvaGxzMi9iZWluMi5tM3U4fGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgTE9XICgyNDBQKSAgICAgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgCiAgCiAgCiAKICAKICAiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzQ1fGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgTE9XICgyNDRQKSAgICAgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNXxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cHM6Ly9kZmZndHJkYi52ZmZkZGQub25saW5lOjg4ODAvYmVpbjIvaW5kZXgubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFNEICg0ODBQKSAgICAgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgImh0dHA6Ly93d3cudGVsZWR1bmV0LmNvbTo4MDgwL3Rkbi90ZG4vNDU2NDg4Lm0zdTh8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIEhEICgyNzBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKICAKICAKCgoKImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC81fGRldmljZWNhbmFyeT1mYWxzZXxjYXN0PWZhbHNlfG5hbWU9JyAgICBIRCAoVlBOKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgICJodHRwczovLzRjaGFyLnNpdGUvL3VwbG9hZC8vaW1hZ2VzLy9sb2dvMi56aXB8dXNlci1hZ2VudD1Nb3ppbGxhLy81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNl82IGxpa2UgTWFjIE9TIFgpIEFwcGxlV2ViS2l0Ly82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vLzE2LjYgTW9iaWxlLy8xNUUxNDggU2FmYXJpLy82MDQuMXxyZWZlcmVyPWh0dHBzOi8vd3d3LnlhcmlnYS5saXZlL3xuYW1lPSAnICAgICBTRCAoMzYwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIKICAKICAKCl0=
- " class='match-box' target="_blank">
-    <div class='match-info'>
-        <div><img src='https://api.yalla-score.com/uploads/teams/529.png'><p>برشلونة</p></div>
-        <div><span class='match-time'>10:00م</span></div>
-        <div><img src='https://api.yalla-score.com/uploads/teams/165.png'><p>بوروسيا </p></div>
-    </div>
-    <div class='match-details'>
-        <div>bein sport 2</div>
-        <div>حفيظ دراجي</div>
-    </div>
-</a>
-
-<br>
-
-<a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjEubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAiaHR0cHM6Ly9hZi5heWFzc3BvcnQuaXIvaGxzMi9iZWluMS5tM3U4fGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgTE9XICgyNDBQKSAgICAgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgCiAgCiAgCiAKICAKICAiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzQ0fGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgTE9XICgyNDRQKSAgICAgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgCiAgImh0dHBzOi8vYTUwMi52YXJpZXR5LWJ1eS5zdG9yZS9hcGkvY2hhbm5lbC8yNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgU0QgKFZQTikg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cDovL2JkZDc4LjRyb3V3YW5kYS1zaG9wLnN0b3JlL2xpdmUvOTc4NDgwMDA4ODc3MDA1L2luZGV4Lm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBTRCAoNDgwUCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwOi8vd3d3LnRlbGVkdW5ldC5jb206ODA4MC90ZG4vdGRuLzQ1NjQ4Ny5tM3U4fGRldmljZWNhbmFyeT1mYWxzZXxjYXN0PWZhbHNlfG5hbWU9JyAgICBIRCAoMjcwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgCiAgCiAgCgoKCiJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKFZQTikgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgICAiaHR0cHM6Ly80Y2hhci5zaXRlLy91cGxvYWQvL2ltYWdlcy8vbG9nbzEuemlwfHVzZXItYWdlbnQ9TW96aWxsYS8vNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfNiBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC8vNjA1LjEuMTUgKEtIVE1MLCBsaWtlIEdlY2tvKSBWZXJzaW9uLy8xNi42IE1vYmlsZS8vMTVFMTQ4IFNhZmFyaS8vNjA0LjF8cmVmZXJlcj1odHRwczovL3d3dy55YXJpZ2EubGl2ZS98bmFtZT0gJyAgICAgU0QgKDM2MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciCiAgCiAgCgpd
- " class='match-box' target="_blank">
-    <div class='match-info'>
-        <div><img src='https://api.yalla-score.com/uploads/teams/66.png'><p>أستون فيلا</p></div>
-        <div><span class='match-time'>10:00م</span></div>
-        <div><img src='https://api.yalla-score.com/uploads/teams/85.png'><p>باريس </p></div>
-    </div>
-    <div class='match-details'>
-        <div>bein sport 1</div>
-        <div>احمد البلوشي</div>
-    </div>
-</a>
-
-<br>
+<!---------------------------------------------------------------------------------  ------->
+<br><br>
+     
+   
+</div>
+   </div> 
+  </div> 
+   
+  <section class="championships-section"> 
+   <div class="container"> 
+    <div class="row main-row">
+    	
+    
+   
 
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<br><br><br><br>
+	
+	<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="15" src="https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png">
+                                                </div>
+                                                <b>الدوري الانجليزي الممتاز    </b>
+                                            </a>
+                                        </div>
+                                                                                                                                    ♥♥♥
+                                                     
+ 
+	<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/LaLiga_2023_Horizontal_Logo.svg/2560px-LaLiga_2023_Horizontal_Logo.svg.png">
+                                                </div>
+                                                <b>الدوري الاسباني     </b>
+                                            </a>
+                                        </div>
+                                  ♥♥♥♥♥
+                                  
+                                  
+                                  
+
+  <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://img.kooora.com/?i=o%2Fl%2F22%2F426%2Fitalian-calcio-leagu-2.png">
+                                                </div>
+                                                <b>الدوري الايطالي     </b>
+                                            </a>
+                                        </div>
+                                                              ♥♥♥♥♥
+
+          
+
+                                                     <div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://upload.wikimedia.org/wikipedia/ar/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png">
+                                                </div>
+                                                <b> الدوري الالماني     </b>
+                                            </a>
+                                        </div>
+                                                  
+♥♥♥♥
+
+
+
+
+<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://upload.wikimedia.org/wikipedia/ar/d/dc/Ligue_1.png">
+                                                </div>
+                                                <b>الدوري الفرنسي     </b>
+                                            </a>
+                                        </div>
+                                        
+                                        
+                                        
+                                                        ♥♥♥   
+
+
+
+
+<div id="891543" champ_title="ا♥" champ_img="♥" class="matches-wrapper">
+                                        <div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="25" src="https://api.yalla-score.com/uploads/leagues/307.png">
+                                                </div>
+                                                <b>ــ           الدوري السعودي     </b>
+                                            </a>
+                                        </div>
+                                                        ♥♥♥        
+
+                                                             
+
+
+<div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://www2.0zz0.com/2025/01/20/23/479060896.png">
+                                                </div>
+                                                <b>العالم : دوري أبطال أوروبا:      </b>
+                                            </a>
+                                        </div>
+                                                              ♥♥♥♥♥
+
+
+
+<div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img"><img width="20" src="https://api.yalla-score.com/uploads/leagues/3.png">
+                                                </div>
+                                                <b> العالم : الدوري الأوروبي</b>
+                                            </a>
+                                        </div>
+                                                              ♥♥♥♥♥
+
+
+<div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img">
+<img loading="lazy" width="20" height="20" title="العالم : دوري أبطال آسيا" alt="العالم : دوري أبطال آسيا" src="https://api.yalla-score.com/uploads/leagues/17.png"></div>
+                                                <b>دوري ابطال اسياء للنخبة</b>
+                                            </a>
+                                        </div>
+                                                              ♥♥♥♥♥
+
+
+
+<div class="header">
+                                            <a href="♥" class="champ-title">
+                                                <div class="img">
+<img loading="lazy" width="15" height="15" title="العالم : دوري أبطال آسيا" alt="العالم : دوري أبطال آسيا" src="https://api.yalla-score.com/uploads/leagues/137.png"></div>
+                                                <b>إيطاليا : كأس إيطاليا  </b>
+                                            </a>
+                                        </div>
+                                                   
+
+
+         <div class="img">
+<img loading="lazy" width="15" height="15" title="العالم : دوري أبطال آسيا" alt="العالم : دوري أبطال آسيا" src="https://api.yalla-score.com/uploads/leagues/48.png"></div>
+                                                <b>كأس رابطة الأندية الإنجليزية المحترفة    </b>
+                                            </a>
+                                        </div>
+                     
