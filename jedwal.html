@@ -1,39 +1,264 @@
-<html dir="rtl" lang="ar">
- <head> 
- 	
- 
-  <link rel="icon" href="https://www.ysscores.com/images/favicon.png" type="image/png"> 
-  <link href="https://www.ysscores.com/css/bootstrap.rtl.min.css" rel="stylesheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/owl.carousel.min.css" rel="stylesheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/owl.theme.default.min.css" rel="stylesheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/jquery.datetimepicker.min.css" rel="stylsheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/zuck.min.css" rel="styleseet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/style.css" rel="stylesheet" type="text/css"> 
-  <link href="https://www.ysscores.com/css/responsive.css" rel="stylesheet" type="text/css"> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-  <meta name="description" content="موقع رياضي يهتم بتغطية أهم الأحداث الرياضية حول العالم بتغطية مميزة ولحظية"> 
-  <meta name="keywords" content="نتائج حية،أخبار،مباريات،تشكيلة،ترتيب الهدافين،ترتيب البطولات،بث،فيديو،ملخصات،أهداف،إحصائيات"> 
-  <meta name="_token" content="UjBWHdVPEsoDU9daZwWUPUGSrTYXzTMtRx42Gh54" no_result="لا تتوفر نتائج" detail="التفاصيل" no_matches="لا توجد مباريات لهذا اليوم" report="إبلاغ" edit="تعديل" delete="حذف" alert_msg="هل أنت متأكد من حذف هذا الحقل" yes="نعم" no="لا"> 
-  <title>يلا شووت - متابعة لحظية للمباريات</title> 
+<!DOCTYPE html>
+<html lang='ar' dir='rtl'>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وسيل لايف برو</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-</head> 
- <body> 
-  <header> 
-  	
-   
-          
+    body {
+        background: linear-gradient(to right, #000, #151825, #000);
+        color: white;
+        text-align: center;
+        padding: 70px 0 20px;
+        min-height: 100vh;
+    }
+
+    h2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: #FFF; 
+        font-weight: bold;
+
+
+
+        padding: 15px 0;
+        margin: 0;
+        z-index: 1000;
+        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
+        border-radius: 0px 0px 20px 20px;
+        font-size: clamp(16px, 4vw, 20px);
+        border-bottom: 7px double #434C75;
+        box-shadow: 0 0px 15px rgba(255, 255, 255, 8.1);
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 105px;
+        border: 3px double #434C75;
+        border-left: 0;
+        border-right: 0;
+        font-weight: bold;
+        width: 88%;
+        max-width: 600px;
+        margin: 15px auto;
+        padding: 8px;
+        border-radius: 10px;
+        background: linear-gradient(to right, #151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825);
+    }
+
+    .match-box {
+        border: 15px double #151825;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 18px;
+        background: linear-gradient(to right, #151825, #3A4266, #151825);
+        width: 90%;
+        max-width: 600px;
+        text-decoration: none;
+        display: block;
+        color: inherit;
+        box-shadow: 0 0px 10px rgba(255, 255, 255, 5.1);
+        transition: transform 0.2s;
+    }
+
+    .match-box:hover {
+        transform: scale(1.02);
+    }
+
+    .match-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        gap: 10px;
+    }
+
+    .match-info div {
+        text-align: center;
+        width: 32%;
+        flex: 1;
+    }
+
+    .match-info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .match-time {
+        background: linear-gradient(to right, #151825, #3A4266, #151825);
+        color: white;
+        font-size: 14px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        display: inline-block;
+        margin: 5px 0;
+           box-shadow: 0 0px 10px rgba(255, 255, 255, 5.1);
+    }
+
+    .match-details {
+        padding: 8px 0 0;
+        margin-top: 8px;
+        display: flex;
+        font-size: clamp(12px, 3vw, 14px);
+        border-top: 1px groove rgba(255, 255, 255, 0.5);
+        justify-content: space-around;
+    }
+
+    .match-details div {
+        padding: 8px;
+        position: relative;
+        flex: 1;
+    }
+
+    .match-details div:nth-child(2)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 1px;
+        height: 70%;
+        background: rgba(255, 255, 255, 0.7);
+        transform: translateY(-50%);
+    }
+
+    .img img {
+        max-width: 40px;
+        height: auto;
+        max-height: 30px;
+        object-fit: contain;
         
-       
-          
-      
-  </header> 
-  
-  <div class="mobile-header"> 
-   <div class="container"> 
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding-top: 60px;
+        }
+        
+        .match-info img {
+            width: 30px;
+            height: 30px;
+            
+        }
+        
+        .match-time {
+            font-size: 12px;
+            padding: 4px 9px;
+        }
+        
+        .flex-container {
+            gap: 10px;
+            padding: 6px;
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+<body>
+<h2>                        مباريات اليوم | السبت 12.04.2025             </h2>
+
+
+<br>
+</style>
+
+
+
+
+
+<div class="flex-container">
+	  
+
+    <b>الدوري الانجليزي الممتاز    </b>
+    <div class="img">
+        <img src="https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png" "style="width: 80px; height: 45px;"
+>
+    </div>
+</div>
+    </div>
+</div>
+
+                                                     <a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjEubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAKICAKICAKICAKICAKIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBZQyAoMjQ0UCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogICJodHRwczovL2dpdGh1Yi5jb20vaGltYXNhYnJ5L3hwb2xhLXBsYXllci9yYXcvcmVmcy9oZWFkcy9tYWluL2JlSU4xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBYUCAoMzYwUCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvMjR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgWUMgICg0ODBQKSDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwOi8vYmRkNzguNHJvdXdhbmRhLXNob3Auc3RvcmUvbGl2ZS8zMTAwOTk4ODAwNS9pbmRleC5tM3U4P3Q9TGJVTEVKdzYtaWZtS2k5ZDZqVVFEdyZlPTE3NDU2Mzg1NjV8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBCREQgKDQ4MFApICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cDovL3d3dy50ZWxlZHVuZXQuY29tOjgwODAvdGRuL3Rkbi80NTY0ODcubTN1OHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKDI3MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogIAogIAogIAoKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFlDICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgIAoKCiJodHRwczovL2FmLmF5YXNzcG9ydC5pci9obHMyL2JlaW4xLm0zdTh8dXNlci1hZ2VudD1Nb3ppbGxhLy81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNl82IGxpa2UgTWFjIE9TIFgpIEFwcGxlV2ViS2l0Ly82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vLzE2LjYgTW9iaWxlLy8xNUUxNDggU2FmYXJpLy82MDQuMXxyZWZlcmVyPWh0dHBzOi8vd3d3LnlhcmlnYS5saXZlL3xuYW1lPSAnICAgICBZUyAoMzYwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgImh0dHBzOi8vZG9ra28xbmV3Lm5ld2tzby5ydS9kb2trbzEvcHJlbWl1bTkxL21vbm8ubTN1OHx1c2VyLWFnZW50PU1vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCAxMDsgSykgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzExNi4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNnxyZWZlcmVyPWh0dHBzOi8vbmV3ZW1iZWRwbGF5Lnh5ei98bmFtZT0gJyAgICAgRE9LICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIgogIAoKXQ== 
+ " class='match-box' target="_blank">
+    <div class='match-info'>
+        <div><img src='https://imgs.ysscores.com/teams/64/9921723414870.png'><p>أستون فيلا</p></div>
+        <div><span class='match-time'>02:30م</span></div>
+        <div><img src='https://imgs.ysscores.com/teams/64/3721690119405.png'><p>نيوكاسل </p></div>
+    </div>
+    <div class='match-details'>
+        <div>bein sport 1</div>
+        <div>عصام الشوالي</div>
+    </div>
+</a>
+
+
+
+<a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjEubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAKICAKICAKICAKICAKIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBZQyAoMjQ0UCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogICJodHRwczovL2dpdGh1Yi5jb20vaGltYXNhYnJ5L3hwb2xhLXBsYXllci9yYXcvcmVmcy9oZWFkcy9tYWluL2JlSU4xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBYUCAoMzYwUCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvMjR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgWUMgICg0ODBQKSDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwOi8vYmRkNzguNHJvdXdhbmRhLXNob3Auc3RvcmUvbGl2ZS8zMTAwOTk4ODAwNS9pbmRleC5tM3U4P3Q9TGJVTEVKdzYtaWZtS2k5ZDZqVVFEdyZlPTE3NDU2Mzg1NjV8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBCREQgKDQ4MFApICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cDovL3d3dy50ZWxlZHVuZXQuY29tOjgwODAvdGRuL3Rkbi80NTY0ODcubTN1OHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKDI3MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogIAogIAogIAoKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFlDICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgIAoKCiJodHRwczovL2FmLmF5YXNzcG9ydC5pci9obHMyL2JlaW4xLm0zdTh8dXNlci1hZ2VudD1Nb3ppbGxhLy81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNl82IGxpa2UgTWFjIE9TIFgpIEFwcGxlV2ViS2l0Ly82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vLzE2LjYgTW9iaWxlLy8xNUUxNDggU2FmYXJpLy82MDQuMXxyZWZlcmVyPWh0dHBzOi8vd3d3LnlhcmlnYS5saXZlL3xuYW1lPSAnICAgICBZUyAoMzYwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgImh0dHBzOi8vZG9ra28xbmV3Lm5ld2tzby5ydS9kb2trbzEvcHJlbWl1bTkxL21vbm8ubTN1OHx1c2VyLWFnZW50PU1vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCAxMDsgSykgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzExNi4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNnxyZWZlcmVyPWh0dHBzOi8vbmV3ZW1iZWRwbGF5Lnh5ei98bmFtZT0gJyAgICAgRE9LICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIgogIAoKXQ== 
+ " class='match-box' target="_blank">
+    <div class='match-info'>
+        <div><img src='https://imgs.ysscores.com/teams/64/2501692467226.png'><p>توتنهام</p></div>
+        <div><span class='match-time'>05:30م</span></div>
+        <div><img src='https://imgs.ysscores.com/teams/64/7301690118156.png'><p>بيرنلي </p></div>
+    </div>
+    <div class='match-details'>
+        <div>bein sport 1</div>
+        <div>عامر الخوذيري</div>
+    </div>
+</a>
+
+<a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjEubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAKICAKICAKICAKICAKIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBZQyAoMjQ0UCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogICJodHRwczovL2dpdGh1Yi5jb20vaGltYXNhYnJ5L3hwb2xhLXBsYXllci9yYXcvcmVmcy9oZWFkcy9tYWluL2JlSU4xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBYUCAoMzYwUCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvMjR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgWUMgICg0ODBQKSDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwOi8vYmRkNzguNHJvdXdhbmRhLXNob3Auc3RvcmUvbGl2ZS8zMTAwOTk4ODAwNS9pbmRleC5tM3U4P3Q9TGJVTEVKdzYtaWZtS2k5ZDZqVVFEdyZlPTE3NDU2Mzg1NjV8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBCREQgKDQ4MFApICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cDovL3d3dy50ZWxlZHVuZXQuY29tOjgwODAvdGRuL3Rkbi80NTY0ODcubTN1OHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKDI3MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogIAogIAogIAoKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFlDICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgIAoKCiJodHRwczovL2FmLmF5YXNzcG9ydC5pci9obHMyL2JlaW4xLm0zdTh8dXNlci1hZ2VudD1Nb3ppbGxhLy81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNl82IGxpa2UgTWFjIE9TIFgpIEFwcGxlV2ViS2l0Ly82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vLzE2LjYgTW9iaWxlLy8xNUUxNDggU2FmYXJpLy82MDQuMXxyZWZlcmVyPWh0dHBzOi8vd3d3LnlhcmlnYS5saXZlL3xuYW1lPSAnICAgICBZUyAoMzYwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgImh0dHBzOi8vZG9ra28xbmV3Lm5ld2tzby5ydS9kb2trbzEvcHJlbWl1bTkxL21vbm8ubTN1OHx1c2VyLWFnZW50PU1vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCAxMDsgSykgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzExNi4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNnxyZWZlcmVyPWh0dHBzOi8vbmV3ZW1iZWRwbGF5Lnh5ei98bmFtZT0gJyAgICAgRE9LICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIgogIAoKXQ== 
+ " class='match-box' target="_blank">
+    <div class='match-info'>
+        <div><img src='https://imgs.ysscores.com/teams/64/9631690118479.png'><p>وولفرهامبتون</p></div>
+        <div><span class='match-time'>07:30م</span></div>
+        <div><img src='https://imgs.ysscores.com/teams/64/4481690118308.png'><p>مان سيتي </p></div>
+    </div>
+    <div class='match-details'>
+        <div>bein sport 1</div>
+        <div>خليل البلوشي</div>
+    </div>
+</a>
+
+
+
+
+
+
+
+<div class="flex-container">
+<b>الدوري الاسباني</b>
+    <div class="img">
+        <img src="https://imgs.ysscores.com/championship/48/8641690196626.png" "style="width: 80px; height: 45px;"
+>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<a href="xmtv://WwogICJodHRwczovL2dpdGh1Yi5jb20vaGltYXNhYnJ5L3hwb2xhLXBsYXllci9yYXcvcmVmcy9oZWFkcy9tYWluL2JlSU4zLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBXQUNFTC1UViAgICAgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgCiAgCgogCiAgCiAgCiAgCiAgCiAKICAKICAiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzQ2fGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgWUMgKDI0NFApICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKICAKICAiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzI2fGRldmljZWNhbmFyeT1mYWxzZXxjYXN0PWZhbHNlfG5hbWU9JyAgIFlDICAoNDgwUCkg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKICAKICAiaHR0cDovL3d3dy50ZWxlZHVuZXQuY29tOjgwODAvdGRuL3Rkbi80NTY0ODkubTN1OHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKDI3MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogIAogIAogIAoKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzZ8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFlDICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgIAoKImh0dHA6Ly85My4xMjMuNzIuMTM4OjgwMDAvcGxheS9hMDFyfGNhc3Q9ZmFsc2V8bmFtZT0nICAgICAgcGxheSAoRlVMSEQpICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKCiAgCiAgImh0dHBzOi8vZG9ra28xbmV3Lm5ld2tzby5ydS9kb2trbzEvcHJlbWl1bTkzL21vbm8ubTN1OHx1c2VyLWFnZW50PU1vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCAxMDsgSykgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzExNi4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNnxyZWZlcmVyPWh0dHBzOi8vbmV3ZW1iZWRwbGF5Lnh5ei98bmFtZT0gJyAgICAgRE9LICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIgogIAoKXQ==
+ " class='match-box' target="_blank">
+    <div class='match-info'>
+        <div><img src='https://imgs.ysscores.com/teams/64/5291690196746.png'><p>ريال مايوركا</p></div>
+        <div><span class='match-time'>10:00م</span></div>
+        <div><img src='https://imgs.ysscores.com/teams/64/9541690196746.png'><p>برشلونة </p></div>
+    </div>
+    <div class='match-details'>
+        <div>bein sport 3</div>
+        <div>حفيظ دراجي</div>
+    </div>
+</a>
+
     <div class="mobile-header-wrap"> 
   
      <style>
