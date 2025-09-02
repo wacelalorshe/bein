@@ -481,8 +481,8 @@
                 thumbnail: "https://images.unsplash.com/photo-1552667466-07770ae110d0?w=300&h=150&fit=crop",
                 logo: "https://images.unsplash.com/photo-1552667466-07770ae110d0?w=100&h=100&fit=crop&crop=face",
                 streams: [
-                    { quality: "HD", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" },
-                    { quality: "SD", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" },
+                    { quality: "HD", url: "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-na/eec141533c90dd34722c503a296dd0d8/index.m3u8" },
+                    { quality: "SD", url: "https://raw.githubusercontent.com/himasabry/xpola-player/refs/heads/main/TOD%201.m3u8" },
                     { quality: "Low", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" }
                 ]
             },
@@ -790,7 +790,7 @@
             displayChannels(filteredChannels);
         }
 
-        // تفعيل العناصر في القائمة السفلية
+             // تفعيل العناصر في القائمة السفلية
         navItems.forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -799,73 +799,12 @@
                 
                 // هنا يمكن إضافة وظائف لكل عنصر في القائمة
                 const text = this.querySelector('span').textContent;
-                showNotification(`تم النقر على: ${text}`);
+                alert(`تم النقر على: ${text}`);
             });
-        }
-
-        // إعداد مستمعي الأحداث
-        function setupEventListeners() {
-            // إغلاق المشغل
-            closePlayerBtn.addEventListener('click', closePlayer);
-            
-            // التحكم في ملء الشاشة
-            fullscreenBtn.addEventListener('click', () => {
-                if (document.fullscreenElement) {
-                    exitFullscreen();
-                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-                    fullscreenBtn.title = 'ملء الشاشة';
-                } else {
-                    enterFullscreen();
-                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-                    fullscreenBtn.title = 'تصغير الشاشة';
-                }
-            });
-            
-            // التحكم في صورة داخل صورة
-            pipBtn.addEventListener('click', togglePip);
-            
-            // تحديث تقدم الفيديو
-            videoPlayer.addEventListener('timeupdate', updateProgress);
-            
-            // البحث في الفيديو
-            progressBar.addEventListener('click', seek);
-            
-            // عند بدء السحب
-            progressBar.addEventListener('mousedown', () => {
-                isSeeking = true;
-            });
-            
-            // عند إنهاء السحب
-            document.addEventListener('mouseup', () => {
-                isSeeking = false;
-            });
-            
-            // عند تغيير وضع ملء الشاشة
-            document.addEventListener('fullscreenchange', () => {
-                if (document.fullscreenElement) {
-                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-                    fullscreenBtn.title = 'تصغير الشاشة';
-                } else {
-                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-                    fullscreenBtn.title = 'ملء الشاشة';
-                }
-            });
-            
-            // عند وجود خطأ في الفيديو
-            videoPlayer.addEventListener('error', (e) => {
-                showLoading(false);
-                showNotification(`خطأ في تشغيل الفيديو. يرجى المحاولة بجودة أخرى.`);
-            });
-        }
+        });
 
         // التهيئة الأولية
-        function init() {
-            displayChannels(channelsData);
-            setupEventListeners();
-        }
-
-        // بدء التطبيق
-        init();
+        displayChannels(channelsData);
     </script>
 </body>
 </html>
