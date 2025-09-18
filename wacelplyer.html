@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer" />
+    <title> وسيل لايف برو - مشغل JW Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+    <script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";</script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #1a2530;
+            --accent-color: #3498db;
+            --background-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --nav-bg: #1a1a1a;
+            --nav-active: #fff;
+            --nav-inactive: #888;
+            --quality-bg: rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 70px;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: fixed;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #121212;
+            background-size: 200px;
+            background-repeat: repeat;
+        }
+
+        header h1 {
+            position: relative;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            position: relative;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .category-btn {
+            background-color: var(--card-bg);
+            border: none;
+            padding: 0.2rem 0.9rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            font-weight: 500;
+            border-bottom: 1px groove #fff;
+            border-top: 1px ridge #fff;
+            border-left: 0px ridge #4E2C78;
+            border-right: 0px groove #4E2C78;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container {
+            background-color: var(--card-bg);
+            margin: 1.5rem 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            border-radius: 25px;
+            padding: 0.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container input {
+            background-color: transparent;
+            width: 100%;
+            max-width: 500px;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .channel-card {
+            background-color: var(--card-bg);
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+            box-shadow: 0 12px 10px rgba(255, 255, 255, 0.4);
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            border-bottom: 15px groove #4E2C78;
+            border-top: 15px ridge #4E2C78;
+            border-left: 0px groove #000;
+            border-right: 0px groove #000;
+            padding: 0.3rem 0.0rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .channel-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .channel-thumb {
+            height: 160px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .channel-thumb img {
+            width: 80%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            margin: 15px;
+            margin-top: 0px;
+        border-bottom: 0px groove #4E2C78;
+            border-top: 0px ridge #fff;
+            border-left: 0px ridge #000;
+            border-right: 0px groove #000;
+            border-radius: 10px 10px 10px 10px;
+padding: 0.1rem 0.0rem;
+        }
+
+        .channel-card:hover .channel-thumb img {
+            transform: scale(1.1);
+        }
+
+        .channel-info {
+            padding: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .channel-title {
+        	background-color: var(--card-bg);
+        border-bottom: 1px groove #fff;
+            border-top: 1px ridge #fff;
+            border-left: 0px ridge #fff;
+            border-right: 0px groove #fff;
+            border-radius: 10px 10px 10px 10px;
+padding: 0.1rem 0.0rem;
+width: 100%;
+            
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            justify-content: center;
+            text-align: center;
+            color: #4E2C78;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .channel-quality {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.50rem;
+            flex-wrap: wrap;
+        }
+
+        .quality-badge {
+            background-color: var(--card-bg);
+        border-bottom: 3px groove #000;
+            border-top: 3px ridge #000;
+            border-left: 3px ridge #000;
+            border-right: 3px groove #000;
+            border-radius: 10px 10px 10px 10px;
+            padding: 0.2rem 0.4rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            color: #4E2C78;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .quality-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* مشغل JW Player */
+        .player-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .player-container.active {
+            opacity: 1;
+        }
+
+        .jwplayer-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .player-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+            z-index: 2001;
+        }
+
+        .channel-title-player {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .close-btn {
+            color: white;
+            background: #e74c3c;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #c0392b;
+            transform: rotate(90deg);
+        }
+
+        /* قائمة الجودة في المشغل */
+        .quality-container {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--quality-bg);
+            border-radius: 10px;
+            padding: 1rem;
+            width: 90%;
+            max-width: 500px;
+            z-index: 2001;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quality-title {
+            color: white;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .quality-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .quality-option {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+        }
+
+        .quality-option:hover {
+            background: rgba(52, 152, 219, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quality-option.active {
+            background: var(--accent-color);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        /* القائمة السفلية */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            display: flex;
+            justify-content: space-around;
+            padding: 0.8rem 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--nav-inactive);
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            color: var(--nav-active);
+        }
+
+        .nav-item.active .nav-icon {
+            transform: scale(1.2);
+            color: var(--accent-color);
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .channels-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            
+            .channel-thumb {
+                height: 120px;
+            }
+            
+            .quality-container {
+                bottom: 70px;
+                width: 95%;
+            }
+            
+            .quality-options {
+                gap: 0.3rem;
+            }
+            
+            .quality-option {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* تنسيقات خاصة بمشغل JW Player */
+        .jw-icon.jw-icon-inline.jw-button-color.jw-reset.jw-icon-pip,
+        .jw-icon.jw-icon-inline.jw-button-color.jw-reset.jw-settings-sharing {
+            display: none;
+        }
+        
+        .jwplayer.jw-stretch-uniform .jw-media video {
+            object-fit: fill;
+        }
+        
+        /* تأثيرات للتحميل */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>وسيل لايف برو</h1>
+        <p>استمتع بمشاهدة قنواتك المفضلة بجميع الصيغ</p>
+    </header>
+
+    <div class="container">
+        <div class="categories">
+            <button class="category-btn active" data-category="all">الكل</button>
+            <button class="category-btn" data-category="sports">رياضية</button>
+            <button class="category-btn" data-category="news">أخبارية</button>
+            <button class="category-btn" data-category="entertainment">ترفيهية</button>
+            <button class="category-btn" data-category="educational">تعليمية</button>
+        </div>
+
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="البحث عن قناة...">
+        </div>
+
+        <div class="channels-grid" id="channels-container">
+            <div class="loading">جاري تحميل القنوات...</div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="go:&&" class="nav-item active">
+            <i class="fas fa-home nav-icon"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="go:&&" class="nav-item">
+            <i class="fas fa-tv nav-icon"></i>
+            <span>القنوات</span>
+        </a>
+        <a href="go:&&" class="nav-item">
+            <i class="fas fa-heart nav-icon"></i>
+            <span>المفضلة</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-cog nav-icon"></i>
+            <span>الإعدادات</span>
+        </a>
+    </nav>
+
+    <!-- مشغل JW Player -->
+    <div class="player-container" id="player-container">
+        <div class="player-header">
+            <div class="channel-title-player" id="player-channel-title">BEIN SPORT 1</div>
+            <button class="close-btn" id="close-player">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="quality-container" id="quality-container">
+            <div class="quality-title">اذا لم يعمل السيرفر الاول قم بالتغير الي السيرفر الاخر</div>
+            <div class="quality-options" id="quality-options">
+                <!-- سيتم إضافة خيارات الجودة هنا ديناميكيًا -->
+            </div>
+        </div>
+        
+        <div id="jwplayerDiv" class="jwplayer-container"></div>
+    </div>
+
+    <script>
+        // بيانات القنوات
+        const channelsData = [
+            {
+                id: 1,
+                title: "BEIN SPORT 1",
+                category: "sports",
+                thumbnail: "data:image/png;base64,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",
+                logo: "@",
+                streams: [
+                    { quality: "S1", url: "https://wo.cma.footballii.ir/hls2/b1.m3u8" },
+                    { quality: "S2", url: "https://hz.achourtv.com/bn1.m3u8" },
+                    { quality: "S3", url: "https://github.com/o2ws/xpola-player/raw/refs/heads/main/1.m3u8" },
+                    
+                ]
+            },
+            {
+                id: 2,
+                title: "bein sport 2",
+                category: "news",
+                thumbnail: "data:image/png;base64,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",
+                logo: "@",
+                streams: [
+                    { quality: "S1", url: "https://wo.cma.footballii.ir/hls2/b2.m3u8" },
+                    { quality: "S2", url: "https://hz.achourtv.com/bn2.m3u8" },
+                    { quality: "S3", url: "https://github.com/o2ws/xpola-player/raw/refs/heads/main/2.m3u8" },
+                ]
+            },
+            {
+                id: 3,
+                title: "bein sport 3",
+                category: "entertainment",
+                thumbnail: "data:image/png;base64,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 ",
+                logo: "https://images.unsplash.com/photo-1489599102910-59206b8ca314?w=100&h=100&fit=crop&crop=face",
+                streams: [
+                    { quality: "S1", url: "https://balance.footballii.ir/hls2/b3.m3u8" },
+                    { quality: "S2", url: "https://hz.achourtv.com/bn3.m3u8" },
+                    { quality: "S3", url: "https://github.com/o2ws/xpola-player/raw/refs/heads/main/3.m3u8" },
+                ]
+            },
+            {
+                id: 4,
+                title: "bein sport 4",
+                category: "educational",
+                thumbnail: "data:image/png;base64,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",
+                logo: "https://images.unsplash.com/photo-1581726707445-75cbe4efc586?w=100&h=100&fit=crop&crop=face",
+                streams: [
+                    { quality: "S1", url: "https://github.com/o2ws/xpola-player/raw/refs/heads/main/4.m3u8" },
+                    { quality: "S2", url: "https://hz.achourtv.com/bn4.m3u8" },
+                    { quality: "S3", url: "https://hz.achourtv.com/bn4.m3u8" },
+                ]
+            },
+            {
+                id: 5,
+                title: "bein sport 5",
+                category: "entertainment",
+                thumbnail: "data:image/png;base64,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",
+                logo: "https://images.unsplash.com/photo-1516085216930-c93a002a8b01?w=100&h=100&fit=crop&crop=face",
+                streams: [
+                    { quality: "S1", url: "https://github.com/o2ws/xpola-player/raw/refs/heads/main/5.m3u8" },
+                    { quality: "S2", url: "https://hz.achourtv.com/bn5.m3u8" },
+                    { quality: "S3", url: "https://hz.achourtv.com/bn5.m3u8" },
+                ]
+            },
+            {
+                id: 6,
+                title: "bein sport 6",
+                category: "educational",
+                thumbnail: "data:image/png;base64,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 ",
+                logo: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop&crop=face",
+                streams: [
+                    { quality: "S1", url: "https://github.com/o2ws/xpola-player/raw/refs/heads/main/6.m3u8" },
+                    { quality: "S2", url: "https://hz.achourtv.com/bn6.m3u8" },
+                    { quality: "S3", url: "https://hz.achourtv.com/bn6.m3u8" },
+                ]
+            }
+        ];
+
+        // عناصر DOM
+        const channelsContainer = document.getElementById('channels-container');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const searchInput = document.getElementById('search-input');
+        const playerContainer = document.getElementById('player-container');
+        const closePlayerBtn = document.getElementById('close-player');
+        const qualityOptionsContainer = document.getElementById('quality-options');
+        const playerChannelTitle = document.getElementById('player-channel-title');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // متغيرات حالة المشغل
+        let currentChannel = null;
+        let currentStreamIndex = 0;
+        
+        // عرض القنوات
+        function displayChannels(channels) {
+            channelsContainer.innerHTML = '';
+            
+            if (channels.length === 0) {
+                channelsContainer.innerHTML = '<div class="loading">لا توجد قنوات متاحة</div>';
+                return;
+            }
+            
+            channels.forEach(channel => {
+                const channelCard = document.createElement('div');
+                channelCard.className = 'channel-card fade-in';
+                
+                channelCard.innerHTML = `
+                    <div class="channel-thumb">
+                        <img src="${channel.thumbnail}" alt="${channel.title}" onerror="this.src='https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=300&h=150&fit=crop'">
+                    </div>
+                    <div class="channel-info">
+                        <div class="channel-title">${channel.title}</div>
+                        <div class="channel-quality">
+                            ${channel.streams.map(stream => 
+                                `<span class="quality-badge">${stream.quality}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                channelCard.addEventListener('click', () => {
+                    openPlayer(channel);
+                });
+                
+                channelsContainer.appendChild(channelCard);
+            });
+        }
+        
+        // فتح مشغل الفيديو
+        function openPlayer(channel) {
+            currentChannel = channel;
+            currentStreamIndex = 0;
+            
+            // تحديث عنوان القناة في المشغل
+            playerChannelTitle.textContent = channel.title;
+            
+            // إظهار المشغل
+            playerContainer.style.display = 'block';
+            setTimeout(() => {
+                playerContainer.classList.add('active');
+            }, 10);
+            
+            // تحديث قائمة الجودة
+            updateQualitySelector();
+            
+            // إعداد مشغل JW Player
+            setupPlayer();
+        }
+        
+        // إعداد مشغل JW Player
+        function setupPlayer() {
+            jwplayer("jwplayerDiv").setup({
+                file: currentChannel.streams[currentStreamIndex].url,
+                width: "100%",
+                height: "100%",
+                autostart: true,
+                mute: false,
+                stretching: "uniform",
+                cast: {},
+                sharing: {},
+                fullscreen: true
+            });
+            
+            // تعيين المسار الصوتي الافتراضي عند بدء التشغيل
+            jwplayer("jwplayerDiv").on('ready', function() {
+                this.setAudioTrack(0);
+            });
+        }
+        
+        // تحديث قائمة اختيار الجودة
+        function updateQualitySelector() {
+            qualityOptionsContainer.innerHTML = '';
+            
+            currentChannel.streams.forEach((stream, index) => {
+                const qualityOption = document.createElement('div');
+                qualityOption.className = `quality-option ${index === currentStreamIndex ? 'active' : ''}`;
+                qualityOption.textContent = stream.quality;
+                qualityOption.dataset.index = index;
+                
+                qualityOption.addEventListener('click', () => {
+                    changeStream(index);
+                });
+                
+                qualityOptionsContainer.appendChild(qualityOption);
+            });
+        }
+        
+        // تغيير مصدر البث
+        function changeStream(index) {
+            if (index === currentStreamIndex) return;
+            
+            currentStreamIndex = index;
+            
+            // تحديث النشاط في قائمة الجودة
+            document.querySelectorAll('.quality-option').forEach((option, i) => {
+                if (i === index) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            
+            // إعادة إعداد المشغل مع المصدر الجديد
+            jwplayer("jwplayerDiv").load([{
+                file: currentChannel.streams[currentStreamIndex].url
+            }]);
+            
+            jwplayer("jwplayerDiv").play();
+        }
+
+        // إغلاق المشغل
+        closePlayerBtn.addEventListener('click', () => {
+            playerContainer.classList.remove('active');
+            setTimeout(() => {
+                playerContainer.style.display = 'none';
+                jwplayer("jwplayerDiv").stop();
+            }, 300);
+        });
+
+        // تصفية حسب الفئة
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // إزالة النشاط من جميع الأزرار
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                // إضافة النشاط للزر المحدد
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                filterChannels();
+            });
+        });
+
+        // البحث
+        searchInput.addEventListener('input', filterChannels);
+
+        // تصفية القنوات
+        function filterChannels() {
+            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+            const searchText = searchInput.value.toLowerCase();
+            
+            const filteredChannels = channelsData.filter(channel => {
+                const matchesCategory = activeCategory === 'all' || channel.category === activeCategory;
+                const matchesSearch = channel.title.toLowerCase().includes(searchText);
+                return matchesCategory && matchesSearch;
+            });
+            
+            displayChannels(filteredChannels);
+        }
+
+        // تفعيل عناصر القائمة السفلية
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        // التهيئة الأولية
+        displayChannels(channelsData);
+    </script>
+</body>
+</html>
