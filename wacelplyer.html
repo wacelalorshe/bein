@@ -158,11 +158,11 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             margin-top: 1.5rem;
             border-radius: 22px;
-            border-bottom: 20px groove #000;
-            border-top: 20px ridge #000;
+            border-bottom: 10px groove #fff;
+            border-top: 10px ridge #fff;
             border-left: 0px groove #000;
             border-right: 0px groove #000;
-            padding: 0.3rem 0.0rem;
+            padding: 0.9rem 0.0rem;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
@@ -192,14 +192,16 @@
         }
 
         .channel-thumb img {
+        	background-color: #4E2C78;
             width: 80%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
             margin: 15px;
             margin-top: 0px;
-        border-bottom: 0px groove #4E2C78;
-            border-top: 0px ridge #fff;
+            justify-content: center;
+        border-bottom: 2px groove #fff;
+            border-top: 2px ridge #fff;
             border-left: 0px ridge #000;
             border-right: 0px groove #000;
             border-radius: 10px 10px 10px 10px;
@@ -217,7 +219,7 @@ padding: 0.1rem 0.0rem;
         }
 
         .channel-title {
-        	background-color: var(--card-bg);
+        	background-color: #4E2C78;
         border-bottom: 1px groove #fff;
             border-top: 1px ridge #fff;
             border-left: 0px ridge #fff;
@@ -225,13 +227,13 @@ padding: 0.1rem 0.0rem;
             border-radius: 10px 10px 10px 10px;
 padding: 0.1rem 0.0rem;
 width: 100%;
-            
+            justify-content: center;
             font-weight: bold;
             margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             justify-content: center;
             text-align: center;
-            color: #4E2C78;
+            color: #fff;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
@@ -243,18 +245,19 @@ width: 100%;
         }
 
         .quality-badge {
-            background-color: var(--card-bg);
-        border-bottom: 3px groove #000;
-            border-top: 3px ridge #000;
-            border-left: 3px ridge #000;
-            border-right: 3px groove #000;
+            background-color: #fff;
+        border-bottom: 3px groove #4E2C78;
+            border-top: 3px ridge #4E2C78;
+            border-left: 3px ridge #4E2C78;
+            border-right: 3px groove #4E2C78;
             border-radius: 10px 10px 10px 10px;
-            padding: 0.2rem 0.4rem;
+            padding: 0.2rem 0.5rem;
+            justify-content: center;
             border-radius: 10px;
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             color: #4E2C78;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 1.3s ease;
         }
 
         .quality-badge:hover {
@@ -519,7 +522,7 @@ width: 100%;
     <!-- مشغل JW Player -->
     <div class="player-container" id="player-container">
         <div class="player-header">
-            <div class="channel-title-player" id="player-channel-title">BEIN SPORT 1</div>
+            <div class="channel-title-player" id="player-channel-title">bein sport 1</div>
             <button class="close-btn" id="close-player">
                 <i class="fas fa-times"></i>
             </button>
@@ -540,7 +543,7 @@ width: 100%;
         const channelsData = [
             {
                 id: 1,
-                title: "BEIN SPORT 1",
+                title: "bein sport 1",
                 category: "sports",
                 thumbnail: "data:image/png;base64,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",
                 logo: "@",
