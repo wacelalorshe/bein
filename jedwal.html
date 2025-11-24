@@ -1,236 +1,1027 @@
 <!DOCTYPE html>
 <html lang='ar' dir='rtl'>
 <head>
-<meta charset='UTF-8'>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>وسيل لايف برو</title>
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وسيل لايف برو - بث المباريات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== متغيرات الألوان والتصميم ===== */
+        :root {
+            --primary-bg: linear-gradient(135deg, #0a0c1a 0%, #151a35 50%, #0a0c1a 100%);
+            --card-bg: linear-gradient(145deg, rgba(21, 24, 37, 0.9), rgba(30, 33, 58, 0.9));
+            --header-bg: linear-gradient(90deg, #090b16 0%, #11162b 50%, #090b16 100%);
+            --accent-color: #5d72d6;
+            --accent-hover: #6f83e8;
+            --accent-glow: rgba(93, 114, 214, 0.4);
+            --text-color: #ffffff;
+            --text-secondary: #a8b1e1;
+            --gold-color: #ffd700;
+            --silver-color: #c0c0c0;
+            --border-radius: 20px;
+            --box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            --box-shadow-light: 0 8px 25px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --glass-effect: rgba(255, 255, 255, 0.05);
+        }
 
-    body {
-        background: linear-gradient(to right, #000, #151825, #000);
-        color: white;
-        text-align: center;
-        padding: 70px 0 20px;
-        min-height: 100vh;
-    }
+        /* ===== إعادة تعيين وإعدادات عامة ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    h2 {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        color: #FFF; 
-        font-weight: bold;
+        body {
+            background: var(--primary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
 
+        /* ===== الخلفية الديناميكية ===== */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -9;
+            overflow: hidden;
+        }
 
+        .bg-circle {
+            position: absolute;
+            border-radius: 0%;
+            filter: blur(660px);
+            opacity: 0.15;
+            animation: float 20s infinite linear;
+        }
 
-        padding: 15px 0;
-        margin: 0;
-        z-index: 1000;
-        background-image: linear-gradient(to right, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825);
-        border-radius: 0px 0px 20px 20px;
-        font-size: clamp(16px, 4vw, 20px);
-        border-bottom: 7px double #434C75;
-        box-shadow: 0 0px 15px rgba(255, 255, 255, 8.1);
-    }
+        .circle-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-color);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
 
-    .flex-container {
-        display: flex;
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: #ff6b6b;
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -5s;
+            animation-duration: 25s;
+        }
+
+        .circle-3 {
+            width: 300px;
+            height: 300px;
+            background: #4ecdc4;
+            top: 50%;
+            left: 80%;
+            animation-delay: -10s;
+            animation-duration: 30s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* ===== الهيدر الفاخر ===== */
+        .main-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--glass-effect);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--accent-color), #798cec);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 8px 20px var(--accent-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .logo:hover::before {
+            transform: translateX(100%);
+        }
+
+        .app-name {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .app-title {
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-color), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .app-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 3px;
+            letter-spacing: 1px;
+        }
+
+        .date-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background: var(--glass-effect);
+            padding: 5px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hijri-date {
+            font-size: 10px;
+            color: var(--text-secondary);
+            margin-bottom: 0px;
+            font-weight: 500;
+        }
+
+        .gregorian-date {
+            font-size: 14px;
+            font-weight: 900;
+            color: var(--text-color);
+        }
+
+        /* ===== الحاوية الرئيسية ===== */
+        .container {
+            max-width: 140000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 25px 0 40px;
+            font-size: 34px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 20%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            border-radius: 3px;
+        }
+
+        /* ===== معلومات التحديث ===== */
+        .update-info {
+            text-align: center;
+            margin: 0px 0;
+            
+            font-size: 0px;
+            background: var(--glass-effect);
+            padding: 0px 0px;
+            border-radius: 0px;
+            display: inline-block;
+            
+            backdrop-filter: blur(0px);
+        }
+
+        .update-info i {
+            color: var(--accent-color);
+            margin-left: 8px;
+        }
+
+        /* ===== حاوية المباريات ===== */
+        .matches-container {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-effect);
+            border-radius: var(--border-radius);
+            padding: 10px;
+            box-shadow: var(--box-shadow);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .matches-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--gold-color), var(--accent-color));
+        }
+
+        /* ===== قسم الدوري الفاخر ===== */
+        .league-section {
+            margin: 40px 0 25px;
+        }
+
+        .league-header {
+            display: flex;
         justify-content: center;
         align-items: center;
-        gap: 105px;
-        border: 3px double #434C75;
+        gap: 10px;
+        
+        border-bottom: 3px groove  #434C75; 
+        
+    border-top: 3px   groove  #434C75; 
         border-left: 0;
         border-right: 0;
         font-weight: bold;
         width: 88%;
         max-width: 600px;
-        margin: 15px auto;
+        margin: 1px auto;
         padding: 8px;
         border-radius: 10px;
         background: linear-gradient(to right, #151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825,#151825, #3A4266, #151825);
-    }
-
-    .match-box {
-        border: 15px double #151825;
-        padding: 10px;
-        margin: 10px auto;
-        border-radius: 18px;
-        background: linear-gradient(to right, #151825, #3A4266, #151825);
-        width: 90%;
-        max-width: 600px;
-        text-decoration: none;
-        display: block;
-        color: inherit;
-        box-shadow: 0 0px 10px rgba(255, 255, 255, 5.1);
-        transition: transform 0.2s;
-    }
-
-    .match-box:hover {
-        transform: scale(1.02);
-    }
-
-    .match-info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 5px;
-        gap: 10px;
-    }
-
-    .match-info div {
-        text-align: center;
-        width: 32%;
-        flex: 1;
-    }
-
-    .match-info img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    .match-time {
-        background: linear-gradient(to right, #151825, #3A4266, #151825);
-        color: white;
-        font-size: 14px;
-        padding: 6px 12px;
-        border-radius: 6px;
-        display: inline-block;
-        margin: 5px 0;
-           box-shadow: 0 0px 10px rgba(255, 255, 255, 5.1);
-    }
-
-    .match-details {
-        padding: 8px 0 0;
-        margin-top: 8px;
-        display: flex;
-        font-size: clamp(12px, 3vw, 14px);
-        border-top: 1px groove rgba(255, 255, 255, 0.5);
-        justify-content: space-around;
-    }
-
-    .match-details div {
-        padding: 8px;
-        position: relative;
-        flex: 1;
-    }
-
-    .match-details div:nth-child(2)::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 1px;
-        height: 70%;
-        background: rgba(255, 255, 255, 0.7);
-        transform: translateY(-50%);
-    }
-
-    .img img {
-        max-width: 40px;
-        height: auto;
-        max-height: 30px;
-        object-fit: contain;
-        
-    }
-
-    @media (max-width: 480px) {
-        body {
-            padding-top: 60px;
         }
-        
-        .match-info img {
-            width: 30px;
-            height: 30px;
+
+        .league-header::before {
+            
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            
+            
             
         }
+
+        .league-logo {
+            max-width: 40px;
         
+        max-height: 40px;
+        object-fit: contain;
+            border-radius: 50%;
+            margin-left: 20px;
+            object-fit: cover;
+            
+            padding: 1px;
+         position: relative;
+         
+            box-shadow: 0 5px 15px var(--accent-glow);
+            transition: var(--transition);
+        }
+
+        .league-header:hover .league-logo {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .league-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-color);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== شبكة المباريات المحسنة ===== */
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 61fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .match-card {
+        	
+            background: var(--card-bg);
+            border-bottom: 2px groove  #fff; 
+    border-top: 2px   groove  #fff; 
+            border-left: 3px ridge #fff;
+border-right: 3px groove #fff; 
+            border-radius: var(--border-radius);
+            padding: 2px 50px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--box-shadow-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .match-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            background: linear-gradient(135deg, rgba(93, 114, 214, 0.1), rgba(255, 215, 0, 0.05));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .match-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        .match-card:hover::before {
+            opacity: 1;
+        }
+
+        .watch-badge {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: #36FF00;
+            color: #183100;
+            padding: 5px 5px;
+            border-radius: 0px 10px 10px 0px;
+            font-size: 1px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            box-shadow: var(--box-shadow-light);
+            z-index: 2;
+        }
+
+        .match-teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        
+        
+
+        .team-logo {
+        	width: 50px;
+            height: 50px;
+            border-bottom: 2px double  #fff;
+    border-top: 2px double  #fff;
+
+        padding-right: 5px;
+ padding-left: 5px;
+ padding-bottom: 5px;
+ padding-top: 5px;
+ margin-top: 30px;
+        border-radius: 50%;
+        
+
+margin-left: 0%;
+
+     
+        }
+
+        .match-card:hover .team-logo {
+            transform: scale(0.15);
+            border-color: var(--gold-color);
+        }
+
+        .team-name {
+            font-weight: 700;
+            font-size: 10px;
+            padding: 10px 0px;
+            text-align: center;
+            color: var(--text-color);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .vs-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200%;
+        }
+
         .match-time {
-            font-size: 12px;
-            padding: 4px 9px;
+            background: linear-gradient(135deg, var(--accent-color), #6a7fd9);
+            color: var(--text-color);
+            font-size: 4px;
+            padding: 5px 5px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px var(--accent-glow);
+            transition: var(--transition);
         }
+
+        .match-card:hover .match-time {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, var(--accent-hover), #7a8de6);
+        }
+
+        .vs-text {
+            font-size: 9px;
+            margin-top: 20px;
+            color: var(--text-secondary);
+            background: rgba(10, 12, 23, 0.7);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .match-details {
+            display: flex;
+            justify-content: space-around;
+            padding: 0px 0 10px;
+            margin-top: 50px;
+            border-top: 1px solid var(--glass-effect);
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .detail-item i {
+            color: var(--accent-color);
+            font-size: 10px;
+            transition: var(--transition);
+        }
+
+        .match-card:hover .detail-item i {
+            transform: scale(0.2);
+            color: var(--gold-color);
+            margin-top: 20px;
+        }
+
+        .detail-label {
+            font-size: 9px;
+            color: var(--text-secondary);
+            font-weight: 900;
+        }
+
+        .detail-value {
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--text-color);
+        }
+
+        /* ===== حالات التصميم ===== */
+        .hidden {
+            display: none !important;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 0px;
+            color: var(--text-secondary);
+            font-size: 10px;
+        }
+
+        .loading i {
+            margin-left: 15px;
+            color: var(--accent-color);
+            font-size: 24px;
+        }
+
+        .error {
+            background: linear-gradient(135deg, var(--danger-color), #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: var(--box-shadow-light);
+            font-weight: 500;
+        }
+
+        .success {
+            background: linear-gradient(135deg, var(--success-color), #27ae60);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: var(--box-shadow-light);
+        }
+
+        /* ===== التحديث التلقائي ===== */
         
-        .flex-container {
-            gap: 10px;
-            padding: 6px;
-            font-size: 17px;
+
+        /* ===== التجاوب مع الشاشات المختلفة ===== */
+        
+
+        /* ===== تأثيرات إضافية ===== */
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
-    }
-</style>
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 var(--accent-glow);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(93, 114, 214, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(93, 114, 214, 0);
+            }
+        }
+
+        /* ===== شريط التمرير المخصص ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 12, 23, 0.5);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--accent-hover), #ffdf40);
+        }
+    </style>
 </head>
 <body>
-<h2>               مباريات اليوم | الاحد 17 أغسطس 2025 </h2>
-
-
-<br>
-</style>
-
-
-
-
-
-<div class="flex-container">
-	  
-
-    <b>الدوري الانجليزي الممتاز    </b>
-    <div class="img">
-        <img src="https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png" "style="width: 80px; height: 45px;"
->
+    <!-- الخلفية المتحركة -->
+    <div class="background-animation">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
     </div>
-</div>
+
+    <!-- الهيدر الفاخر -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <div class="app-name">
+                    <div class="app-title">وسيل لايف برو</div>
+                    <div class="app-subtitle">بث مباشر للمباريات</div>
+                </div>
+            </div>
+            <div class="date-section">
+                <div class="hijri-date" id="hijri-date">الاثنين، 24 نوفمبر 2025</div>
+                <div class="gregorian-date" id="gregorian-date">24 نوفمبر 2025</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- الصفحة الرئيسية -->
+    <div id="home-page">
+        <div class="container">
+            <h1 class="page-title" id="page-title">مباريات اليوم</h1>
+            
+            <div class="update-info">
+                <i class="fas fa-sync-alt"></i>
+                يتم تحديث البيانات تلقائياً من السحابة
+            </div>
+            
+            <div class="matches-container">
+                <div id="matches-container">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        جاري تحميل المباريات...
+                    </div>
+                </div>
+            </div>
+            
+            <div class="update-info">
+                <i class="fas fa-info-circle"></i>
+                آخر تحديث: <span id="last-update">الآن</span>
+            </div>
+        </div>
     </div>
-</div>
 
-                                                     <a href="br2
- " class='match-box' target="_blank">
-    <div class='match-info'>
-        <div><img src='https://imgs.ysscores.com/teams/64/7741690119007.png'><p>نوتينغهام</p></div>
-        <div><span class='match-time'>04:00م</span></div>
-        <div><img src='https://imgs.ysscores.com/teams/64/4791690118957.png'><p>برينتفورد </p></div>
-    </div>
-    <div class='match-details'>
-        <div>bein sport 2</div>
-        <div>احمد البلوشي</div>
-    </div>
-</a>
+    <!-- تحميل Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    
+    <script>
+        // إعدادات Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCqE7ZwveHg1dIhYf1Hlo7OpHyCZudeZvM",
+            authDomain: "wacel-live.firebaseapp.com",
+            databaseURL: "https://wacel-live-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "wacel-live",
+            storageBucket: "wacel-live.firebasestorage.app",
+            messagingSenderId: "185108554006",
+            appId: "1:185108554006:web:93171895b1d4bb07c6f037"
+        };
 
+        // تهيئة Firebase
+        let firebaseApp, firebaseDb;
+        
+        // الانتظار حتى تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("📄 تم تحميل الصفحة الرئيسية");
+            
+            // محاولة تهيئة Firebase
+            initializeFirebase();
+            
+            // تحديث التواريخ في الهيدر
+            updateDates();
+            
+            // تحميل المباريات
+            loadMatches();
+            
+            // دالة لتهيئة Firebase
+            function initializeFirebase() {
+                try {
+                    if (typeof firebase !== 'undefined') {
+                        firebaseApp = firebase.initializeApp(firebaseConfig);
+                        firebaseDb = firebase.database();
+                        console.log("✅ تم تهيئة Firebase بنجاح");
+                    } else {
+                        throw new Error("Firebase SDK غير محمل");
+                    }
+                } catch (error) {
+                    console.error("❌ خطأ في تهيئة Firebase:", error);
+                    showError("⚠️ جاري استخدام بيانات تجريبية - تأكد من اتصال Firebase");
+                    // استخدام بيانات تجريبية
+                    loadSampleData();
+                    return;
+                }
+            }
+            
+            // دالة لتحديث التواريخ
+            function updateDates() {
+                const today = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const gregorianDate = today.toLocaleDateString('ar-AR', options);
+                
+                document.getElementById('gregorian-date').textContent = gregorianDate;
+                document.getElementById('hijri-date').textContent = gregorianDate;
+            }
+            
+            // دالة لتحميل المباريات
+            function loadMatches() {
+                const matchesContainer = document.getElementById('matches-container');
+                
+                if (!firebaseDb) {
+                    console.log("❌ Firebase Database غير متوفر، جاري تحميل البيانات التجريبية");
+                    loadSampleData();
+                    return;
+                }
 
+                console.log("🔄 جاري تحميل المباريات من Firebase...");
+                
+                // تحديث وقت آخر تحديث
+                updateLastUpdateTime();
+                
+                // الاستماع للتحديثات في قاعدة البيانات
+                firebaseDb.ref('matches').on('value', 
+                    function(snapshot) {
+                        console.log("📥 تم استلام البيانات من Firebase");
+                        updateLastUpdateTime();
+                        
+                        if (snapshot.exists()) {
+                            console.log("✅ توجد بيانات في Firebase");
+                            displayMatches(snapshot);
+                        } else {
+                            console.log("⚠️ لا توجد بيانات في Firebase، جاري تحميل البيانات التجريبية");
+                            loadSampleData();
+                        }
+                    }, 
+                    function(error) {
+                        console.error("❌ خطأ في تحميل المباريات:", error);
+                        showError("❌ حدث خطأ في تحميل المباريات. جاري استخدام البيانات التجريبية");
+                        loadSampleData();
+                    }
+                );
+            }
+            
+            // دالة لتحميل البيانات التجريبية
+            function loadSampleData() {
+                console.log("🔄 جاري تحميل البيانات التجريبية...");
+                
+                // بيانات تجريبية واقعية
+                const sampleData = {
+                    "match1": {
+                        league: "الدوري الإسباني",
+                        leagueLogo: "https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png",
+                        team1: "برشلونة",
+                        team1Logo: "https://upload.wikimedia.org/wikipedia/ar/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png",
+                        team2: "ريال مدريد",
+                        team2Logo: "https://upload.wikimedia.org/wikipedia/ar/thumb/3/3f/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png",
+                        time: "10:00 م",
+                        channel: "بي إن سبورت 1",
+                        commentator: "محمد الشمراني",
+                        date: "الاثنين 24 نوفمبر 2025",
+                        links: [
+                            "https://example.com/stream1",
+                            "https://example.com/stream2"
+                        ]
+                    },
+                    "match2": {
+                        league: "الدوري الإنجليزي الممتاز",
+                        leagueLogo: "https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png",
+                        team1: "مانشستر يونايتد",
+                        team1Logo: "https://upload.wikimedia.org/wikipedia/ar/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png",
+                        team2: "ليفربول",
+                        team2Logo: "https://upload.wikimedia.org/wikipedia/ar/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png",
+                        time: "08:30 م",
+                        channel: "بي إن سبورت 2",
+                        commentator: "علي الجابر",
+                        date: "الاثنين 24 نوفمبر 2025",
+                        links: [
+                            "https://example.com/stream3",
+                            "https://example.com/stream4"
+                        ]
+                    },
+                    "match3": {
+                        league: "الدوري السعودي",
+                        leagueLogo: "https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png",
+                        team1: "الهلال",
+                        team1Logo: "https://upload.wikimedia.org/wikipedia/ar/thumb/9/9c/Al-Hilal_FC_Logo.svg/1200px-Al-Hilal_FC_Logo.svg.png",
+                        team2: "النصر",
+                        team2Logo: "https://upload.wikimedia.org/wikipedia/ar/thumb/5/59/Al-Nassr_FC_Logo.svg/1200px-Al-Nassr_FC_Logo.svg.png",
+                        time: "07:00 م",
+                        channel: "SSC",
+                        commentator: "خالد الغامدي",
+                        date: "الاثنين 24 نوفمبر 2025",
+                        links: [
+                            "https://example.com/stream5",
+                            "https://example.com/stream6"
+                        ]
+                    }
+                };
+                
+                // محاكاة كائن snapshot
+                const mockSnapshot = {
+                    exists: () => true,
+                    val: () => sampleData,
+                    forEach: function(callback) {
+                        Object.keys(sampleData).forEach(key => {
+                            callback({
+                                key: key,
+                                val: () => sampleData[key]
+                            });
+                        });
+                    }
+                };
+                
+                updateLastUpdateTime();
+                displayMatches(mockSnapshot);
+            }
+            
+            // دالة لتحديث وقت آخر تحديث
+            function updateLastUpdateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('ar-AR', { hour: '2-digit', minute: '2-digit' });
+                document.getElementById('last-update').textContent = ` ${timeString}`;
+            }
 
-<a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjEubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAKICAKICAKICAKICAKIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBZQyAoMjQ0UCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogICJodHRwczovL2dpdGh1Yi5jb20vaGltYXNhYnJ5L3hwb2xhLXBsYXllci9yYXcvcmVmcy9oZWFkcy9tYWluL2JlSU4xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBYUCAoMzYwUCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvMjR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgWUMgICg0ODBQKSDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwOi8vYmRkNzguNHJvdXdhbmRhLXNob3Auc3RvcmUvbGl2ZS8zMTAwOTk4ODAwNS9pbmRleC5tM3U4P3Q9TGJVTEVKdzYtaWZtS2k5ZDZqVVFEdyZlPTE3NDU2Mzg1NjV8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBCREQgKDQ4MFApICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cDovL3d3dy50ZWxlZHVuZXQuY29tOjgwODAvdGRuL3Rkbi80NTY0ODcubTN1OHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKDI3MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogIAogIAogIAoKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFlDICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgIAoKCiJodHRwczovL2FmLmF5YXNzcG9ydC5pci9obHMyL2JlaW4xLm0zdTh8dXNlci1hZ2VudD1Nb3ppbGxhLy81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNl82IGxpa2UgTWFjIE9TIFgpIEFwcGxlV2ViS2l0Ly82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vLzE2LjYgTW9iaWxlLy8xNUUxNDggU2FmYXJpLy82MDQuMXxyZWZlcmVyPWh0dHBzOi8vd3d3LnlhcmlnYS5saXZlL3xuYW1lPSAnICAgICBZUyAoMzYwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgImh0dHBzOi8vZG9ra28xbmV3Lm5ld2tzby5ydS9kb2trbzEvcHJlbWl1bTkxL21vbm8ubTN1OHx1c2VyLWFnZW50PU1vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCAxMDsgSykgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzExNi4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNnxyZWZlcmVyPWh0dHBzOi8vbmV3ZW1iZWRwbGF5Lnh5ei98bmFtZT0gJyAgICAgRE9LICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIgogIAoKXQ== 
- " class='match-box' target="_blank">
-    <div class='match-info'>
-        <div><img src='https://imgs.ysscores.com/teams/64/2571690118280.png'><p>تشيلسي</p></div>
-        <div><span class='match-time'>04:00م</span></div>
-        <div><img src='https://imgs.ysscores.com/teams/64/6121690118883.png'><p>كريستال بالاس </p></div>
-    </div>
-    <div class='match-details'>
-        <div>bein sport 1</div>
-        <div>خليل البلوشي</div>
-    </div>
-</a>
-
-<a href="xmtv://WwogICJodHRwczovL3dvLmNtYS5mb290YmFsbGlpLmlyL2hsczIvYjEubTN1OHxjYXN0PWZhbHNlfG5hbWU9JyAgICAgIFdBQ0VMLVRWICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAKCiAKICAKICAKICAKICAKIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvNDR8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBZQyAoMjQ0UCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogICJodHRwczovL2dpdGh1Yi5jb20vaGltYXNhYnJ5L3hwb2xhLXBsYXllci9yYXcvcmVmcy9oZWFkcy9tYWluL2JlSU4xLm0zdTh8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBYUCAoMzYwUCkgICAgICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwczovL2E1MDIudmFyaWV0eS1idXkuc3RvcmUvYXBpL2NoYW5uZWwvMjR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgWUMgICg0ODBQKSDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogICJodHRwOi8vYmRkNzguNHJvdXdhbmRhLXNob3Auc3RvcmUvbGl2ZS8zMTAwOTk4ODAwNS9pbmRleC5tM3U4P3Q9TGJVTEVKdzYtaWZtS2k5ZDZqVVFEdyZlPTE3NDU2Mzg1NjV8Y2FzdD1mYWxzZXxuYW1lPScgICAgICBCREQgKDQ4MFApICAgICAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAKICAKICAiaHR0cDovL3d3dy50ZWxlZHVuZXQuY29tOjgwODAvdGRuL3Rkbi80NTY0ODcubTN1OHxkZXZpY2VjYW5hcnk9ZmFsc2V8Y2FzdD1mYWxzZXxuYW1lPScgICAgSEQgKDI3MFApICDigJh8YXBwbG9nb2JsPWh0dHBzOi8vd3d3Mi4wenowLmNvbS8yMDI1LzAzLzMxLzE3LzcwNjU4MzY0NC5wbmciLAogIAogIAogIAogIAogIAoKCgoiaHR0cHM6Ly9hNTAyLnZhcmlldHktYnV5LnN0b3JlL2FwaS9jaGFubmVsLzR8ZGV2aWNlY2FuYXJ5PWZhbHNlfGNhc3Q9ZmFsc2V8bmFtZT0nICAgIFlDICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIiwKICAgIAoKCiJodHRwczovL2FmLmF5YXNzcG9ydC5pci9obHMyL2JlaW4xLm0zdTh8dXNlci1hZ2VudD1Nb3ppbGxhLy81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNl82IGxpa2UgTWFjIE9TIFgpIEFwcGxlV2ViS2l0Ly82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vLzE2LjYgTW9iaWxlLy8xNUUxNDggU2FmYXJpLy82MDQuMXxyZWZlcmVyPWh0dHBzOi8vd3d3LnlhcmlnYS5saXZlL3xuYW1lPSAnICAgICBZUyAoMzYwUCkgIOKAmHxhcHBsb2dvYmw9aHR0cHM6Ly93d3cyLjB6ejAuY29tLzIwMjUvMDMvMzEvMTcvNzA2NTgzNjQ0LnBuZyIsCiAgCiAgImh0dHBzOi8vZG9ra28xbmV3Lm5ld2tzby5ydS9kb2trbzEvcHJlbWl1bTkxL21vbm8ubTN1OHx1c2VyLWFnZW50PU1vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCAxMDsgSykgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzExNi4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNnxyZWZlcmVyPWh0dHBzOi8vbmV3ZW1iZWRwbGF5Lnh5ei98bmFtZT0gJyAgICAgRE9LICg3MjBQKSAg4oCYfGFwcGxvZ29ibD1odHRwczovL3d3dzIuMHp6MC5jb20vMjAyNS8wMy8zMS8xNy83MDY1ODM2NDQucG5nIgogIAoKXQ== 
- " class='match-box' target="_blank">
-    <div class='match-info'>
-        <div><img src='https://imgs.ysscores.com/teams/64/4871690119302.png'><p>مان يونايتد</p></div>
-        <div><span class='match-time'>06:30م</span></div>
-        <div><img src='https://imgs.ysscores.com/teams/64/1701690118820.png'><p>آرسنال  </p></div>
-    </div>
-    <div class='match-details'>
-        <div>bein sport 1</div>
-        <div>حفيظ دراجي</div>
-    </div>
-</a>
-
-
-
-
-
-
+            // دالة لعرض المباريات
+            function displayMatches(snapshot) {
+                const matchesContainer = document.getElementById('matches-container');
+                matchesContainer.innerHTML = '';
+                
+                if (!snapshot.exists()) {
+                    showNoMatches();
+                    return;
+                }
+                
+                const matches = snapshot.val();
+                console.log("📊 عدد المباريات المستلمة:", Object.keys(matches).length);
+                
+                let hasMatches = false;
+                
+                // تجميع المباريات حسب الدوري
+                const matchesByLeague = {};
+                
+                snapshot.forEach(function(childSnapshot) {
+                    const match = childSnapshot.val();
+                    const league = match.league || 'دوري غير محدد';
+                    
+                    if (!matchesByLeague[league]) {
+                        matchesByLeague[league] = [];
+                    }
+                    
+                    matchesByLeague[league].push({
+                        id: childSnapshot.key,
+                        ...match
+                    });
+                    hasMatches = true;
+                });
+                
+                // إذا لم توجد مباريات
+                if (!hasMatches) {
+                    showNoMatches();
+                    return;
+                }
+                
+                // عرض المباريات مصنفة حسب الدوري
+                for (const league in matchesByLeague) {
+                    // إنشاء قسم الدوري
+                    const leagueSection = document.createElement('div');
+                    leagueSection.className = 'league-section fade-in';
+                    
+                    const leagueHeader = document.createElement('div');
+                    leagueHeader.className = 'league-header';
+                    
+                    // استخدام شعار الدوري من أول مباراة في هذا الدوري
+                    const firstMatch = matchesByLeague[league][0];
+                    
+                    leagueHeader.innerHTML = `
+                        <img src="${firstMatch.leagueLogo || 'https://i.postimg.cc/Bb0WFJfJ/Picsart-25-01-18-03-49-12-620.png'}" 
+                             class="league-logo" 
+                             alt="${league}"
+                             onerror="this.src='https://via.placeholder.com/70x70?text=LOGO'">
+                        <div class="league-name">${league}</div>
+                    `;
+                    
+                    leagueSection.appendChild(leagueHeader);
+                    
+                    // إنشاء شبكة المباريات
+                    const matchesGrid = document.createElement('div');
+                    matchesGrid.className = 'matches-grid';
+                    
+                    // إضافة المباريات الخاصة بهذا الدوري
+                    matchesByLeague[league].forEach(match => {
+                        console.log("🎯 عرض مباراة:", match.team1, "vs", match.team2);
+                        
+                        // إنشاء رابط المشاهدة المشفر (base64)
+                        let watchLink = "#";
+                        try {
+                            const encodedLinks = btoa(JSON.stringify(match.links || []));
+                            watchLink = "xmtv://" + encodedLinks;
+                        } catch (error) {
+                            console.error("❌ خطأ في ترميز روابط المشاهدة:", error);
+                            watchLink = "#";
+                        }
+                        
+                        // إنشاء بطاقة المباراة
+                        const matchCard = document.createElement('a');
+                        matchCard.href = watchLink;
+                        matchCard.className = 'match-card fade-in';
+                        matchCard.target = "_blank";
+                        matchCard.innerHTML = `
+                            <div class="watch-badge">
+                                <i class="fas fa-play-circle"></i>
+                                بث مباشر
+                            </div>
+                            <div class="match-teams">
+                                <div class="team">
+                                    <div class="team-logo-container">
+                                        <img src="${match.team1Logo || 'https://via.placeholder.com/80x80?text=T1'}" 
+                                             class="team-logo" 
+                                             alt="${match.team1}"
+                                             onerror="this.src='https://via.placeholder.com/80x80?text=T1'">
+                                    </div>
+                                    <div class="team-name">${match.team1 || 'فريق 1'}</div>
+                                </div>
+                                <div class="vs-section">
+                                    <div class="match-time">${match.time || '00:00'}</div>
+                                    <div class="vs-text">مباراة</div>
+                                </div>
+                                <div class="team">
+                                    <div class="team-logo-container">
+                                        <img src="${match.team2Logo || 'https://via.placeholder.com/80x80?text=T2'}" 
+                                             class="team-logo" 
+                                             alt="${match.team2}"
+                                             onerror="this.src='https://via.placeholder.com/80x80?text=T2'">
+                                    </div>
+                                    <div class="team-name">${match.team2 || 'فريق 2'}</div>
+                                </div>
+                            </div>
+                            <div class="match-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-tv"></i>
+                                    <div class="detail-label">القناة</div>
+                                    <div class="detail-value">${match.channel || 'غير محدد'}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-microphone"></i>
+                                    <div class="detail-label">المعلق</div>
+                                    <div class="detail-value">${match.commentator || 'غير محدد'}</div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        matchesGrid.appendChild(matchCard);
+                    });
+                    
+                    leagueSection.appendChild(matchesGrid);
+                    matchesContainer.appendChild(leagueSection);
+                }
+            }
+            
+            // دالة لعرض رسالة عدم وجود مباريات
+            function showNoMatches() {
+                const matchesContainer = document.getElementById('matches-container');
+                matchesContainer.innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-frown"></i>
+                        <h3>لا توجد مباريات اليوم</h3>
+                        <p>لا توجد مباريات مبرمجة لهذا اليوم. يرجى التحقق لاحقاً.</p>
+                    </div>
+                `;
+            }
+            
+            // دالة لعرض رسالة خطأ
+            function showError(message) {
+                const matchesContainer = document.getElementById('matches-container');
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error';
+                errorElement.innerHTML = message;
+                matchesContainer.appendChild(errorElement);
+            }
+        });
+    </script>
+</body>
+</html>
