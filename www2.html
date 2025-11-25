@@ -34,7 +34,7 @@
             padding: 0;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #000, var(--dark-bg), #000);
+            background: linear-gradient(to right, #322769, var(--dark-bg), #322769);
             color: var(--text-light);
             direction: rtl;
         }
@@ -44,7 +44,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: linear-gradient(to right, #000, var(--dark-bg), #000);
+            background-image: linear-gradient(to right, #000, #3A4266, #151825, #2F2562, #2F2562, #2F2562, #2F2562,#2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562,#2F2562, #151825, #3A4266,#000);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             height: 80px;
             z-index: 1000;
@@ -58,6 +58,7 @@
         }
         
         .header-title .text-box {
+        	
             display: inline-block;
             padding: 8px 25px;
             background: rgba(58, 66, 102, 0.7);
@@ -85,8 +86,9 @@
             position: fixed;
             top: 80px;
             width: 100%;
-            background: linear-gradient(to right, #000, var(--dark-bg), #000);
-            padding: 8px 0;
+            background: linear-gradient(to right, #322769, var(--dark-bg), #2F2562);
+            padding-top: 10px;
+            padding-bottom: 0px;
             z-index: 999;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -94,16 +96,17 @@
         .ticker {
             display: flex;
             overflow: hidden;
-            height: 30px;
+            height: 20px;
             align-items: center;
         }
         
         .ticker span {
             background: rgba(0, 0, 0, 0.5);
-            padding: 0 15px;
+            padding: 2 15px;
             border-radius: 30px 0 0 2px;
             border-left: 3px ridge #fff;
-            font-size: 14px;
+            font-size: 19px;
+            margin-bottom: 0px;
             white-space: nowrap;
         }
         
@@ -111,7 +114,7 @@
             list-style: none;
             display: flex;
             animation: ticker 15s linear infinite;
-            padding-right: 110px;
+            padding-right: 10px;
         }
         
         .ticker:hover ul {
@@ -120,7 +123,7 @@
         
         .ticker li {
             white-space: nowrap;
-            margin-left: 40px;
+            margin-left: 90px;
         }
         
         .ticker li a {
@@ -144,16 +147,30 @@
         }
         
         .channel-card {
-            background: linear-gradient(to bottom, var(--dark-bg), var(--card-bg));
-            border-radius: 15px;
-            padding: 10px;
-            width: 100%;
-            max-width: 150px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
+            background-image: linear-gradient(to right, #000, #3A4266, #151825, #2F2562, #2F2562, #2F2562, #2F2562,#2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562,#2F2562, #151825, #3A4266,#000);padding: 0px;
+box-shadow: 0 0px 5px  rgba(255, 255, 255, 100);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+   border-bottom: 10px double  rgba(255, 255, 255, 0.7); 
+  border-top: 8px double rgba(255, 255, 255, 0.7); 
+border-left: 0px ridge #2F2562;
+border-right: 0px groove #2F2562;
+border-radius: 20px 20px 20px 20px;
+height: 100%;
+
+  display : block; 
+  width: 95%; 
+  
+    font-weight: bold; 
+font-family: Arial, sans-serif; 
+    
+  
+  padding: 0px; 
+  overflow: hidden; 
+  
+  
+  justify-content: center; 
         }
         
         .channel-card:hover {
@@ -162,32 +179,58 @@
         }
         
         .channel-logo {
-            width: 80px;
-            height: 80px;
+            width: 10px;
+            height: 10px;
             margin: 0 auto 10px;
-            border-radius: 10px 20px 10px 20px;
-            background: linear-gradient(to right, var(--dark-bg), #3A4266);
+            
             padding: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            
+margin-top: 10px;
         }
         
         .channel-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 8px;
+            width: 200px;
+            height: 100px;
+            margin: 0 auto 10px;
+            border-radius: 10px 20px 10px 20px;
+            
+             border-bottom: 10px double  rgba(255, 255, 255, 0.7); 
+  border-top: 8px double rgba(255, 255, 255, 0.7); 
+border-left: 0px ridge #2F2562;
+border-right: 0px groove #2F2562;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+margin-top: 20px;
+    pointer-events: none; 
+    margin-top:65%;
+    
         }
         
         .channel-name {
-            background: #403386;
-            color: white;
+            background-image: linear-gradient(to right, #403386, #403386, #403386);padding: 0px;
+  box-shadow: 0 0px 100px  rgba(255, 255, 255, 100);
+
+   border-top: 3px groove  rgba(0, 0, 0, 100);
+border-left:0px ridge  #6D42B8;
+border-right:0px groove  #6D42B8;
+border-bottom: 3px groove  rgba(0, 0, 0, 5);padding: 0px;
+
+  color: white;
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: 40px;
+            justify-content: center; 
+            text-align: center;
+            font-weight: bold; 
+font-family: Arial, sans-serif; 
         }
         
         /* Modal Styles */
@@ -350,9 +393,9 @@
             width: 100%;
             text-align: center;
             padding: 1.5rem;
-            margin-top: 3rem;
-            background-color: var(--darker-bg);
-            border-top: 1px solid #ff4d4d;
+            margin-top: 13rem;
+            background: linear-gradient(to right, #503FA6, var(--dark-bg), #2F2562);
+            border-top: 1px solid #fff;
             font-family: Amita, cursive;
             color: white;
         }
