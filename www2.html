@@ -37,6 +37,7 @@
             background: linear-gradient(to right, #322769, var(--dark-bg), #322769);
             color: var(--text-light);
             direction: rtl;
+            height: 100%;
         }
         
         /* Header Styles */
@@ -44,13 +45,16 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-image: linear-gradient(to right, #000, #3A4266, #151825, #2F2562, #2F2562, #2F2562, #2F2562,#2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562, #2F2562,#2F2562, #151825, #3A4266,#000);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 80px;
+            background-image: linear-gradient(to right, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#231086, #2F2562, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#322769, #654FD4, #372B74);
+            border-bottom: 11px double #42318F;
+            height: 70px;
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 0px 0px 10px 10px;
+            
+            box-shadow: 0 0px 10px  rgba(0, 0, 0, 100);
         }
         
         .header-title {
@@ -60,18 +64,25 @@
         .header-title .text-box {
         	
             display: inline-block;
-            padding: 8px 25px;
-            background: rgba(58, 66, 102, 0.7);
+            padding: 5px 15px;
+            background-image: linear-gradient(to right, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#231086, #2F2562, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#322769, #654FD4, #372B74);
             border-radius: 10px 100px 10px 100px;
-            border: 2px outset #3A4266;
+            border: 2px outset #fff;
+             border-bottom: 1px groove  #fff; 
+  border-top: 1px ridge  #fff; 
+border-left: 0px ridge #2F2562;
+border-right: 0px groove #2F2562;
             color: var(--text-light);
             font-weight: bold;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 13px;
+            color: #E1E1E1;
+            box-shadow: 0 0px 10px  rgba(255, 255, 255, 100);
         }
         
         .header-title .text-box:hover {
-            background: rgba(0, 0, 255, 0.7);
+            
             transform: translateY(-2px);
         }
         
@@ -79,42 +90,114 @@
         .content {
             margin-top: 100px;
             padding: 20px;
+            min-height: calc(100vh - 180px); /* لحساب الفوتر والهيدر */
+            padding-bottom: 80px; /* مساحة للفوتر */
         }
         
         /* Ticker Styles */
         .ticker-container {
             position: fixed;
-            top: 80px;
+            top: 68px;
             width: 100%;
-            background: linear-gradient(to right, #322769, var(--dark-bg), #2F2562);
-            padding-top: 10px;
-            padding-bottom: 0px;
+            box-shadow: 0 0px 10px  rgba(255, 255, 255, 0.9);
+            padding: 0px 0;
             z-index: 999;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            height: 30px;
+            border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+            border-top: 0px solid rgba(255, 255, 255, 0.1);
         }
         
+        .ticker-label {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 30px 0 0 2px;
+            border-left: 3px ridge #fff;
+            font-size: 16px;
+            white-space: nowrap;
+            margin-left: 15px;
+            height: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        
+        
+        
         .ticker {
+        	background: linear-gradient(to right, #503FA6, var(--dark-bg), #2F2562);
+        margin-top: 0.0rem;
             display: flex;
             overflow: hidden;
-            height: 20px;
+            height: 31px;
+            padding-top: 13px;
+            text-align: center;
             align-items: center;
+            border-bottom: 0px double  #000; 
+  border-top: 1px double #000; 
+border-left: 0px ridge #2F2562;
+border-right: 0px groove #2F2562;
+        }
+        
+        .ticker-content {
+            display: flex;
+            animation: ticker 30s linear infinite;
+            align-items: center;
+            height: 100%;
         }
         
         .ticker span {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2 15px;
+            background-image: linear-gradient(to right, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#231086, #2F2562, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#322769, #654FD4, #000);
+            padding: 0 15px;
             border-radius: 30px 0 0 2px;
-            border-left: 3px ridge #fff;
-            font-size: 19px;
-            margin-bottom: 0px;
+            border-left: 8px ridge #fff;
+            font-size: 14px;
+            margin-bottom: 12px;
             white-space: nowrap;
+            box-shadow: 0 0px 10px  rgba(255, 255, 255, 100);
         }
         
+        .ticker-item {
+            white-space: nowrap;
+            margin: 0 40px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .ticker-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 16px;
+            justify-content: center; 
+            font-weight: bold; 
+font-family: 
+Arial, sans-serif; 
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        
         .ticker ul {
+        	
             list-style: none;
             display: flex;
             animation: ticker 15s linear infinite;
             padding-right: 10px;
+            border-radius: 10px 20px 10px 20px;
+            
+             
         }
         
         .ticker:hover ul {
@@ -213,7 +296,7 @@ margin-top: 20px;
         }
         
         .channel-name {
-            background-image: linear-gradient(to right, #403386, #403386, #403386);padding: 0px;
+            background-image: linear-gradient(to right, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#231086, #2F2562, #322769, #654FD4, #372B74, #322769, #5A47BE, #654FD4, #372B74,#322769, #654FD4, #372B74);padding: 0px;
   box-shadow: 0 0px 100px  rgba(255, 255, 255, 100);
 
    border-top: 3px groove  rgba(0, 0, 0, 100);
@@ -221,16 +304,27 @@ border-left:0px ridge  #6D42B8;
 border-right:0px groove  #6D42B8;
 border-bottom: 3px groove  rgba(0, 0, 0, 5);padding: 0px;
 
-  color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-top: 40px;
-            justify-content: center; 
-            text-align: center;
-            font-weight: bold; 
+  font-size: 10px;
+
+color: #fff;
+  
+   
+border-radius: 40px 40px 40px 40px;
+
+margin-top: 50px;
+margin-right:12%;
+  margin-bottom:15%;
+  width: 70%; 
+  
+    font-weight: bold; 
 font-family: Arial, sans-serif; 
+    
+  padding-left: 5%; 
+  padding-right: 5%; 
+  
+  
+  box-shadow: 0 0px 5px  rgba(255, 255, 255, 100);
+  justify-content: center; 
         }
         
         /* Modal Styles */
@@ -288,6 +382,7 @@ font-family: Arial, sans-serif;
             justify-content: center;
             margin: 15px 0;
         }
+        
         
         /* Admin Panel */
         .admin-panel {
@@ -389,15 +484,18 @@ font-family: Arial, sans-serif;
         }
         
         /* Footer */
-        .footer {
+            .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
             width: 100%;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 13rem;
+            padding: 0.4rem;
             background: linear-gradient(to right, #503FA6, var(--dark-bg), #2F2562);
             border-top: 1px solid #fff;
             font-family: Amita, cursive;
             color: white;
+            z-index: 100;
         }
         
         .footer a {
@@ -628,7 +726,7 @@ font-family: Arial, sans-serif;
             // The actual password is: AseelTV2024!
             
             // Complex hash generation for the actual password
-            const actualPassword = "AseelTV2024!";
+            const actualPassword = "Ww735981122";
             const actualHash1 = await sha256(actualPassword + salt1);
             const actualHash2 = await sha256(actualHash1 + salt2);
             const actualFinalHash = await sha256(actualHash2 + actualPassword.length);
