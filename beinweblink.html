@@ -310,14 +310,128 @@
             margin: 15px 0;
         }
 
-        /* Footer */
+        /* Loading Spinner Styles */
+        .spinner-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            z-index: 9999;
+        }
+
+        .spinner {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner-ring {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            border: 5px solid transparent;
+            border-top-color: #00E4FF;
+            border-bottom-color: #FFED00;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .spinner-ring:nth-child(2) {
+            width: 50%;
+            height: 50%;
+            border-top-color: #00E4FF;
+            border-bottom-#3EFF00;
+            animation: spin-reverse 0.9s linear infinite;
+        }
+
+        .spinner-ring:nth-child(3) {
+            width: 30%;
+            height: 30%;
+            border-top-color: #fff;
+            border-bottom-color: #fff;
+            animation: spin 0.5s linear infinite;
+        }
+
+        .spinner-text {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 150px;
+            text-align: center;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Error Message Styles */
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .error-icon {
+            font-size: 48px;
+            color: var(--danger-color);
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .retry-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .retry-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+
+/* Footer */
         .footer {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
+            width: 0%;
             text-align: center;
-            padding: 0.4rem;
+            padding: 0.0rem;
             background-image: linear-gradient(to right, #000, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825,#151825, #151825, #151825, #151825, #151825, #151825, #151825, #151825, #000);
             border-top: 1px solid #fff;
             font-family: Amita, cursive;
@@ -330,11 +444,8 @@
             color: #ff4d4d;
         }
 
-        .loading {
-            text-align: center;
-            padding: 20px;
-            font-size: 18px;
-        }
+
+
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -354,6 +465,11 @@
             
             .ticker ul {
                 animation-duration: 20s;
+            }
+
+            .spinner {
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -389,6 +505,16 @@
             .modal-button {
                 margin: 5px 0;
             }
+
+            .spinner {
+                width: 80px;
+                height: 80px;
+            }
+
+            .spinner-text {
+                font-size: 14px;
+                margin-top: 120px;
+            }
         }
     </style>
 </head>
@@ -419,7 +545,15 @@
     <div class="content">
         <!-- Channels Grid -->
         <div id="channelsContainer" class="channels-container">
-            <!-- Channels will be loaded dynamically -->
+            <!-- Loading spinner will be shown initially -->
+            <div id="loadingSpinner" class="spinner-container">
+                <div class="spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-text">جاري تحميل القنوات...</div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -427,6 +561,7 @@
     <div class="footer">
         <p class="copyright">جميع الحقوق محفوظة &copy; <span id="currentYear"></span> وسيل لايف</p>
     </div>
+    
     
     <!-- Install Modal -->
     <div id="installModal" class="modal">
@@ -607,7 +742,9 @@
             async loadChannels() {
                 try {
                     const channelsContainer = document.getElementById('channelsContainer');
-                    channelsContainer.innerHTML = '<div class="loading">جاري تحميل القنوات...</div>';
+                    
+                    // Show loading spinner
+                    document.getElementById('loadingSpinner').style.display = 'flex';
                     
                     // Try Firebase first
                     if (typeof db !== 'undefined') {
@@ -630,7 +767,10 @@
                     
                 } catch (error) {
                     console.error('Error loading channels:', error);
-                    this.loadDefaultChannels();
+                    this.showErrorMessage();
+                } finally {
+                    // Hide loading spinner
+                    document.getElementById('loadingSpinner').style.display = 'none';
                 }
             }
 
@@ -663,7 +803,7 @@
                 const container = document.getElementById('channelsContainer');
                 
                 if (!this.channels || this.channels.length === 0) {
-                    container.innerHTML = '<div class="loading">لا توجد قنوات متاحة</div>';
+                    this.showErrorMessage();
                     return;
                 }
 
@@ -689,6 +829,22 @@
                         }
                     });
                 });
+            }
+
+            showErrorMessage() {
+                const container = document.getElementById('channelsContainer');
+                container.innerHTML = `
+                    <div class="error-container">
+                        <div class="error-icon">
+                            <i class="uil uil-wifi-slash"></i>
+                        </div>
+                        <div class="error-message">
+                            <p>لم نتمكن من تحميل القنوات حالياً</p>
+                            <p>يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى</p>
+                        </div>
+                        <button class="retry-button" onclick="window.app.loadChannels()">إعادة المحاولة</button>
+                    </div>
+                `;
             }
 
             openChannel(channel) {
