@@ -117,12 +117,12 @@
             z-index: 1000;
             background: var(--header-bg);
             border-bottom: 1px solid var(--glass-effect);
-            box-shadow: 0 30px 20px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0px 20px rgba(255, 215, 0, 0.3);
             backdrop-filter: blur(15px);
             padding: 15px 0;
             transition: var(--transition);
             border-radius: 0px 0px 10px 10px;
-            border-bottom: 3px outset rgba(255, 255, 255, 0.5);
+            border-bottom: 3px outset rgba(255, 255, 255, 0.4);
             border-top: 0px groove rgba(0, 0, 0, 0.8);
         }
 
@@ -205,32 +205,51 @@
         }
 
         .date-section {
+        	
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            background: var(--glass-effect);
+       background: linear-gradient(
+                #202652,
+                #181D3E,
+                #0a0c1a,
+                #202652,
+                #181D3E,
+                #0a0c1a,
+            );  
+            border-top: 1px inset  rgba(255, 255, 255, 0.8);
+            border-left: 1px outset  rgba(255, 255, 255, 0.8);
+            border-right: 1px groove  rgba(0, 255, 255, 0.3);
+            border-bottom: 1px outset  rgba(255, 255, 255, 0.8);
             padding-top: 8px;
             padding-bottom: 8px;
             padding-left: 5px;
             padding-right: 5px;
             border-radius: 12px;
-            box-shadow: 0 0px 10px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0px 10px rgba(255, 255, 255, 0.3);
             border-bottom: 0px outset rgba(212, 175, 55, 0.7) /* ذهبي مع شفافية */
             border-top: 0px groove rgba(255, 255, 255, 0.7);
-            border-left: 2px inset rgba(255, 215, 0, 0.7); /* ذهبي داكن مع شفافية */;
-            border-right: 2px inset rgba(255, 215, 0, 0.5); /* ذهبي داكن مع شفافية */;
+            border-left: 0px ridge  #fff; /* ذهبي داكن مع شفافية */;
+            border-right: 0px groove   #0a0c1a; /* ذهبي داكن مع شفافية */;
             min-width: 50%;
         }
 
         .time-day {
         	color: var(--text-color);
-            margin-bottom: 3px;
+            margin-bottom: 4px;
             font-weight: 500;
-            background: linear-gradient(135deg, rgba(93, 114, 214, 0.4), rgba(78, 205, 196, 0.3));
-        border-radius: 5px;
+            background: linear-gradient(
+                #0a0c1a,
+                #202652,
+                #181D3E,
+           #0a0c1a,
+                #202652,
+                #181D3E,
+            );  
+        border-radius: 2px;
     padding-left: 5px;
             padding-right: 5px;
-            border-radius: 15px;
+            border-radius: 5px;
             backdrop-filter: blur(5px);
             box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3);
             position: relative;
@@ -238,7 +257,7 @@
             overflow: hidden;
             display: flex;
             justify-content: space-between;
-            width: 90%;
+            width: 80%;
             margin-bottom: 3px;
             position: relative;
             z-index: 1;
@@ -270,13 +289,17 @@
             font-size: 15px;
             color: #DAC600;
             background: linear-gradient(
-                fff,
-                #000,
-                #6f66d6,
-                #4e42b8,
-                #5c4bbf,
-                #4e42b8
+                #202652,
+                #181D3E,
+                #0a0c1a,
+                #35408A,
+                #2C3572,
+                #0a0c1a,
+                #181D3E,
+                #202652
             );  
+            
+            border-radius: 5px;
             border-top: 1px groove  rgba(0, 0, 0, 100);
             border-left:0px ridge  #6D42B8;
             border-right:0px groove  #6D42B8;
@@ -284,6 +307,8 @@
             margin-bottom: 2px;
             font-weight: 500;
             margin-bottom: 8px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
         .gregorian-date {
