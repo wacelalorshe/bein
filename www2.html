@@ -205,7 +205,6 @@
         }
 
         .date-section {
-        	
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -270,8 +269,6 @@
         }
 
         .current-day {
-        	background: 
-                
             z-index: 0;
             border-radius: 5px;
             background-size: cover;
@@ -625,6 +622,89 @@
             color: var(--text-color);
         }
 
+        /* ===== أزرار التشغيل ===== */
+        .match-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--glass-effect);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .btn-info {
+            background: linear-gradient(135deg, #17a2b8, #6f42c1);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+            color: black;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== قسم تحميل التطبيق ===== */
+        .download-section {
+            background: linear-gradient(135deg, var(--card-bg), rgba(30, 33, 58, 0.9));
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 30px auto;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .download-container h3 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 20px;
+        }
+
+        .download-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-notice {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
         /* ===== حالات التصميم ===== */
         .hidden {
             display: none !important;
@@ -704,12 +784,15 @@
             }
         }
 
-        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
             
             .date-section {
                 align-items: center;
-                width: 5%;
-                max-width: 20px;
+                width: 100%;
             }
             
             .matches-grid {
@@ -725,8 +808,16 @@
             }
             
             .team-logo {
-                width: 40px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .match-actions {
+                flex-direction: column;
+            }
+
+            .download-actions {
+                flex-direction: column;
             }
         }
 
@@ -754,16 +845,20 @@
             }
             
             .date-section {
-                padding: 2px 1px;
-                min-width: 18px;
+                padding: 10px;
             }
             
             .current-time {
-                font-size: 10px;
+                font-size: 12px;
             }
             
             .current-day {
-                font-size: 10px;
+                font-size: 12px;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 12px;
             }
         }
 
@@ -895,28 +990,6 @@
         // تهيئة Firebase
         let firebaseApp, firebaseDb;
         
-        // دالة لفتح رابط Xpola
-        function openXpolaLink(links) {
-            try {
-                const encodedLinks = btoa(JSON.stringify(links));
-                const xpolaLink = "xmtv://" + encodedLinks;
-                
-                // محاولة فتح الرابط بعدة طرق
-                window.location.href = xpolaLink;
-                
-                // بديل إذا لم يعمل الطريقة الأولى
-                setTimeout(function() {
-                    const link = document.createElement('a');
-                    link.href = xpolaLink;
-                    link.click();
-                }, 100);
-                
-            } catch (error) {
-                console.error("خطأ في فتح الرابط:", error);
-                alert("تعذر فتح الرابط في مشغل Xpola");
-            }
-        }
-        
         // الانتظار حتى تحميل الصفحة
         document.addEventListener('DOMContentLoaded', function() {
             console.log("📄 تم تحميل الصفحة الرئيسية");
@@ -947,7 +1020,7 @@
                 }
             }
             
-            // دالة لتحديث التواريخ والوقت (من الكود الصحيح)
+            // دالة لتحديث التواريخ والوقت
             function updateDateTime() {
                 const now = new Date();
 
@@ -1024,6 +1097,44 @@
                 document.getElementById('last-update').textContent = ` ${timeString}`;
             }
 
+            // دالة لفتح تطبيق XPola
+            function openXpolaApp(xmtvLink) {
+                if (xmtvLink && xmtvLink.trim() !== '') {
+                    console.log("🚀 محاولة فتح رابط XPola:", xmtvLink);
+                    
+                    // محاولة فتح الرابط في تطبيق XPola
+                    window.location.href = xmtvLink;
+                    
+                    // إذا لم يفتح التطبيق، نعرض رسالة بعد فترة
+                    setTimeout(() => {
+                        if (confirm("⚠️ إذا لم يفتح التطبيق تلقائياً، قد تحتاج إلى تثبيت XPola Player أولاً. هل تريد الذهاب إلى متجر التطبيقات؟")) {
+                            window.open("https://play.google.com/store/apps/details?id=com.xpola.player", "_blank");
+                        }
+                    }, 2000);
+                } else {
+                    alert("❌ لا توجد روابط XPola متاحة لهذه المباراة");
+                }
+            }
+
+            // دالة لإنشاء رابط xmtv مشفر من روابط عادية
+            function createXmtvLinkFromRegularLinks(linksArray) {
+                if (!linksArray || !Array.isArray(linksArray) || linksArray.length === 0) {
+                    return null;
+                }
+                
+                try {
+                    // تحويل مصفوفة الروابط إلى JSON ثم تشفيرها base64
+                    const linksJson = JSON.stringify(linksArray);
+                    const encodedLinks = btoa(linksJson);
+                    
+                    // إنشاء رابط xmtv
+                    return "xmtv://" + encodedLinks;
+                } catch (error) {
+                    console.error("❌ خطأ في إنشاء رابط xmtv:", error);
+                    return null;
+                }
+            }
+
             // دالة لعرض المباريات
             function displayMatches(snapshot) {
                 const matchesContainer = document.getElementById('matches-container');
@@ -1093,17 +1204,30 @@
                     matchesByLeague[league].forEach(match => {
                         console.log("🎯 عرض مباراة:", match.team1, "vs", match.team2);
                         
+                        // تحديد رابط المشاهدة بناءً على نوع الروابط
+                        let watchLink = null;
+                        let linkType = "unknown";
+                        
+                        if (match.linkType === 'xmtv' && match.xmtvLink) {
+                            // استخدام رابط XPola المباشر
+                            watchLink = match.xmtvLink;
+                            linkType = "xmtv";
+                            console.log("🎯 استخدام رابط XPola المباشر");
+                        } else if (match.links && match.links.length > 0) {
+                            // إنشاء رابط xmtv مشفر من الروابط العادية
+                            watchLink = createXmtvLinkFromRegularLinks(match.links);
+                            linkType = "regular";
+                            console.log("🎯 إنشاء رابط xmtv من روابط عادية");
+                        }
+                        
                         // إنشاء بطاقة المباراة
                         const matchCard = document.createElement('div');
                         matchCard.className = 'match-card fade-in';
-                        matchCard.onclick = function() {
-                            openXpolaLink(match.links || []);
-                        };
                         
-                        matchCard.innerHTML = `
+                        let matchContent = `
                             <div class="watch-badge">
                                 <i class="fas fa-play-circle"></i>
-                                تشغيل
+                                تشغيل المباراة
                             </div>
                             <div class="match-teams">
                                 <div class="team">
@@ -1143,12 +1267,65 @@
                             </div>
                         `;
                         
+                        // إضافة أزرار التشغيل
+                        if (watchLink) {
+                            matchContent += `
+                                <div class="match-actions">
+                                    <button class="btn btn-success" onclick="openXpolaApp('${watchLink.replace(/'/g, "\\'")}')">
+                                        <i class="fas fa-play"></i>
+                                        فتح في XPola
+                                    </button>
+                                    <button class="btn btn-info" onclick="window.open('https://play.google.com/store/apps/details?id=com.xpola.player', '_blank')">
+                                        <i class="fas fa-download"></i>
+                                        تحميل التطبيق
+                                    </button>
+                                </div>
+                            `;
+                        } else {
+                            matchContent += `
+                                <div class="match-actions">
+                                    <button class="btn btn-secondary" disabled>
+                                        <i class="fas fa-times"></i>
+                                        لا توجد روابط متاحة
+                                    </button>
+                                    <button class="btn btn-info" onclick="window.open('https://play.google.com/store/apps/details?id=com.xpola.player', '_blank')">
+                                        <i class="fas fa-download"></i>
+                                        تحميل التطبيق
+                                    </button>
+                                </div>
+                            `;
+                        }
+                        
+                        matchCard.innerHTML = matchContent;
                         matchesGrid.appendChild(matchCard);
                     });
                     
                     leagueSection.appendChild(matchesGrid);
                     matchesContainer.appendChild(leagueSection);
                 }
+                
+                // إضافة قسم تحميل التطبيق في أسفل الصفحة
+                const downloadSection = document.createElement('div');
+                downloadSection.className = 'download-section fade-in';
+                downloadSection.innerHTML = `
+                    <div class="download-container">
+                        <h3>📱 حمل تطبيق XPola Player لمشاهدة أفضل</h3>
+                        <div class="download-actions">
+                            <button class="btn btn-warning" onclick="window.open('https://play.google.com/store/apps/details?id=com.xpola.player', '_blank')">
+                                <i class="fas fa-download"></i>
+                                تحميل من متجر Google Play
+                            </button>
+                            <button class="btn btn-secondary" onclick="copyToClipboard('https://play.google.com/store/apps/details?id=com.xpola.player')">
+                                <i class="fas fa-copy"></i>
+                                نسخ رابط التحميل
+                            </button>
+                        </div>
+                        <p class="download-notice">
+                            💡 <strong>ملاحظة:</strong> اضغط على أي زر "فتح في XPola" وسيتم فتح المباراة تلقائياً في تطبيق XPola Player
+                        </p>
+                    </div>
+                `;
+                matchesContainer.appendChild(downloadSection);
             }
             
             // دالة لعرض رسالة عدم وجود مباريات
@@ -1162,7 +1339,109 @@
                     </div>
                 `;
             }
+
+            // دالة لنسخ الروابط إلى الحافظة
+            function copyToClipboard(text) {
+                if (!text) {
+                    alert("❌ لا يوجد نص للنسخ");
+                    return;
+                }
+                
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert("✅ تم نسخ الرابط إلى الحافظة");
+                    }).catch(err => {
+                        console.error('❌ فشل في النسخ: ', err);
+                        fallbackCopyToClipboard(text);
+                    });
+                } else {
+                    fallbackCopyToClipboard(text);
+                }
+            }
+
+            // طريقة بديلة للنسخ
+            function fallbackCopyToClipboard(text) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert("✅ تم نسخ الرابط إلى الحافظة");
+                } catch (err) {
+                    console.error('❌ فشل في النسخ: ', err);
+                    alert("❌ فشل في نسخ الرابط");
+                }
+                document.body.removeChild(textArea);
+            }
         });
+
+        // جعل الدوال متاحة عالمياً
+        window.openXpolaApp = function(xmtvLink) {
+            if (xmtvLink && xmtvLink.trim() !== '') {
+                console.log("🚀 محاولة فتح رابط XPola:", xmtvLink);
+                
+                // محاولة فتح الرابط في تطبيق XPola
+                window.location.href = xmtvLink;
+                
+                // إذا لم يفتح التطبيق، نعرض رسالة بعد فترة
+                setTimeout(() => {
+                    if (confirm("⚠️ إذا لم يفتح التطبيق تلقائياً، قد تحتاج إلى تثبيت XPola Player أولاً. هل تريد الذهاب إلى متجر التطبيقات؟")) {
+                        window.open("https://play.google.com/store/apps/details?id=com.xpola.player", "_blank");
+                    }
+                }, 2000);
+            } else {
+                alert("❌ لا توجد روابط XPola متاحة لهذه المباراة");
+            }
+        };
+
+        window.copyToClipboard = function(text) {
+            if (!text) {
+                alert("❌ لا يوجد نص للنسخ");
+                return;
+            }
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert("✅ تم نسخ الرابط إلى الحافظة");
+                }).catch(err => {
+                    console.error('❌ فشل في النسخ: ', err);
+                    // طريقة بديلة
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        alert("✅ تم نسخ الرابط إلى الحافظة");
+                    } catch (err) {
+                        console.error('❌ فشل في النسخ: ', err);
+                        alert("❌ فشل في نسخ الرابط");
+                    }
+                    document.body.removeChild(textArea);
+                });
+            } else {
+                // طريقة بديلة
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert("✅ تم نسخ الرابط إلى الحافظة");
+                } catch (err) {
+                    console.error('❌ فشل في النسخ: ', err);
+                    alert("❌ فشل في نسخ الرابط");
+                }
+                document.body.removeChild(textArea);
+            }
+        };
     </script>
 </body>
 </html>
