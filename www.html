@@ -50,17 +50,17 @@ body { background: var(--primary-bg); font-family: "Tajawal", sans-serif; color:
 }
 
 .logo-section { flex-shrink: 0; }
-.app-logo { width: 60px; height: 60px; border-radius: 12px; }
+.app-logo { width: 40px; height: 40px; border-radius: 12px; }
 
 .app-name { display: flex; flex-direction: column; justify-content: center; text-align: left; }
 .app-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     background: linear-gradient(135deg, var(--accent-color), #ffd700);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.app-subtitle { font-size: 14px; color: var(--text-secondary); }
+.app-subtitle { font-size: 10px; color: var(--text-secondary); }
 
 .date-section { background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 15px; border: 1px solid var(--accent-glow); box-shadow: 0 0 15px rgba(255,255,255,0.1); }
 .hijri-date { font-size: 13px; color: var(--text-secondary); }
@@ -101,14 +101,6 @@ body { background: var(--primary-bg); font-family: "Tajawal", sans-serif; color:
 .fade-in { animation: fadeInUp 0.6s ease-out; }
 @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 
-/* ======= تصميم متجاوب ======= */
-@media (max-width: 768px) {
-    .header-content { flex-direction: column; align-items: center; gap: 10px; }
-    .app-name { text-align: center; }
-    .date-section { margin-top: 5px; }
-    .match-info { flex-direction: column; gap: 5px; }
-    .match-details { flex-direction: column; gap: 5px; }
-}
 </style>
 </head>
 <body>
@@ -128,11 +120,11 @@ body { background: var(--primary-bg); font-family: "Tajawal", sans-serif; color:
         <!-- اسم التطبيق -->
         <div class="app-name">
             <span class="app-title">وسيل لايف برو</span>
-            <span class="app-subtitle">بث المباريات</span>
+            <span class="app-subtitle">بث مباشر للمباريات</span>
         </div>
         <!-- التاريخ -->
         <div class="date-section">
-            <div class="hijri-date" id="hijri-date">--</div>
+            <div class="hijri-date" id="hijri-date">جدول مباريات اليوم</div>
             <div class="gregorian-date" id="greg-date">--</div>
         </div>
     </div>
@@ -204,7 +196,7 @@ function displayMatches(snapshot) {
                 <div>${match.commentator||'معلق غير محدد'}</div>
             </div>
             <div class="match-actions">
-                <button class="btn btn-success" onclick="openXpolaApp('${match.xmtvLink||'#'}')">📱 تشغيل المباراة</button>
+                <button class="btn btn-success" onclick="openXpolaApp('${match.xmtvLink||'#'}')">📱 مشاهدة المباراة</button>
                 <button class="btn btn-info" onclick="window.open('https://play.google.com/store/apps/details?id=com.xpola.player','_blank')">⬇️ تحميل مشغل القناة</button>
             </div>
         `;
